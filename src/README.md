@@ -2,47 +2,33 @@
 home: true
 layout: BlogHome
 icon: home
-title: Blog Home
+title: 主页
 heroImage: /logo.svg
-heroText: The name of your blog
-tagline: You can put your slogan here
+heroText: Coder-New
 heroFullScreen: true
+tagline: 众里寻他千百度，蓦然回首，那人却在，灯火阑珊处。
 projects:
-  - icon: project
-    name: project name
-    desc: project detailed description
-    link: https://your.project.link
-
-  - icon: link
-    name: link name
-    desc: link detailed description
-    link: https://link.address
+  - icon: book
+    name: MDN Plus
+    desc: Web 开发技术
+    link: https://developer.mozilla.org/zh-CN/docs/Web
 
   - icon: book
-    name: book name
-    desc: Detailed description of the book
-    link: https://link.to.your.book
+    name: ECMAScript 6
+    desc: 全面介绍 ECMAScript 6 新引入的语法特性。
+    link: https://es6.ruanyifeng.com/
 
-  - icon: article
-    name: article name
-    desc: Detailed description of the article
-    link: https://link.to.your.article
+  - icon: typescript
+    name: TypeScript
+    desc: TypeScript是JavaScript类型的超集。
+    link: https://www.tslang.cn/
 
-  - icon: friend
-    name: friend name
-    desc: Detailed description of friend
-    link: https://link.to.your.friend
+  - icon: javascript
+    name: JavaScript
+    desc: JavaScript 是一种轻量级的脚本语言。
+    link: https://wangdoc.com/javascript/basic/
 
-  - icon: /logo.svg
-    name: custom item
-    desc: Detailed description of this custom item
-    link: https://link.to.your.friend
 
-footer: customize your footer text
+
 ---
 
-This is a blog home page demo.
-
-To use this layout, you should set both `layout: BlogHome` and `home: true` in the page front matter.
-
-For related configuration docs, please see [blog homepage](https://theme-hope.vuejs.press/guide/blog/home/).
