@@ -11,6 +11,8 @@ export default hopeTheme({
 		name: "Coder-New",
 		url: "https://www.coder-new.cn",
 	},
+	fullscreen: true,
+	print:false,
 	iconAssets: "iconfont",
 	logo: "/logo.svg",
 	repo: "coder-new-web/coder-new-blog",
@@ -21,12 +23,17 @@ export default hopeTheme({
 			Baidu: "https://www.baidu.com",
 		},
 	},
+	themeColor: {
+		blue: "#2196f3",
+		red: "#f26d6d",
+		green: "#27ae60",
+		orange: "#f39c12",
+	},
 
 	locales: {
 		"/": {
 			navbar: zhNavbar,
 			sidebar: zhSidebar,
-			footer: "",
 			displayFooter: true,
 			blog: {
 				description: "总结自己的经验进步，吸取别人的教训避坑。",

@@ -6,6 +6,27 @@ export const zhSidebar = sidebar({
 	"/note/": [
 		"",
 		{
+			text: "HTML",
+			icon: "html",
+			prefix: "html/",
+			collapsible: true,
+			children: "structure",
+		},
+		{
+			text: "CSS",
+			icon: "css",
+			prefix: "css/",
+			collapsible: true,
+			children: "structure",
+		},
+		{
+			text: "JavaScript",
+			icon: "javascript",
+			prefix: "js/",
+			collapsible: true,
+			children: "structure",
+		},
+		{
 			text: "Vue2",
 			icon: "vue",
 			prefix: "vue2/",
@@ -16,6 +37,20 @@ export const zhSidebar = sidebar({
 			text: "Vue3",
 			icon: "vue",
 			prefix: "vue3/",
+			collapsible: true,
+			children: "structure",
+		},
+		{
+			text: "React",
+			icon: "react",
+			prefix: "react/",
+			collapsible: true,
+			children: "structure",
+		},
+		{
+			text: "插件",
+			icon: "plugin",
+			prefix: "plugins/",
 			collapsible: true,
 			children: "structure",
 		},
