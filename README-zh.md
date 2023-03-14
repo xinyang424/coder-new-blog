@@ -1,5 +1,5 @@
 <p align="center">
-  <img width="230" src="./.vuepress/public/logo.svg" style="text-align: center; ">
+  <img width="230" src="./src/logo/logo.svg" style="text-align: center; ">
 </p>
 <h1 align="center">coder-new 的个人博客</h1>
 
