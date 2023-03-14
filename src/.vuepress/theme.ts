@@ -42,7 +42,11 @@ export default hopeTheme({
 		blog: true,
 
 		comment: {
-			// provider: "Giscus",
+			provider: "Giscus",
+			repo: "coder-new-web/coder-new-blog",
+			repoId: "R_kgDOJJPrYg",
+			category: "General",
+			categoryId: "DIC_kwDOJJPrYs4CU3IN",
 		},
 
 		mdEnhance: {
