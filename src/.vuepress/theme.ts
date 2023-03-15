@@ -12,7 +12,7 @@ export default hopeTheme({
 		url: "https://www.coder-new.cn",
 	},
 	fullscreen: true,
-	print:false,
+	print: false,
 	iconAssets: "iconfont",
 	logo: "/logo.svg",
 	repo: "coder-new-web/coder-new-blog",
@@ -47,16 +47,12 @@ export default hopeTheme({
 
 	plugins: {
 		blog: {
-			excerptLength:0
+			excerptLength: 0,
 		},
+		seo: true,
 		comment: {
 			provider: "Waline",
 			serverURL: "https://blog.waline.coder-new.cn/",
-			// provider: "Giscus",
-			// repo: "coder-new-web/coder-new-blog",
-			// repoId: "R_kgDOJJPrYg",
-			// category: "General",
-			// categoryId: "DIC_kwDOJJPrYs4CU3IN",
 		},
 
 		mdEnhance: {

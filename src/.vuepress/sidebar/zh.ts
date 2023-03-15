@@ -89,5 +89,12 @@ export const zhSidebar = sidebar({
 			collapsible: true,
 			children: "structure",
 		},
+		{
+			text: "其它",
+			icon: "info",
+			prefix: "other/",
+			collapsible: true,
+			children: "structure",
+		},
 	],
 });
