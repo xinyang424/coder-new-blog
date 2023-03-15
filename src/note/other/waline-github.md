@@ -25,26 +25,22 @@ waline评论在选择以GitHub方式登录时出现报错信息：
 
 - GitHub注册用户凭证
 
-  1. GitHub中点击`Settings`
-
+  1. GitHub中点击`Settings`  
   ![GitHub-Settings](/assets/note/other/GitHub-settings.png)
 
-  2. 下滑找到`Developer settings`，然后选择`OAuth Apps`，然后点击`New OAuth App`。
-
-  3. 注册OAuth application
-
+  2. 下滑找到`Developer settings`，然后选择`OAuth Apps`，然后点击`New OAuth App`。  
+  3. 注册OAuth application  
   ![register a new OAuth application](/assets/note/other/Register-oauth-app.png)
 
-  `Application name`，应用名字，虽然说可以随便取，但是最好还是取一个易于区分的名字。
+  `Application name`，应用名字，虽然说可以随便取，但是最好还是取一个易于区分的名字。  
 
-  `Application name`，你的博客链接。
+  `Application name`，你的博客链接。  
 
   `Authorization callback URL`，你的评论链接，格式为：`https://xxx.com/oauth/github`，也就是最后加上`/oauth/github`，然后点击`Register application`。
 
-  4. 你刚刚注册好的可以通过第二步找到对应的位置。![GitHub-settings](undefined)
-
+  4. 你刚刚注册好的可以通过第二步找到对应的位置。  
   ![my oauth app](/assets/note/other/my-oauth-app.png)
-
+  
   5. 点进去找到`Client ID`和`Client secrets`，如果没有`Client secrets`可以点击右侧的`Generate a new client secret`。`Client ID`和`Client secrets`需要记录一下，待会用的到。
 
 - Vercel将`Client ID`和`Client secrets`添加到项目环境变量里面去，参考下面的key和value。
