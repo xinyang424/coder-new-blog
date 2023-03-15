@@ -7,7 +7,7 @@ heroImage: /logo.svg
 heroAlt: 主页logo
 heroText: Coder-New
 heroFullScreen: true
-tagline: 众里寻他千百度，蓦然回首，那人却在，灯火阑珊处。
+tagline: 众里寻她千百度，蓦然回首，那人却在，灯火阑珊处。
 projects:
   - icon: book
     name: MDN Plus

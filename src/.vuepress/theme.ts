@@ -46,8 +46,9 @@ export default hopeTheme({
 	},
 
 	plugins: {
-		blog: true,
-
+		blog: {
+			excerptLength:0
+		},
 		comment: {
 			provider: "Giscus",
 			repo: "coder-new-web/coder-new-blog",

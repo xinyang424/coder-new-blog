@@ -1,8 +1,9 @@
 ---
 title: 插件
-icon: plugin
+icon: npm
 date: 2023-03-01
 index: false
+article: false 
 ---
 
 
