@@ -50,11 +50,13 @@ export default hopeTheme({
 			excerptLength:0
 		},
 		comment: {
-			provider: "Giscus",
-			repo: "coder-new-web/coder-new-blog",
-			repoId: "R_kgDOJJPrYg",
-			category: "General",
-			categoryId: "DIC_kwDOJJPrYs4CU3IN",
+			provider: "Waline",
+			serverURL: "blog.coder-new.cn",
+			// provider: "Giscus",
+			// repo: "coder-new-web/coder-new-blog",
+			// repoId: "R_kgDOJJPrYg",
+			// category: "General",
+			// categoryId: "DIC_kwDOJJPrYs4CU3IN",
 		},
 
 		mdEnhance: {
