@@ -51,7 +51,7 @@ export default hopeTheme({
 		},
 		comment: {
 			provider: "Waline",
-			serverURL: "blog.coder-new.cn",
+			serverURL: "https://blog.waline.coder-new.cn/",
 			// provider: "Giscus",
 			// repo: "coder-new-web/coder-new-blog",
 			// repoId: "R_kgDOJJPrYg",
