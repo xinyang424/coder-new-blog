@@ -1,6 +1,6 @@
 ---
 title: TypeScript
-date: 2023-03-01
+date: 2022-03-01
 category:
   - script系列
 tag:
@@ -45,9 +45,8 @@ JS造成的问题：会增加了找bug、改bug的时间，严重影响了开发
 
 Vue3源码使用TS进行重写，Angular默认支持TS，React与TS完美配合。
 
----
 
-## TS在非项目中使用
+### TS在非项目中使用
 
 TS文件是不能直接被浏览器解析的。
 为解决这一问题：
@@ -59,8 +58,8 @@ TS文件是不能直接被浏览器解析的。
 
 1. 配置全局的TS环境
 
-下载ts：`npm i  typescript -g`
-查看ts版本号：`tsc -v`
+下载ts：`npm i  typescript -g`  
+查看ts版本号：`tsc -v`  
 将ts文件编译为js文件：`tsc xxx.ts`在同级目录会新增同名的js文件。
 
 2. 在node环境下载解析TS的工具
@@ -95,7 +94,7 @@ let 变量名:object         //约束为JSON对象
 let 变量名:string[]       //约束为字符串数组
 ```
 
-##### 声明number类型
+#### number类型
 
 ```typescript
 let notANumber:number = NaN;//NaN
@@ -107,9 +106,9 @@ let binary:number = 0b1010;//二进制
 let octal:nmber = 0o744;//八进制
 ```
 
-##### 声明string类型
+#### string类型
 
-```javascript
+```typescript
 let str:string = 'def';
 let newStr = `abc ${str}`;
 console.log(newStr);
@@ -120,9 +119,9 @@ var newStr = "abc ".concat(str);
 console.log(newStr);
 ```
 
-##### 声明布尔类型
+#### boolean类型
 
-```javascript
+```typescript
 let b:boolean = true;
 let b:boolean = false;
 let b:boolean = Boolean(0);//false  
@@ -132,7 +131,7 @@ let b:Boolean = new Boolean(0);//这样定义返回的是一个布尔值对象�
 //ps：如果时new Boolean就会返回一个布尔值对象就会报错，而定义时接收的是布尔值
 ```
 
-##### 空值类型
+#### void空值类型
 
 1. js没有空值（Void）的概念，在TS中，可以用void表示没有任何返回值的函数。
 2. void值定义后不可再被赋值，否则就会报错。
@@ -148,23 +147,27 @@ let u:void = undefined;
 let n:void = null;//这么声明null已经会报错了
 ```
 
-##### Null和undefined类型
+#### Null和undefined类型
 
 ```typescript
 let u:undefined=undefined;
 let n:null=null;
 ```
 
-##### undefined、null和void区别
+**undefined、null和void区别**
 
 1. undefined和null定义后可再被赋值
 2. void定义后不可再被赋值
 
 #### any类型
 
+```typescript
+  let a:any = 1;
+```
+
 #### 任意类型
 
-Any类型和unknown顶级类型：
+any类型和unknown顶级类型：  
 nodejs环境执行ts
 
 1. `npm i @type/node --save-dev`也就是`npm i @type/node -D`
@@ -175,7 +178,7 @@ nodejs环境执行ts
 1. 没有强制限定哪种类型，随时切换类型都可以，我们可以对any进行任何操作，不需要检查类型
 2. 声明变量的时候没有指定任何类型，默认就是any类型
 3. 弊端：如果使用any类型就失去了ts类型检测的作用
-4. TS3.0中引入的unknown类型也被认为top type，但它更安全。与any一样，所有类型都可以分配给unknown，unknown类型比any类型更加严格，当你要使用any的时候可以尝试使用unknow
+4. TS 3.0中引入的unknown类型也被认为top type，但它更安全。与any一样，所有类型都可以分配给unknown，unknown类型比any类型更加严格，当你要使用any的时候可以尝试使用unknow
 
 ```typescript
 let anys:any = '123';
@@ -251,11 +254,11 @@ let arr:ArrNumber=["1","2","3"]
 
 ---
 
-### 函数类型
+#### 函数类型
 
 指的是函数的形参类型和返回值的类型
 
-#### 单独指定函数形参的数据类型或返回值的数据类型
+**单独指定函数形参的数据类型或返回值的数据类型**
 
 ##### 普通函数
 
@@ -273,7 +276,7 @@ const 函数名 = (形参:number):返回值数据类型{
 }
 ```
 
-#### 同时指定函数参数的数据类型和返回值的数据类型
+##### 同时指定函数参数的数据类型和返回值的数据类型
 
 ```typescript
 const add:(num1:number,num2:number)=>number=(num1,num2)=>{
@@ -281,7 +284,7 @@ const add:(num1:number,num2:number)=>number=(num1,num2)=>{
 }
 ```
 
-#### 函数无返回值(void)
+##### 函数无返回值(void)
 
 ```typescript
 //指定函数的形参为字符串类型，且函数没有返回值
@@ -290,7 +293,7 @@ function 函数名(形参:string):void{
 }
 ```
 
-#### 函数可选参数(可传可不传)
+##### 函数可选参数(可传可不传)
 
 ```typescript
 //函数两个参数可传可不传，同时函数没有返回值
@@ -303,7 +306,7 @@ function fn(num1:number,num2?:number):void{
 
 const可以适用于引用类型，而let可以适用于基础类型。
 
-#### 接口定义参数
+##### 接口定义参数
 
 ```typescript
 //定义参数 num 和 num2  ：后面定义返回值的类型
@@ -326,7 +329,7 @@ function getUserInfo(user: User): User {
 }
 ```
 
-#### 定义剩余参数
+##### 定义剩余参数
 
 ```typescript
 const fn = (array:number[],...items:any[]):any[] => {
@@ -339,7 +342,7 @@ let a:number[] = [1,2,3]
 fn(a,'4','5','6')
 ```
 
-#### 函数重载
+##### 函数重载
 
 重载是方法名字相同，而参数不同，返回类型可以相同也可以不同(方法名相同，形参不同，与返回值无关，即叫函数重载)。
 如果参数类型不同，则参数类型应设置为 **any**。
@@ -368,11 +371,11 @@ fn('123',456)
 
 ---
 
-### 对象类型
+#### 对象类型
 
 由对象或者方法构成
 
-#### 对象
+##### 定义对象
 
 ```typescript
 let 变量:{
@@ -386,7 +389,7 @@ let 变量:{
 }  //定义一个变量为json对象，且定义了json里有哪些变量，变量属于哪些数据类型
 ```
 
-#### 对象中的可选属性
+##### 对象中的可选属性
 
 对象的属性或方法，也可以是可选的，此时就用到可选属性了。可选属性的语法与函数可选参数的语法一致，都使用?来表示：
 
@@ -453,7 +456,7 @@ function 函数名(形参:接口){
 }
 ```
 
-##### class类约束数据类型
+##### 接口约束class类数据类型
 
 ```typescript
 class 类名 implements 接口名{
@@ -461,7 +464,7 @@ class 类名 implements 接口名{
 }
 ```
 
-#### 接口和类型别名的区别
+##### 接口和类型别名的区别
 
 相同：都可以个对象指定类型
 不同点：
@@ -484,7 +487,7 @@ type IPerson = {
 type Num = number | string
 ```
 
-#### 接口的继承
+##### 接口的继承
 
 如果两个接口之间有相同的属性或方法，可以将公共的属性或方法抽离出来，通过继承来实现复用。
 
@@ -502,43 +505,6 @@ let obj: Point2D = {
     y: 2,
     z: 3
 }
-```
-
-#### 任意属性[propName:string]
-
-需要注意的是，一旦定义了任意属性，那么确定属性和可选属性的类型都必须是它的类型的子集。
-
-```typescript
-//在这个例子当中我们看到接口并没有定义C，但是也并没有报错
-//因为我们定义了[propName:string]:any
-//允许添加新的任意属性
-interface Person {
-  a:string,
-  b?:string
-  [propName:string]:string | number  //使用联合类型或 [propName:string]:any
-}
-
-const person:Person={
-  a:"213",
-  c:"123"
-}
-```
-
-#### 只读属性(readonly)
-
-```typescript
-interface Person {
-  readonly a:string,
-  b?:string
-}
-let p:Person = {
-  a:"123"
-}
-
-//此时再修改就会报错
-// p.a="466"
-//但是读取就不会报错
-console.log(p.a)
 ```
 
 #### 接口注意事项
@@ -560,8 +526,6 @@ let obj:A={
 console.log(obj)
 ```
 
-可选式操作符——?
-
 #### 接口总结
 
 1. 可以拿来定义属性：必选属性，可选属性、任意属性
@@ -570,6 +534,49 @@ console.log(obj)
 4. 同名的接口名，接口里面定义的东西会合并
 
 ---
+
+### 任意属性[propName:string]
+
+需要注意的是，一旦定义了任意属性，那么确定属性和可选属性的类型都必须是它的类型的子集。
+
+```typescript
+//在这个例子当中我们看到接口并没有定义C，但是也并没有报错
+//因为我们定义了[propName:string]:any
+//允许添加新的任意属性
+interface Person {
+  a:string,
+  b?:string
+  [propName:string]:string | number  //使用联合类型或 [propName:string]:any
+}
+
+const person:Person={
+  a:"213",
+  c:"123"
+}
+```
+
+### 只读属性(readonly)
+
+```typescript
+interface Person {
+  readonly a:string,
+  b?:string
+}
+let p:Person = {
+  a:"123"
+}
+
+//此时再修改就会报错
+// p.a="466"
+//但是读取就不会报错
+console.log(p.a)
+```
+
+
+
+可选式操作符——?
+
+
 
 ### 元组（Tuple）
 
@@ -770,7 +777,7 @@ var code = 0;
 if (code == Types.error) { }
 ```
 
-##### 反向映射
+#### 反向映射
 
 数字可以进行反向映射：
 
@@ -816,7 +823,7 @@ let 变量名:string|number
 | 在TS里面又叫联合类型。
 联合类型：由两个或多个其它类型组成的类型，表示可以是这些类型中的任意一种。
 
-##### 函数使用联合类型
+#### 函数使用联合类型
 
 ```typescript
 const fn = function(type:number):boolean{
@@ -898,7 +905,7 @@ let fn = (type:A|B):void=>{
 (window as any).abc = 123
 ```
 
-#### 总结
+#### 类型断言总结
 
 类型断言就分为泛型断言和as断言：
 
@@ -953,7 +960,7 @@ let bbb = aaa(1)
 console.log(bbb) //打印为1，并不会做隐式转换为true，因为编译时候会删除类型断言
 ```
 
-## 类型推论/类型推断
+### 类型推论/类型推断
 
 声明了一个变量，但是没有定义类型，TS会明确的指定类型的时候推测出一个类型，这就是类型推论。
 
@@ -1151,7 +1158,7 @@ function handleValue(val: All) {
 
 ---
 
-## symbol类型
+### symbol类型
 
 [文档地址](https://www.tslang.cn/docs/handbook/symbols.html)
 自ECMAScript 2015起，symbol称为了一种新的原生类型，就像number和string一样。
@@ -1165,7 +1172,7 @@ let sym2 = Symbol("key")
 let s1:symbol = Symbol()
 ```
 
-### symbol应用场景
+#### symbol应用场景
 
 #### Symbol的值是唯一的
 
@@ -1316,11 +1323,11 @@ Symbol.unscopables
 
 ---
 
-## 内置对象
+### 内置对象
 
 JS有很多内置对象，它们可以直接在TS中当作定义好的类型。
 
-### ECMAScript的内置对象
+#### ECMAScript的内置对象
 
 **Boolean、Number、string、RegExp、Date、Error**
 
@@ -1344,7 +1351,7 @@ let e: Error = new Error("error!")
 console.log(e)
 ```
 
-### DOM和BOM内置对象
+#### DOM和BOM内置对象
 
 **Document、HTMLElement、Event、NodeList 等**
 [可参考GitHub](https://github.com/microsoft/TypeScript/tree/main/src/lib)
@@ -1497,9 +1504,9 @@ promise().then(res=>{
 })
 ```
 
-## class(类)
+### class(类)
 
-### 类型约束
+##### 类型约束
 
 ES6提供了更接近传统语言的写法，引入Class(类)这个概念，作为对象的模板。通过class关键字，可以定义类。基本上，ES6的class可以看作只是一个语法糖，它的绝大部分功能，ES6都可以做到，新的class写法只是让对象模型的写法更加清晰、更像面向对象编程语法。
 
@@ -1721,25 +1728,24 @@ console.log(d1.age);
 //每次获取值都会+10再返回出来
 ```
 
-### 补充
 
-#### static
+### static
 
 不能在实例里面使用，示例出来的对象无法调用。
 
-#### 方法可以共有也可以私有
+### 方法可以共有也可以私有
 
 - public(共有)——示例出来的对象可以调用
 - private(私有)——示例出来的对象不可调用
 
 ---
 
-## 抽象类
+### 抽象类
 
 里面有抽象方法和抽象属性，或者是实现了的方法和属性
 抽象类不能直接new后使用，需要继承再使用
 
-### 如何定义抽象类
+#### 如何定义抽象类
 
 ```typescript
 abstract class Cla {
@@ -1761,7 +1767,7 @@ let c1 = new Class1();
 c1.show(2) //打印为2
 ```
 
-### 应用场景
+#### 应用场景
 
 应用场景如果你写的类实例化之后毫无用处此时我可以把他定义为抽象类。
 我们在A类定义了 getName 抽象方法但未实现
@@ -1794,12 +1800,12 @@ let b = new B();
 console.log(b.getName());
 ```
 
-### 抽象类和接口的区别
+#### 抽象类和接口的区别
 
          1. 接口里面属性不能给值,接口里面不能写已经实现的方法。
-
+    
                                  抽象类里面可以写已经实现的属性和方法。
-
+    
          2. 接口可以实现多个。
 
 类只能继承一个。
@@ -1810,13 +1816,13 @@ console.log(b.getName());
 
 ---
 
-## 泛型
+### 泛型
 
 数据类型是可变的，具体看是什么，传了什么数据类型。变量类型变量化
 
-### 函数泛型
+#### 函数泛型
 
-#### 单个泛型
+##### 单个泛型
 
 ```typescript
 function show<T>(a:T,b:T){
@@ -1830,7 +1836,7 @@ show<string>('bb','a');
 show(1,2)//此时触发ts的类型推论，也是不会报错的
 ```
 
-#### 多个泛型
+##### 多个泛型
 
 ```typescript
 function sub<T,U>(a:T,b:U):Array<T | U>{
@@ -1842,7 +1848,7 @@ sub<number,string>(1,"a")
 sub(1,"a")
 ```
 
-### 泛型约束
+##### 泛型约束
 
 ```typescript
 interface Len{
@@ -1854,7 +1860,7 @@ function getLength<T extend Len>(arg:T){
 getLength([1,2,3])//此时传就必须传带有length的参数
 ```
 
-### 接口泛型
+##### 接口泛型
 
 声明接口的时候 在名字后面加一个<参数>
 使用的时候传递类型
@@ -1873,7 +1879,7 @@ let result: MyInter<number> = fn //此时接口被约束为number类型，fn就�
 result(123)
 ```
 
-### 对象字面量泛型
+#### 对象字面量泛型
 
 ```typescript
 let foo: { <T>(arg: T): T }
@@ -1928,10 +1934,6 @@ s.add(213)
 
 这种约束数据类型只有在调用时候再约束数据类型，不像接口哪些，直接把某个属性或者变量直接定死的数据类型，不够泛型用起来灵活。
 
----
-
-## 补充
-
 ### object、Object以及{}区别
 
 Object：
@@ -1955,9 +1957,9 @@ let a:{} = {}
 1. 它虽然可以赋值任意类型，但是赋值之后是不能进行修改的，是无法对变量进行重新赋值的一个操作。
 2. 建议少用字面量模式
 
-# TS在项目中的使用
+## TS在项目中的使用
 
-## tsconfig.json配置文件
+### tsconfig.json配置文件
 
 tsconfig.json文件是通过`tsc -- init`命令生成的，而使用`tsc`命令前提条件`npm i typescript -g`
 
@@ -2219,7 +2221,7 @@ console.log(A.B)
 
 ---
 
-## 三斜线指令
+### 三斜线指令
 
 三斜线指令是包含单个XML标签的单行注释。注释的内容会作为编译器指令使用。
 三斜线指令仅可放在包含它的文件的最顶端。一个三斜线指令的签名只能出现单行或多行注释。这包含其它的三斜线指令。如果它们出现在一个语句或声明之后，那么它们会被当作普通的单行注释，并且不具有特殊的涵义。

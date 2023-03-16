@@ -9,16 +9,19 @@ tag:
 
 :::info
 💡 基于vscode，需要安装插件Live Sass Compiler。
+
 🚀 安装Ruby。参考官网安装方法：[https://www.sass.hk/install/](https://www.sass.hk/install/)
+
 ✨ 新建一个.scss文件的后缀名，再点击Watch Sass，保存就会自动生成后缀名为.css的相同文件名。
+
 👁️‍🗨️ SASS官网：[https://www.sass.hk/](https://www.sass.hk/)
 :::
 
 Watch Sass(vscode右下角，如果安装好插件没显示可以尝试重启vscode)，
 点击后显示Watching后，新建.scss文件名，保存后即可自动生成对应的css文件：
-![image.png](https://cdn.nlark.com/yuque/0/2022/png/26898279/1664260579828-b9a9ae28-636f-40a2-924b-add3f0a937b7.png#averageHue=%23fe9ab3&clientId=u5e6595ab-1b19-4&from=paste&height=30&id=u7c35a3ef&name=image.png&originHeight=37&originWidth=516&originalType=binary&ratio=1&rotation=0&showTitle=false&size=3824&status=done&style=none&taskId=u46b30e44-3035-4b85-a621-5e5117a9e39&title=&width=412.8)
+![](/assets/note/css/watch-sass.png)
 
-![image.png](https://cdn.nlark.com/yuque/0/2022/png/26898279/1664260673135-bd93d09c-97d7-4ad0-8a05-016b4e518af8.png#averageHue=%23eddece&clientId=u5e6595ab-1b19-4&from=paste&height=135&id=u212972f3&name=image.png&originHeight=169&originWidth=1136&originalType=binary&ratio=1&rotation=0&showTitle=false&size=8057&status=done&style=none&taskId=u7dcd2787-8e42-4ab9-866e-c2982ab9243&title=&width=908.8)
+![](/assets/note/css/watching-sass.png)
 
 ## 前言
 
