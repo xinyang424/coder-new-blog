@@ -3,6 +3,11 @@ home: true
 layout: BlogHome
 icon: home
 title: 主页
+author: coder-new
+head:
+  - - meta
+    - name: keywords
+      content: coder-new 个人博客
 heroImage: /logo.svg
 heroAlt: 主页logo
 heroText: Coder-New

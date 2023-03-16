@@ -8,7 +8,9 @@ tag:
 ---
 :::info
 💡基于vscode，需要安装插件Esay Less。
+
 ✨新建一个.less文件的后缀名，保存就会自动生成后缀名为.css的相同文件名。
+
 👁️‍🗨️Less官网：[https://less.bootcss.com/](https://less.bootcss.com/)
 :::
 

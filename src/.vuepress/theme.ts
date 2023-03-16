@@ -20,7 +20,7 @@ export default hopeTheme({
 
 	blog: {
 		medias: {
-			Baidu: "https://www.baidu.com",
+			GitHub: "https://github.com/coder-new-web",
 		},
 	},
 	themeColor: {
