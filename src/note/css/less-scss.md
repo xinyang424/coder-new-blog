@@ -1,21 +1,25 @@
 ---
 title: Sass和Less的区别
-date: 2023-03-01
+date: 2022-03-01
 category:
-  - css
+  - CSS
 tag:
   - Sass和Less的区别
+head:
+  - - meta
+    - name: keywords
+      content: sass和less的区别  | coder-new
 ---
 
 
-#### Sass和Less的共同点
+## Sass和Less的共同点
 
 - 都属于CSS预处理器，是一种专门的编程语言对Web页面样式进行布局
 - 通过编译器转化为正常的css文件供浏览器编译解析
 - 可以进行参数混入
 - 嵌套规则相同
 
-#### Sass和Less的不同点
+## Sass和Less的不同点
 
 - 编译环境不同，Less基于JavaScript，是在客户端处理的。Sass基于Ruby，在服务器端处理。
 - 声明变量方式不同：Less是@，而Scss是$

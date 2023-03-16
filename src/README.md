@@ -24,15 +24,17 @@ projects:
     desc: 全面介绍 ECMAScript 6 新引入的语法特性。
     link: https://es6.ruanyifeng.com/
 
-  - icon: typescript
+  - icon: book
     name: TypeScript
     desc: TypeScript是JavaScript类型的超集。
     link: https://www.tslang.cn/
 
-  - icon: javascript
-    name: JavaScript
-    desc: JavaScript 是一种轻量级的脚本语言。
-    link: https://wangdoc.com/javascript/basic/
+  - icon: network
+    name: Cdmcs
+    desc: 公司的开发规范文档和约定内容。
+    link: https://cdmcs.coder-new.cn/
+
+
 
 
 

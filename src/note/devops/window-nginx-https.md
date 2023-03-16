@@ -1,10 +1,14 @@
 ---
 title: nginx实现https
-date: 2023-03-01
+date: 2022-03-01
 category:
   - 运维
 tag:
   - nginx实现https
+head:
+  - - meta
+    - name: keywords
+      content: windows下的nginx如何实现https  | coder-new
 ---
 
 ## 新建SSL文件

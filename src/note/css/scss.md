@@ -1,10 +1,14 @@
 ---
 title: SASS/SCSS
-date: 2023-03-01
+date: 2022-03-01
 category:
-  - css
+  - CSS
 tag:
   - css预处理语言
+head:
+  - - meta
+    - name: keywords
+      content: sass/scss学习笔记 | coder-new
 ---
 
 :::info

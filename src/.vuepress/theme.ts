@@ -1,6 +1,7 @@
 /** @format */
 
 import { hopeTheme } from "vuepress-theme-hope";
+import { path } from "@vuepress/utils";
 import { zhNavbar } from "./navbar/zh";
 import { zhSidebar } from "./sidebar/zh";
 
@@ -21,6 +22,12 @@ export default hopeTheme({
 	blog: {
 		medias: {
 			GitHub: "https://github.com/coder-new-web",
+			// Yuque: [
+			// 	// 链接
+			// 	"https://mediay.com/UserY/",
+			// 	// 图标地址
+			// 	path.resolve(__dirname, "public/yuque.svg"),
+			// ],
 		},
 	},
 	themeColor: {
