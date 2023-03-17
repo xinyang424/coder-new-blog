@@ -1,7 +1,7 @@
 /** @format */
 
 import { hopeTheme } from "vuepress-theme-hope";
-import { path } from "@vuepress/utils";
+// import { path } from "@vuepress/utils";
 import { zhNavbar } from "./navbar/zh";
 import { zhSidebar } from "./sidebar/zh";
 
@@ -42,6 +42,8 @@ export default hopeTheme({
 			navbar: zhNavbar,
 			sidebar: zhSidebar,
 			displayFooter: true,
+			copyright:false,
+			footer:"MIT Licensed | Copyright © 2023-present coder-new",
 			blog: {
 				description: "总结自己的经验进步，吸取别人的教训避坑。",
 				// intro: "/intro.html",
