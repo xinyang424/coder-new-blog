@@ -12,6 +12,7 @@ heroImage: /logo.svg
 heroAlt: 主页logo
 heroText: Coder-New
 heroFullScreen: true
+bgImage: /assets/home/1.jpg
 tagline: 众里寻她千百度，蓦然回首，那人却在，灯火阑珊处。
 projects:
   - icon: book
@@ -32,11 +33,7 @@ projects:
   - icon: network
     name: Cdmcs
     desc: 公司的开发规范文档和约定内容。
-    link: https://cdmcs.coder-new.cn/
-
-
-
-
+    link: https://cdmcs.github.io/
 
 ---
 
