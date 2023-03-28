@@ -3,7 +3,7 @@
 import { sidebar } from "vuepress-theme-hope";
 
 export const zhSidebar = sidebar({
-  "/note/": [
+  "/web-note/": [
     "",
     {
       text: "HTML",
@@ -69,12 +69,15 @@ export const zhSidebar = sidebar({
       children: "structure",
     },
     {
-      text: "GitHub",
-      icon: "github",
-      prefix: "github/",
+      text: "网络与网络安全",
+      icon: "network",
+      prefix: "network/",
       collapsible: true,
       children: "structure",
     },
+  ],
+  "/back-note/": [
+    "",
     {
       text: "数据库",
       icon: "storage",
@@ -82,6 +85,9 @@ export const zhSidebar = sidebar({
       collapsible: true,
       children: "structure",
     },
+  ],
+  "/devops-note/": [
+    "",
     {
       text: "运维",
       icon: "rss",
@@ -89,10 +95,14 @@ export const zhSidebar = sidebar({
       collapsible: true,
       children: "structure",
     },
+  ],
+
+  "/other-note/": [
+    "",
     {
-      text: "网络与网络安全",
-      icon: "network",
-      prefix: "network/",
+      text: "GitHub",
+      icon: "github",
+      prefix: "github/",
       collapsible: true,
       children: "structure",
     },
@@ -118,6 +128,24 @@ export const zhSidebar = sidebar({
       children: "structure",
     },
   ],
-  "/bug/": [""],
-  "/software/": [""],
+  "/bug-record/": [
+    "",
+    {
+      text: "GitHub",
+      icon: "github",
+      prefix: "github/",
+      collapsible: true,
+      children: "structure",
+    },
+  ],
+  "/software/": [
+    "",
+    {
+      text: "GitHub",
+      icon: "github",
+      prefix: "github/",
+      collapsible: true,
+      children: "structure",
+    },
+  ],
 });
