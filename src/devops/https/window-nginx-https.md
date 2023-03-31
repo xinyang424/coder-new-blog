@@ -13,14 +13,14 @@ head:
 
 ## 新建SSL文件
 
-![](./images/nginx-list.png)
+![](../images/nginx-list.png)
 在此文件夹下新建一个名为ssl的文件夹，用户存放SSL证书。
 
 ## 下载SSL文件
 
 登录阿里云账号，在免费ssl证书页面，先创建一个免费的SSL证书，对应的你要解析的域名。在ssl证书申请通过后选择Apache证书类型下载。
 
-![](./images/aliyun-ssl.png)
+![](../images/aliyun-ssl.png)
 下载后的文件夹里会有三个文件，分别是：几串数字_你的域名.key、几串数字_你的域名_chain.crt、几串数字_你的域名_public.crt。
 
 1. 将几串数字_你的域名_chain.crt里的文件内容复制到几串数字_你的域名_public.crt文件里。(为啥需要合并这个文件呢？因为有一个是中间证书，如果不合并，你的https配置好也是有问题的。这个是最方便快速得到后缀名为key、crt文件证书，不用学网上说的还得通过openssl去生成，我真的栓Q了，这个才是最快得到两种文件的方式，还免得你去记一大推操作指令，ctrl+c和ctrl+v才是yyds)
@@ -31,11 +31,11 @@ head:
 
 在nginx->conf，打开nginx.conf文件，滑到最底下就是配置https的地方，其中#代表注释，也就是默认nginx的https是注释了的，需要的自己在原基础上取消注释再配置就可以了。下面简单说说代码意思。
 
-![](./images/before-config.png)
+![](../images/before-config.png)
 
 配置好的图如下:
 
-![](./images/after-config.png)
+![](../images/after-config.png)
 
 ## 可能出现的问题
 
