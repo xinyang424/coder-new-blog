@@ -12,9 +12,8 @@ heroImage: /logo.svg
 heroAlt: 主页logo
 heroText: Coder-New
 heroFullScreen: true
-# bgImage: https://api.coder-new.cn
 bgImage: /assets/home/garden.jpg
-tagline: 众里寻她千百度，蓦然回首，那人却在，灯火阑珊处。
+tagline: 故不登高山，不知天之高也；不临深溪，不知低之厚也。
 projects:
   - icon: book
     name: MDN Plus
@@ -32,7 +31,7 @@ projects:
     link: https://www.tslang.cn/
 
   - icon: network
-    name: Cdmcs
+    name: cdmcs
     desc: 公司的开发规范文档和约定内容。
     link: https://cdmcs.github.io/
 

@@ -43,7 +43,7 @@ export default hopeTheme({
       copyright: false,
       footer: "MIT Licensed | Copyright © 2022-present Coder-New",
       blog: {
-        description: "总结自己的经验进步，吸取别人的教训避坑。",
+        description: "少年易学老难成，一寸光阴不可轻。",
         // intro: "/intro.html",
       },
       metaLocales: {
