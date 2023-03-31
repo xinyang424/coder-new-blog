@@ -3,7 +3,7 @@
 import { sidebar } from "vuepress-theme-hope";
 
 export const zhSidebar = sidebar({
-  "/web-note/": [
+  "/web/": [
     "",
     {
       text: "HTML",
@@ -56,15 +56,22 @@ export const zhSidebar = sidebar({
     },
     {
       text: "实用技巧",
-      icon: "write",
+      icon: "skills",
       prefix: "practical-skills/",
       collapsible: true,
       children: "structure",
     },
     {
       text: "配置文件",
-      icon: "config",
+      icon: "code-file",
       prefix: "config-file/",
+      collapsible: true,
+      children: "structure",
+    },
+    {
+      text: "版本管理工具",
+      icon: "version-control",
+      prefix: "version-management-tools/",
       collapsible: true,
       children: "structure",
     },
@@ -76,28 +83,31 @@ export const zhSidebar = sidebar({
       children: "structure",
     },
   ],
-  "/back-note/": [
+  "/back/": [
     "",
     {
       text: "数据库",
-      icon: "storage",
+      icon: "database",
       prefix: "database/",
       collapsible: true,
       children: "structure",
     },
   ],
-  "/devops-note/": [
+  "/devops/": [
     "",
     {
-      text: "运维",
-      icon: "rss",
-      prefix: "devops/",
+      text: "https实现",
+      icon: "lock",
+      prefix: "https/",
       collapsible: true,
       children: "structure",
     },
   ],
 
-  "/other-note/": [
+  "/interview/":"structure",
+  "/calculate/":"structure",
+
+  "/other/": [
     "",
     {
       text: "GitHub",
@@ -107,28 +117,14 @@ export const zhSidebar = sidebar({
       children: "structure",
     },
     {
-      text: "算法",
-      icon: "calculate",
-      prefix: "algorithm/",
-      collapsible: true,
-      children: "structure",
-    },
-    {
-      text: "面试题",
-      icon: "group",
-      prefix: "interview/",
-      collapsible: true,
-      children: "structure",
-    },
-    {
-      text: "其它",
-      icon: "info",
+      text: "未分类",
+      icon: "unknown",
       prefix: "other/",
       collapsible: true,
       children: "structure",
     },
   ],
-  "/bug-record/": [
+  "/bug/": [
     "",
     {
       text: "GitHub",

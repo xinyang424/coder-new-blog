@@ -6,34 +6,44 @@ export const zhNavbar = navbar([
   "/",
   {
     text: "知识笔记",
-    icon: "editor",
+    icon: "note",
     children: [
       {
         text: "前端笔记",
-        icon: "template",
-        link: "/web-note/",
+        icon: "web",
+        link: "/web/",
       },
       {
         text: "后端笔记",
-        icon: "back-stage",
-        link: "/back-note/",
+        icon: "server",
+        link: "/back/",
       },
       {
         text: "运维笔记",
-        icon: "network",
-        link: "/devops-note/",
+        icon: "devops",
+        link: "/devops/",
+      },
+      // {
+      //   text: "算法笔记",
+      //   icon: "calculation",
+      //   link: "/calculate/",
+      // },
+      {
+        text: "面试常问",
+        icon: "talk",
+        link: "/interview/",
       },
       {
         text: "其它杂记",
-        icon: "physics",
-        link: "/other-note/",
+        icon: "other",
+        link: "/other/",
       },
     ],
   },
   {
     text: "bug记录",
     icon: "debug",
-    link: "/bug-record/",
+    link: "/bug/",
   },
   {
     text: "软件教程",

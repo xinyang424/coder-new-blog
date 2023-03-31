@@ -12,8 +12,8 @@ heroImage: /logo.svg
 heroAlt: 主页logo
 heroText: Coder-New
 heroFullScreen: true
-# bgImage: /assets/home/garden.jpg
-bgImage: https://api.coder-new.cn
+# bgImage: https://api.coder-new.cn
+bgImage: /assets/home/garden.jpg
 tagline: 众里寻她千百度，蓦然回首，那人却在，灯火阑珊处。
 projects:
   - icon: book
