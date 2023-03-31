@@ -107,7 +107,8 @@ export default hopeTheme({
       components: ["BiliBili"],
       componentOptions: {
         fontIcon: {
-          assets: "iconfont",
+          // assets: "iconfont",
+          assets: "//at.alicdn.com/t/c/font_3974296_ncur3t0r2af.css",
         },
       },
     },

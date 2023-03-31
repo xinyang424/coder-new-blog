@@ -1,7 +1,7 @@
 {
   "name": "coder-new-blog",
   "version": "2.0.0",
-  "description": "Coder-new's blog",
+  "description": "Coder-new's blog.",
   "license": "MIT",
   "type": "module",
   "scripts": {
