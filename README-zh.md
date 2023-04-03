@@ -37,8 +37,3 @@ npm run dev
 npm run clean
 ```
 
-### 更新vuepress
-
-```bash
-npm run update-package
-```

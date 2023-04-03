@@ -37,8 +37,3 @@ npm run dev
 npm run clean
 ```
 
-### Update vuepress
-
-```bash
-npm run update-package
-```
