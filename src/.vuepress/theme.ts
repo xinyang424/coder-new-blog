@@ -19,9 +19,9 @@ export default hopeTheme({
 
   blog: {
     medias: {
-      BiliBili:"https://space.bilibili.com/409568858?spm_id_from=333.1007.0.0",
+      BiliBili: "https://space.bilibili.com/409568858?spm_id_from=333.1007.0.0",
       GitHub: "https://github.com/coder-new-web",
-      QQ:"http://wpa.qq.com/msgrd?v=3&uin=2578417052&site=qq&menu=yes",
+      QQ: "http://wpa.qq.com/msgrd?v=3&uin=2578417052&site=qq&menu=yes",
       Yuque: [
         // 链接
         "https://www.yuque.com/coder-new/web",
@@ -115,7 +115,7 @@ export default hopeTheme({
       componentOptions: {
         fontIcon: {
           // assets: "iconfont",
-          assets: "//at.alicdn.com/t/c/font_3974296_k0kt1zp9es.css",
+          assets: "//at.alicdn.com/t/c/font_3974296_4hk9jdle92z.css",
         },
       },
     },

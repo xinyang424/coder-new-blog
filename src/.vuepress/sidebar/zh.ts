@@ -55,6 +55,13 @@ export const zhSidebar = sidebar({
       children: "structure",
     },
     {
+      text: "微前端",
+      icon: "micro-web",
+      prefix: "micro-web/",
+      collapsible: true,
+      children: "structure",
+    },
+    {
       text: "实用技巧",
       icon: "skills",
       prefix: "practical-skills/",
@@ -111,8 +118,8 @@ export const zhSidebar = sidebar({
     },
   ],
 
-  "/interview/":"structure",
-  "/calculate/":"structure",
+  "/interview/": "structure",
+  "/calculate/": "structure",
 
   "/other/": [
     "",
