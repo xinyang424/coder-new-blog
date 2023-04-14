@@ -115,7 +115,7 @@ export default hopeTheme({
       componentOptions: {
         fontIcon: {
           // assets: "iconfont",
-          assets: "//at.alicdn.com/t/c/font_3974296_4hk9jdle92z.css",
+          assets: "//at.alicdn.com/t/c/font_3974296_z38ml9vopkl.css",
         },
       },
     },
