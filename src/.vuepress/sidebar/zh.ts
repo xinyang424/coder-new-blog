@@ -56,7 +56,7 @@ export const zhSidebar = sidebar({
     },
     {
       text: "桌面应用",
-      icon: "mobile",
+      icon: "desktop-dev",
       prefix: "desktop-dev/",
       collapsible: true,
       children: "structure",
