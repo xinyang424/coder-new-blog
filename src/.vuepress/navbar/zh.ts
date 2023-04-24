@@ -29,7 +29,7 @@ export const zhNavbar = navbar([
       //   link: "/calculate/",
       // },
       {
-        text: "面试常问",
+        text: "记八股文",
         icon: "talk",
         link: "/interview/",
       },

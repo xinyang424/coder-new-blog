@@ -6,4 +6,5 @@ category:
 tag:
   - 基本的增删改查语句
   - 如何注册免费的云数据库
+index: false
 ---

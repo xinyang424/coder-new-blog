@@ -159,16 +159,7 @@ export const zhSidebar = sidebar({
       children: "structure",
     },
   ],
-  "/bug/": [
-    "",
-    {
-      text: "GitHub",
-      icon: "github",
-      prefix: "github/",
-      collapsible: true,
-      children: "structure",
-    },
-  ],
+  "/bug/": "structure",
   "/software/": [
     "",
     {
