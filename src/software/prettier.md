@@ -23,7 +23,7 @@ tag:
 
 ![](./images/settings.png)  
 
-2. 下滑找到`print width`，设置为1000，这可以解决标签属性换行问题。如果还是不够可以再把值设大一点。
+2. 下滑找到`print width`，设置为1000，这可以解决标签属性换行问题。如果还是不够可以再把值设大一点。  
 ![](./images/print-width.png)  
 
 3. 打开一个SFC文件，在代码里右键选择`使用...格式化文档`:
@@ -48,14 +48,14 @@ tag:
 ## 补充
 
 ### 如何开启保存时候自动格式化
-1. 打开设置
+1. 打开设置  
 ![](./images/open-settings.png)
-2. 输入`Format on save`，然后勾选上`Format on save`，即可，这样保存时候就能自动格式化代码
+2. 输入`Format on save`，然后勾选上`Format on save`，即可，这样保存时候就能自动格式化代码  
 ![](./images/format-on-save.png)
 
 ### 为什么推荐Prettier
 1. 支持多种文件格式化，如js、ts、vue、jsx、tsx、css、html、scss、less等。
 2. 代码结尾自动加分号
 3. 支持项目中新建`.prettierrc`文件，更适合在团队开发过程中来约束项目代码质量。[配置文件说明文档](https://prettier.io/docs/en/configuration.html)
-4. 更多设置可查看插件介绍或[文档说明](https://prettier.io/)
+4. 更多设置可查看插件介绍或[文档说明](https://prettier.io/)  
 ![插件介绍](./images/plugins-details.png)

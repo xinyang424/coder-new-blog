@@ -1,6 +1,10 @@
 ---
 title: css功能
 date: 2023-01-10
+category:
+  - vue3
+tag:
+  - vue3中新增的css功能
 ---
 
 ## 深度选择器

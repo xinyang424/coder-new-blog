@@ -19,15 +19,12 @@ export default hopeTheme({
 
   blog: {
     medias: {
-      BiliBili: "https://space.bilibili.com/409568858?spm_id_from=333.1007.0.0",
       GitHub: "https://github.com/coder-new-web",
+      BiliBili: "https://space.bilibili.com/409568858?spm_id_from=333.1007.0.0",
       QQ: "http://wpa.qq.com/msgrd?v=3&uin=2578417052&site=qq&menu=yes",
-      Yuque: [
-        // 链接
-        "https://www.yuque.com/coder-new/web",
-        // 图标地址
-        path.resolve(__dirname, "public/yuque.svg"),
-      ],
+      Gmail: "mailto:xinyang424@gmail.com",
+      Email: "https://wx.mail.qq.com/home/index?t=readmail_businesscard_midpage&nocheck=true&name=%E6%9D%A8%E6%96%B0&icon=https%3A%2F%2Fp.qlogo.cn%2Fqqmail_head%2FBkBjDTOZTuwDOcyvCy2I1B6zbGSkls5zqHIyibStOeqCDQia3zH2Nlgjdd3pibS09TD%2F160&mail=xinyang424%40qq.com&code=FwUG9hkLKs-dHLjnuWFlkk14SMS1VLiQ_XBJqksBPYpKOi6fWFNZbmUlTJGRZOMz10Lq6BqONi27BbmSEKOOKA",
+      Yuque: ["https://www.yuque.com/coder-new/web", path.resolve(__dirname, "public/yuque.svg")],
     },
   },
   themeColor: {

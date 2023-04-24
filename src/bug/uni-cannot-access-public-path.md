@@ -1,12 +1,16 @@
 ---
-title: uniapp运行报错：“targetSdkVersion设置>=29后在Android10+系统设备不支持当前路径。请更改为应用运行路径！”
+title: uniapp运行报错访问不了系统公共目录
 date: 2023-04-20
 category:
   - bug记录
 tag:
   - uniapp
-  - targetSdkVersion设置>=29后在Android10+系统设备不支持当前路径
 ---
+
+:::danger 错误信息
+❌targetSdkVersion设置>=29后在Android10+系统设备不支持当前路径。   
+请更改为应用运行路径！
+:::
 
 该问题出现场景是开发的uniapp在选取图片的时候，一些手机系统版本在选取图片的时候，勾选原图能够转换成功base64，一些手机版本勾选原图上传图片就会转换base64失败。这个的原因在于手机系统的targetSDKVersion。  
 在测试手机中，鸿蒙3勾选原图上传失败，鸿蒙2勾选原图上传成功，magic ui 7上传勾选原图失败。涉及测试机型有华为p40系列，华为meta系列，荣耀magic系列。
