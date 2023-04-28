@@ -1,6 +1,6 @@
 ---
-title: vue-router
-date: 2022-03-16
+title: Vue Router
+date: 2021-03-16
 category:
   - vue2
 tag:
