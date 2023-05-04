@@ -17,13 +17,13 @@ tag:
 - Type:`string`
 - Default:`'/'`
 - 使用示例：
-```js
+<!-- ```js
 module.exports = {
   publicPath: process.env.NODE_ENV === 'production'
     ? '/production-sub-path/'
     : '/'
 }
-```
+``` -->
 
 ### outputDir
 - Type:`string`

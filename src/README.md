@@ -12,7 +12,7 @@ heroImage: /logo.svg
 heroAlt: 主页logo
 heroText: Coder-New
 heroFullScreen: true
-bgImage: /assets/home/garden.jpg
+bgImage: /assets/home/garden.webp
 tagline: 故不登高山，不知天之高也；不临深溪，不知低之厚也。
 projects:
   - icon: book
@@ -21,19 +21,25 @@ projects:
     link: https://developer.mozilla.org/zh-CN/docs/Web
 
   - icon: book
-    name: ECMAScript 6
-    desc: 全面介绍 ECMAScript 6 新引入的语法特性。
-    link: https://es6.ruanyifeng.com/
+    name: Developer Chrome
+    desc: 谷歌开发者文档
+    link: https://developer.chrome.com/
 
   - icon: book
-    name: TypeScript
-    desc: TypeScript是JavaScript类型的超集。
-    link: https://www.tslang.cn/
+    name: Web dev
+    desc: 利用最新的现代技术打造令人惊叹的 Web 体验
+    link: https://web.dev/
 
-  - icon: network
-    name: cdmcs
-    desc: 公司的开发规范文档和约定内容。
-    link: https://cdmcs.github.io/
+  - icon: book
+    name: Puppeteer
+    desc: 大多数可以在浏览器中手动完成的事情都可以使用 Puppeteer 完成
+    link: https://pptr.dev/
+
+  - icon: website
+    name: PageSpeed Insights
+    desc: 利用lighthouse在线对你开发的网站做出评估
+    link: https://pagespeed.web.dev/
+
 
 ---
 

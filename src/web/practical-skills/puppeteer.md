@@ -7,7 +7,7 @@ category:
 
 ## 什么是Puppeteer
 
-Puppeteer是一个Node库，它提供了一个高级API来通过DevTools Protocol控制无头的Chrome或Chromium。它还可以配置为使用完整（非无头）Chrome或Chromium。
+Puppeteer是一个Node库，它提供了一个高级API来通过DevTools Protocol控制无头的Chrome或Chromium。它还可以配置为使用完整（非无头）Chrome或Chromium。[官网链接](https://pptr.dev/)
 
 ## Puppeteer能做什么
 - 生成页面的屏幕截图和 PDF。

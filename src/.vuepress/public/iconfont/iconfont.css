@@ -1,0 +1,138 @@
+@font-face {
+  font-family: "iconfont"; /* Project id 3974296 */
+  src: url('//at.alicdn.com/t/c/font_3974296_aw0np1tugsr.woff2?t=1683169186161') format('woff2'),
+       url('//at.alicdn.com/t/c/font_3974296_aw0np1tugsr.woff?t=1683169186161') format('woff'),
+       url('//at.alicdn.com/t/c/font_3974296_aw0np1tugsr.ttf?t=1683169186161') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-website:before {
+  content: "\e66a";
+}
+
+.icon-desktop-dev:before {
+  content: "\e64d";
+}
+
+.icon-mobile-dev:before {
+  content: "\e613";
+}
+
+.icon-package:before {
+  content: "\e793";
+}
+
+.icon-micro-web:before {
+  content: "\e60b";
+}
+
+.icon-build-tools:before {
+  content: "\e679";
+}
+
+.icon-version-control:before {
+  content: "\e669";
+}
+
+.icon-talk:before {
+  content: "\e651";
+}
+
+.icon-calculation:before {
+  content: "\e66d";
+}
+
+.icon-other:before {
+  content: "\e60a";
+}
+
+.icon-unknown:before {
+  content: "\e636";
+}
+
+.icon-home:before {
+  content: "\e608";
+}
+
+.icon-note:before {
+  content: "\e609";
+}
+
+.icon-github:before {
+  content: "\e605";
+}
+
+.icon-lock:before {
+  content: "\e63d";
+}
+
+.icon-database:before {
+  content: "\e68f";
+}
+
+.icon-vue:before {
+  content: "\f25f";
+}
+
+.icon-html:before {
+  content: "\e602";
+}
+
+.icon-devops:before {
+  content: "\e604";
+}
+
+.icon-network:before {
+  content: "\e600";
+}
+
+.icon-code-file:before {
+  content: "\e601";
+}
+
+.icon-react:before {
+  content: "\e741";
+}
+
+.icon-skills:before {
+  content: "\e77d";
+}
+
+.icon-css:before {
+  content: "\ecae";
+}
+
+.icon-javascript:before {
+  content: "\e704";
+}
+
+.icon-web:before {
+  content: "\e687";
+}
+
+.icon-server:before {
+  content: "\e607";
+}
+
+.icon-software:before {
+  content: "\e697";
+}
+
+.icon-npm:before {
+  content: "\e685";
+}
+
+.icon-editor:before {
+  content: "\e68e";
+}
+
+.icon-debug:before {
+  content: "\e606";
+}
