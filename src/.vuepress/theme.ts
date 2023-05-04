@@ -29,8 +29,10 @@ export default hopeTheme({
   themeColor: {
     blue: "#2196f3",
     red: "#f26d6d",
-    green: "#27ae60",
     orange: "#f39c12",
+    pruple: "#8e44ad",
+    black: "#2c3e50",
+    grey: "#7f8c8d",
   },
 
   locales: {
@@ -53,12 +55,20 @@ export default hopeTheme({
   plugins: {
     blog: {
       excerptLength: 0,
+      excerpt: false,
     },
     comment: {
-      provider: "Waline",
-      serverURL: "https://blog.waline.coder-new.cn/",
+      // provider: "Giscus",
+      // repo: "coder-new-web/coder-new-blog",
+      // repoId: "R_kgDOJJPrYg",
+      // category: "General",
+      // categoryId: "DIC_kwDOJJPrYs4CU3IN",
+
       copyright: false,
       reaction: true,
+      provider: "Waline",
+      serverURL: "https://blog.waline.coder-new.cn/",
+      search: false,
     },
 
     mdEnhance: {

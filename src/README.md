@@ -17,7 +17,7 @@ tagline: 故不登高山，不知天之高也；不临深溪，不知低之厚�
 projects:
   - icon: book
     name: MDN Plus
-    desc: Web 开发技术
+    desc: Web 开发程序员必备文档
     link: https://developer.mozilla.org/zh-CN/docs/Web
 
   - icon: book
