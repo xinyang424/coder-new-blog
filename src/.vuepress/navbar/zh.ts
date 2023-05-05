@@ -34,6 +34,11 @@ export const zhNavbar = navbar([
         link: "/interview/",
       },
       {
+        text: "英文词句",
+        icon: "words",
+        link: "/en/",
+      },
+      {
         text: "其它杂记",
         icon: "other",
         link: "/other/",

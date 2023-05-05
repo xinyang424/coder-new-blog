@@ -1,6 +1,6 @@
 @font-face {
-  font-family: "iconfont";
-  src:url('/iconfont/iconfont.ttf') format('truetype');
+  font-family: "iconfont"; 
+  src: url('/iconfont/iconfont.ttf') format('truetype');
 }
 
 .iconfont {
@@ -9,6 +9,10 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-words:before {
+  content: "\e603";
 }
 
 .icon-website:before {
@@ -134,3 +138,4 @@
 .icon-debug:before {
   content: "\e606";
 }
+
