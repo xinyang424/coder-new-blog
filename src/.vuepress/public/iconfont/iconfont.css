@@ -1,6 +1,6 @@
 @font-face {
-  font-family: "iconfont"; 
-  src: url('/iconfont/iconfont.ttf') format('truetype');
+  font-family: "iconfont"; /* Project id 3974296 */
+  src:url('/iconfont/iconfont.ttf') format('truetype');
 }
 
 .iconfont {
@@ -9,6 +9,10 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-miniprogram:before {
+  content: "\e63e";
 }
 
 .icon-words:before {

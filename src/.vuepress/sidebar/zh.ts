@@ -62,6 +62,13 @@ export const zhSidebar = sidebar({
       children: "structure",
     },
     {
+      text: "小程序",
+      icon: "miniprogram",
+      prefix: "miniprogram/",
+      collapsible: true,
+      children: "structure",
+    },
+    {
       text: "插件",
       icon: "npm",
       prefix: "npm/",
