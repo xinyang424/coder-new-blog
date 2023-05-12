@@ -39,9 +39,9 @@ export default hopeTheme({
     "/": {
       navbar: zhNavbar,
       sidebar: zhSidebar,
-      displayFooter: true,
+      // displayFooter: true,
       copyright: false,
-      footer: "MIT Licensed | Copyright © 2022-present Coder-New",
+      // footer: "MIT Licensed | Copyright © 2022-present Coder-New",
       blog: {
         description: "少年易学老难成，一寸光阴不可轻。",
         // intro: "/intro.html",

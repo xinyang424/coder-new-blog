@@ -2,15 +2,15 @@
 title: TypeScript
 date: 2022-03-01
 category:
-  - script系列
+  - javascript
 tag:
   - TS
 order: 3
 ---
 
-:::info
 💡参照TS官网：[TypeScript](https://www.typescriptlang.org/)
-:::
+
+<!-- more -->
 
 ## TS介绍
 

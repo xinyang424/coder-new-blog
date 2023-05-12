@@ -40,6 +40,7 @@ projects:
     desc: 利用lighthouse在线对你开发的网站做出评估
     link: https://pagespeed.web.dev/
 
-
+copyright: false
+footer: MIT Licensed | Copyright © 2020-present Coder-New
 ---
 

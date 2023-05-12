@@ -2,16 +2,17 @@
 title: Fetch API
 date: 2022-03-01
 category:
-  - script系列
+  - javascript
 tag:
   - Fetch
   - 网络请求
 ---
 
 
-:::tip 简介
-👁‍🗨fetch是XMLHttpRequest的升级版，用于在JavaScript脚本里面发出http请求。浏览器原生提供这个对象。
-:::
+fetch是XMLHttpRequest的升级版，用于在JavaScript脚本里面发出http请求。浏览器原生提供这个对象。
+
+
+<!-- more -->
 
 ## 基本用法
 

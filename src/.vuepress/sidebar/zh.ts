@@ -20,9 +20,9 @@ export const zhSidebar = sidebar({
       children: "structure",
     },
     {
-      text: "script",
+      text: "JavaScript",
       icon: "javascript",
-      prefix: "script/",
+      prefix: "javascript/",
       collapsible: true,
       children: "structure",
     },
