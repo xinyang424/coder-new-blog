@@ -17,13 +17,7 @@ tag:
 - Type:`string`
 - Default:`'/'`
 - 使用示例：
-```js
-module.exports = {
-  publicPath: process.env.NODE_ENV === 'production'
-    ? '/production-sub-path/'
-    : '/'
-}
-```
+`publicPath: process.env.NODE_ENV === 'production' ? '/production-sub-path/' : '/'`
 
 ### outputDir
 - Type:`string`
