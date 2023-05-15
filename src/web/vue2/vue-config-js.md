@@ -9,7 +9,7 @@ tag:
 
 
 ## 基本示例
-```text
+```js
 module.exports = {
     productionSourceMap: false,
     publicPath: './',
@@ -39,6 +39,7 @@ module.exports = {
     }
 }
 ```
+:::details 查看详情
 - productionSourceMap：生产环境是否生成`sourceMap`
 - publicPath：部署应用包时的基本URL，用法和`webpack`本身的`output.publicPath`一致。
     - 可以通过三元运算去配置 `dev` 和 `prod` 环境, `publicPath: process.env.NODE_ENV === 'production' ? '/prod/' : './'`
@@ -51,3 +52,4 @@ module.exports = {
   - open: `npm run serve` 时是否直接打开浏览器
 - chainWebpack：
   - `config.plugin('html')`的`args[0].title = 'xxxx'`，修改页面标题，通常是第一次加载时候的标题，最好进行配置，否则显示的是项目的名称。
+:::
