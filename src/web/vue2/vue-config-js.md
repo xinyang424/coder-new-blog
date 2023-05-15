@@ -9,7 +9,7 @@ tag:
 
 
 ## 基本示例
-```js
+```text
 module.exports = {
     productionSourceMap: false,
     publicPath: './',
