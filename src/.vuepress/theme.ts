@@ -14,8 +14,8 @@ export default hopeTheme({
   fullscreen: true,
   print: false,
   logo: "/logo.svg",
-  repo: "coder-new-web/coder-new-blog",
-  docsDir: "src",
+  repo: "coder-new-web/coder-new-web.github.io",
+  // docsDir: "src",
 
   blog: {
     medias: {
