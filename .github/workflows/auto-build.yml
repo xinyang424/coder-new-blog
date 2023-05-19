@@ -27,7 +27,7 @@ jobs:
       - name: Deploy to GitHub Repo
         uses: crazy-max/ghaction-github-pages@v2.2.0
         with:
-          repo: coder-new-web.github.io
+          repo: coder-new-web/coder-new-web.github.io
           target_branch: main
           build_dir: src/.vuepress/dist
         env:
