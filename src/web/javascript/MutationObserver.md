@@ -7,20 +7,20 @@ article: false
 index: false
 ---
 
-DOM规范中的MutationObserver 接口，可以在DOM被修改时异步执行回调。使用MutationObserver可以观察整个文档、DOM树的一部分，或某个元素。此外还可以观察元素属性、子节点、文本，或者前三者任意组合的变化。
+DOM规范中的`MutationObserver`接口，可以在DOM被修改时异步执行回调。使用`MutationObserver`可以观察整个文档、DOM树的一部分，或某个元素。此外还可以观察元素属性、子节点、文本，或者前三者任意组合的变化。
 <!-- more -->
 :::warning 注意
 新引进 MutationObserver 接口是为了取代废弃的 MutationEvent。
 :::
 
 ## 基本方法
-MutationObserver 的实例要通过调用 MutationObserver 构造函数并传入一个回调函数来创建：
+`MutationObserver` 的实例要通过调用 `MutationObserver` 构造函数并传入一个回调函数来创建：
 ```js
 let observer = new MutationObserver(() => console.log('DOM was mutated!')); 
 ```
 
 **1. observe()方法**
-新创建的 MutationObserver 实例不会关联 DOM 的任何部分。要把这个 observer 与 DOM 关联起来，需要使用 observe()方法。  
+新创建的 `MutationObserver` 实例不会关联 DOM 的任何部分。要把这个 observer 与 DOM 关联起来，需要使用 observe()方法。  
 这个方法接收两个必需的参数：
 - 观察其变化的DOM节点
 - 一个 MutationObserverInit 对象
@@ -36,7 +36,7 @@ console.log('Changed body class');
 // Changed body class
 // <body> attributes changed 
 ```
-执行以上代码后，`<body>`元素上任何属性发生变化都会被这个 MutationObserver 实例发现，然后就会异步执行注册的回调函数。<body>元素后代的修改或其他非属性修改都不会触发回调进入任务队列。
+执行以上代码后，`<body>`元素上任何属性发生变化都会被这个 MutationObserver 实例发现，然后就会异步执行注册的回调函数。`<body>`元素后代的修改或其他非属性修改都不会触发回调进入任务队列。
 
 :::warning 注意
 回调中的 console.log()是后执行的。这表明回调并非与实际的 DOM 变化同步执行。
