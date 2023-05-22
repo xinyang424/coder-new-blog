@@ -8,7 +8,9 @@ tag:
 order: 3
 ---
 
-💡参照TS官网：[TypeScript](https://www.typescriptlang.org/)
+
+英文TS官网：[TypeScript](https://www.typescriptlang.org/)  
+中文TS官网：[TypeScript](https://www.tslang.cn/)
 
 <!-- more -->
 
@@ -103,7 +105,7 @@ let infinityNumber:number = Infinity;//无穷大
 let decimal:number = 6;//十进制
 let hex:number = 0xf00d;//十六进制
 let binary:number = 0b1010;//二进制
-let octal:nmber = 0o744;//八进制
+let octal:number = 0o744;//八进制
 ```
 
 #### string类型
@@ -144,7 +146,7 @@ function Fn():void{
 
 //变量空值
 let u:void = undefined;
-let n:void = null;//这么声明null已经会报错了
+let n:void = null;//这么声明null已经会报错了：不能将类型“null”分配给类型“void”。
 ```
 
 #### Null和undefined类型
@@ -580,10 +582,10 @@ console.log(p.a)
 
 ### 元组（Tuple）
 
-JS中number[ ]的缺点：不严谨，因为该类型的数组中可以出现任意多个数字
-元组则是另一种数据类型，它确切地知道好多少个元素，以及特定索引对应的类型，如：
-如果需要一个固定的大小不同类型值的集合，我们可以使用元组
-元组也是数组的变种，元组是固定数量的不同类型的元素组合。
+JS中`number[ ]`的缺点：不严谨。因为该类型的数组中可以出现任意多个数字。  
+元组则是另一种数据类型，它确切地知道好多少个元素，以及特定索引对应的类型，如：  
+如果需要一个固定的大小不同类型值的集合，我们可以使用元组。  
+元组也是数组的变种，元组是固定数量的不同类型的元素组合。  
 元素与集合的不同之处在于，元组中的元素类型可以是不同的，而且数量固定。元组的好处在于可以把多个元素作为一个单元传递。如果一个方法需要返回多个值，可以把这多个值作为元组返回，而不需要创建额外的类来表示。
 
 ```typescript
@@ -596,23 +598,24 @@ let arr2: readonly [number,boolean,string,undefined] = [1,true,'sring',undefined
 
 
 //当赋值或访问一个已知索引的元素时，会得到正确的类型
-arr2[0].length //error
-arr2[2].length //success
+arr2[0].length //error 第0位为数字，无长度，报错
+arr2[2].length //success 第2位为字符串，有长度，正确
 ```
 
-对于越界元素它的类型会被限制为联合类型，比如定义的是string和number，就不会允许你用boolean。
+对于越界元素它的类型会被限制为联合类型，比如定义的是string和number，就不会允许你添加boolean进去，但是你可以添加string类型或者number类型。
 或者当你访问元组的越界元素时，会使用联合类型来代替
 
 ```typescript
 let arr:[string,number] = ["qyxc",123]
 arr.push(true) //error
 arr.push("123123")//不会报错。虽然定义的时候仅允许两个元素，但是可以通过push进去
+console.log(arr); // [ 'qyxc', 123, '123123' ]   可以看到也是成功添加进去的
 ```
 
 应用场景，返回excel格式，一般就是二维数组
 
 ```typescript
-let excel:[string,string,nmber][]=[
+let excel:[string,string,number][]=[
   ["title","name",1]
 ]
 ```
@@ -790,9 +793,7 @@ let success:number = Types.success
 
 let key = Types[1]//当不知道1在枚举里叫什么名字时，可以这样
 
-console.log(`value--${success}`,`key---${key}`)
-
-
+console.log(`value---${success}`,`key---${key}`); //value--1 key---success
 ```
 
 字符串无法进行反向映射：
@@ -804,7 +805,7 @@ enum Types {
 
 let success: string = Types.success
 
-let key = Types[success]//此时这里就会报错
+let key = Types[success]//运行此段代码会在这里报错，但是编写代码的时候是不会报错的
 
 console.log(`value--${success}`, `key---${key}`)
 ```
@@ -814,14 +815,15 @@ console.log(`value--${success}`, `key---${key}`)
 ### 联合类型 |
 
 ```typescript
-let 变量名:(string|number)[]      //约束为字符串或数字的数组
-let 变量名:string|number[]       //约束为字符串或者是数字类的数组
+let 变量名:(string|number)[]      //代表意思是由数字或字符串组成的数组
+let 变量名:string|number[]       //代表意思是要么是字符串，要么是由数字组成的数组，注意跟上面的区分，少括号的区别
 let 变量名:string|number
 ```
 
-注意：
-| 在TS里面又叫联合类型。
-联合类型：由两个或多个其它类型组成的类型，表示可以是这些类型中的任意一种。
+:::warning 注意
+| 在TS里面又叫联合类型。联合类型：由两个或多个其它类型组成的类型，表示可以是这些类型中的任意一种。
+:::
+
 
 #### 函数使用联合类型
 
@@ -846,26 +848,27 @@ const fn = (somethine:number | boolean):boolean=>{
 ```typescript
 interface People {
   age: number,
-  height： number
+  height:number
 }
 interface Man{
   sex: string
 }
-const xiaoman = (man: People & Man) => {
+const createPeople = (man: People & Man) => {
   console.log(man.age)
   console.log(man.height)
   console.log(man.sex)
 }
 //不能多也不能少一个属性
-xiaoman({age: 18,height: 180,sex: 'male'});
+createPeople({age: 18,height: 180,sex: 'male'});
 ```
 
 ---
 
 ### 类型断言
 
-使用类型断言来指定更具体的类型
-如：如果定义一个变量只能是获取页面的元素节点，且防止这个变量赋值为其它的，可以这么为此使用类型断言。
+使用类型断言来指定更具体的类型。  
+如：如果定义一个变量只能是获取页面的元素节点，且防止这个变量赋值为其它的，可以这么为此使用类型断言。  
+使用断言的方式可以是`as`断言，也可以是使用泛型断言：`<T>`，T就是传入的类型。
 
 #### DOM节点断言
 
@@ -881,7 +884,8 @@ let fn = function(num:number | string) :void{
   console.log((num as string).length)
 }
 
-fn('12345')
+fn('12345'); // 5
+fn(12345); //undefined  数字是没有长度的
 ```
 
 #### 形参上未知属性使用断言
@@ -1057,15 +1061,15 @@ type bbb = string & number ;//会推断出never类型
 #### never类型和void类型区别
 
 ```typescript
-    //void类型只是没有返回值 但本身不会出错
-    function Void():void {
-        console.log();
-    }
+//void类型只是没有返回值 但本身不会出错
+function Void():void {
+    console.log();
+}
  
-    //只会抛出异常没有返回值
-    function Never():never {
-    throw new Error('aaa')
-    }
+//只会抛出异常没有返回值
+function Never():never {
+  throw new Error('aaa')
+}
 ```
 
 #### never类型应用场景
@@ -1222,7 +1226,7 @@ console.log(Reflect.ownKeys(obj))
 
 #### Symbol.iterator 迭代器 和 生成器 for of
 
-支持遍历大部分类型迭代器：Array、nodeList、argumetns、set(new Set())、map(new map()) 等，
+支持遍历大部分类型迭代器：Array、nodeList、arguments、set(`new Set()`)、map(n`ew map()`) 等。  
 作用：在数据量很大的情况下，可以使用迭代器惰性加载数据
 
 ```typescript
@@ -1294,38 +1298,29 @@ for(let item of map){
 ```
 
 注意：
-1、同样是不支持对象
-2、for in循环数组，打印出来的是索引，而for of循环数组可直接把值读取出来
+1. 同样是不支持对象
+2. for in循环数组，打印出来的是索引，而for of循环数组可直接把值读取出来
 
 以下为这些symbols的列表：
-Symbol.hasInstance
-方法，会被instanceof运算符调用。构造器对象用来识别一个对象是否是其实例。
-Symbol.isConcatSpreadable
-布尔值，表示当在一个对象上调用Array.prototype.concat时，这个对象的数组元素是否可展开。
-Symbol.iterator
-方法，被for-of语句调用。返回对象的默认迭代器。
-Symbol.match
-方法，被String.prototype.match调用。正则表达式用来匹配字符串。
-Symbol.replace
-方法，被String.prototype.replace调用。正则表达式用来替换字符串中匹配的子串
-Symbol.search
-方法，被String.prototype.search调用。正则表达式返回被匹配部分在字符串中的索引。
-Symbol.species
-函数值，为一个构造函数。用来创建派生对象。
-Symbol.split
-方法，被String.prototype.split调用。正则表达式来用分割字符串。
-Symbol.toPrimitive
-方法，被ToPrimitive抽象操作调用。把对象转换为相应的原始值。
-Symbol.toStringTag
-方法，被内置方法Object.prototype.toString调用。返回创建对象时默认的字符串描述。
-Symbol.unscopables
-对象，它自己拥有的属性会被with作用域排除在外。
+- `Symbol.hasInstance`：此方法会被instanceof运算符调用。构造器对象用来识别一个对象是否是其实例。
+- `Symbol.isConcatSpreadable`：布尔值类型，表示当在一个对象上调用Array.prototype.concat时，这个对象的数组元素是否可展开。
+- `Symbol.iterator`：此方法会被for-of语句调用。返回对象的默认迭代器。
+- `Symbol.match`：此方法会被String.prototype.match调用。正则表达式用来匹配字符串。
+- `Symbol.replace`：此方法会被String.prototype.replace调用。正则表达式用来替换字符串中匹配的子串
+- `Symbol.search`：此方法会被String.prototype.search调用。正则表达式返回被匹配部分在字符串中的索引。
+- `Symbol.species`：函数值，为一个构造函数。用来创建派生对象。
+- `Symbol.split`：此方法会被String.prototype.split调用。正则表达式来用分割字符串。
+- `Symbol.toPrimitive`：此方法会被ToPrimitive抽象操作调用。把对象转换为相应的原始值。
+- `Symbol.toStringTag`：此方法会被内置方法Object.prototype.toString调用。返回创建对象时默认的字符串描述。
+- `Symbol.unscopables`：对象，它自己拥有的属性会被with作用域排除在外。
 
 ---
 
 ### 内置对象
 
+:::note 简介
 JS有很多内置对象，它们可以直接在TS中当作定义好的类型。
+:::
 
 #### ECMAScript的内置对象
 
@@ -1541,6 +1536,22 @@ new Person("qyxc",18)
 
 //一般定义的变量必须得用，否则就会报错，要么就是age声明类型的时候，书写默认值：age:string = 10
 // 要么就是在constructor里，this.age = age  //即赋值
+
+class Person {
+  name: string;
+  age: number;
+  constructor(name: string, age?: number) {
+    this.name = name;
+    this.age = age || 20;//不传age默认值为20
+  }
+  get() {
+    console.log(this.age);
+  }
+}
+
+let people = new Person("John");
+
+people.get();// 20
 ```
 
 ### 属性类型
@@ -1560,7 +1571,7 @@ console.log(d1.a);//可以访问到a
 
 #### 私有属性（private）
 
-关键字：private，使用private关键字只能在自己类中使用，如：
+关键字：private，使用private关键字只能在自己类中使用，继承也是访问不到的，如：
 
 ```typescript
 class Demo {
@@ -1626,8 +1637,7 @@ console.log(d2.show2());//正确访问，可以在子类中使用
 
 #### 静态属性和静态方法（static）
 
-静态属性
-我们用static 定义的属性 不可以通过this 去访问 只能通过类名去调用
+静态属性：用static 定义的属性，通过实例化后是访问不到的且类内无法通过this访问，但可以直接通过类名去访问，如下：
 
 ```typescript
 class Demo {
@@ -1645,13 +1655,15 @@ console.log(d1.cb); //访问不到cb
 console.log(Demo.cb);//访问得到cb
 ```
 
-静态方法
-static 静态函数 同样也是不能通过this 去调用 也是通过类名去调用，如果两个函数都是static 静态的是可以通过this互相调用。
+静态方法：用static关键字定义的静态函数，同样实例化后是访问不到的，但可以直接通过类名去访问，不同的是类里无法通过this访问，但如果同样同属于静态方法，它们之间可以通过this访问的到。
 
 ```typescript
 class Demo {
     constructor(name: string) {
         // this.run()//访问不到run方法
+    }
+    stop(){
+      //return this.run() //访问不到run函数
     }
     static run() {
         return '123123';
@@ -1665,8 +1677,9 @@ let d1 = new Demo("qyxc")
 console.log(d1.go()); //访问不到go方法
 console.log(Demo.go());//访问得到go方法
 ```
-
-static无论是静态方法还是静态属性都可以互相访问，但是不能访问如public、private等定义的变量
+:::warning 注意
+static无论是静态方法还是静态属性都可以互相访问，但是不能访问如public、private等定义的变量。
+:::
 
 ### interface定义类
 
@@ -1742,8 +1755,7 @@ console.log(d1.age);
 
 ### 抽象类
 
-里面有抽象方法和抽象属性，或者是实现了的方法和属性
-抽象类不能直接new后使用，需要继承再使用
+抽象类里面有抽象方法和抽象属性，或者是实现了的方法和属性抽象类不能直接new后使用，需要继承再使用。
 
 #### 如何定义抽象类
 
@@ -1802,15 +1814,9 @@ console.log(b.getName());
 
 #### 抽象类和接口的区别
 
-         1. 接口里面属性不能给值,接口里面不能写已经实现的方法。
-    
-                                 抽象类里面可以写已经实现的属性和方法。
-    
-         2. 接口可以实现多个。
-
-类只能继承一个。
-
-         3. 抽象类里面可以定义公共、受保护类型。
+1. 接口里面属性不能给值,接口里面不能写已经实现的方法。抽象类里面可以写已经实现的属性和方法。
+2. 接口可以实现多个。类只能继承一个。
+3. 抽象类里面可以定义公共、受保护类型。
 
 接口默认都是公共类型。
 
@@ -1818,7 +1824,7 @@ console.log(b.getName());
 
 ### 泛型
 
-数据类型是可变的，具体看是什么，传了什么数据类型。变量类型变量化
+数据类型是可变的，具体看是什么，传了什么数据类型。使得变量类型变量化。
 
 #### 函数泛型
 
@@ -1862,8 +1868,7 @@ getLength([1,2,3])//此时传就必须传带有length的参数
 
 ##### 接口泛型
 
-声明接口的时候 在名字后面加一个<参数>
-使用的时候传递类型
+声明接口的时候在名字后面加一个`<参数>`使用的时候传递类型： 
 
 ```typescript
 interface MyInter<T> {
@@ -1882,7 +1887,10 @@ result(123)
 #### 对象字面量泛型
 
 ```typescript
-let foo: { <T>(arg: T): T }
+let foo: { 
+  <T>(arg: T): T 
+}
+
  
 foo = function <T>(arg:T):T {
    return arg
@@ -1901,7 +1909,7 @@ function prop<T>(obj: T, key) {
    return obj[key]
 }
 
-//优化后的函数
+//优化后的函数——T是传入的对象，K则应该是传入这个对象的key值，应该用keyof约束一下
 function prop<T, K extends keyof T>(obj: T, key: K) {
    return obj[key]
 }
@@ -1916,20 +1924,24 @@ prop(o, 'd') //优化前的函数不会报错，而优化后的函数此时就�
 ### 类泛型
 
 ```typescript
-class Demo<T>{
-    attr:T[]:[];
-    name: T
-    age: number
-    constructor(name: T, age: number) {
-    }
-  add(a:T):Array<T>{
-    return [a]
+class Demo<T> {
+  attr: T[] = [];
+  name: T;
+  age: number;
+  constructor(name: T, age: number) {
+    this.name = name;
+    this.age = age;
+  }
+  add(a: T): Array<T> {
+    return [a];
   }
 }
-let s = new Demo<string>('aaa', 18)
-s.attr=[1,2,3]
-s.add(213)
-//实例化对象定义泛型为string类型，Demo类订定义了泛型，规定name属性必须为string
+let s = new Demo<string>("aaa", 18);
+//实例化对象时候定义了泛型为string类型，因此name属性必须为string，不能为其它类型。
+s.attr = ["a", "b", "c"];
+console.log(s.attr, s.add("213")); //[ 'a', 'b', 'c' ] [ '213' ]
+
+// s.attr.unshift(123)//报错，不能添加类型number数字进类型string构成的数组
 ```
 
 这种约束数据类型只有在调用时候再约束数据类型，不像接口哪些，直接把某个属性或者变量直接定死的数据类型，不够泛型用起来灵活。
@@ -2037,61 +2049,43 @@ tsconfig.json文件是通过`tsc -- init`命令生成的，而使用`tsc`命令�
 
 ### 常用的配置项
 
-1、include——指定编译文件默认是编译当前目录下所有的ts文件。
-
+1. include——指定编译文件默认是编译当前目录下所有的ts文件。
 ```typescript
 "include": ["./index.ts"],
 ```
-
-2、exclude——指定排除的文件
-
+2. exclude——指定排除的文件
 ```typescript
 "exclude": ["./index.ts"],
 ```
-
-3、target——指定编译js的版本，例如es5或es6
-
+3. target——指定编译js的版本，例如es5或es6
 ```typescript
 "target":"es5"
 ```
-
-4、allowJS——是否允许编译js文件
-
+4. allowJS——是否允许编译js文件
 ```typescript
 "allowJS":true
 ```
-
-5、removeComments——是否在编程过程中删除文件中的注释
-
+5. removeComments——是否在编程过程中删除文件中的注释
 ```typescript
 "removeComments":true
 ```
-
-6、rootDir——编译文件的目录
-7、outDir——输出的目录
-
+6. rootDir——编译文件的目录
+7. outDir——输出的目录
 ```typescript
 "outDir":"./dist"
 ```
-
-8、sourceMap——代码源文件
-
+8. sourceMap——代码源文件
 ```typescript
 "sourceMap":true
 ```
-
-9、strict——严格模式，禁止滥用类型
-
+9. strict——严格模式，禁止滥用类型
 ```typescript
 "strict":true
 ```
-
-10、module——默认commonjs  可选ES6模式 amd  umd 等
-
+10. module——默认commonjs  可选ES6模式 amd  umd 等
 ```typescript
 "module":"commonjs "
 ```
-
 commonjs用的require引用，nodejs也遵循commonjs。
 
 ## 命名空间
@@ -2226,7 +2220,7 @@ console.log(A.B)
 三斜线指令是包含单个XML标签的单行注释。注释的内容会作为编译器指令使用。
 三斜线指令仅可放在包含它的文件的最顶端。一个三斜线指令的签名只能出现单行或多行注释。这包含其它的三斜线指令。如果它们出现在一个语句或声明之后，那么它们会被当作普通的单行注释，并且不具有特殊的涵义。
 /// <reference path="..." />指令是三斜线指令中最常见的一种。 它用于声明文件间的 _依赖_。
-三斜线引用告诉[编译器](https://so.csdn.net/so/search?q=%E7%BC%96%E8%AF%91%E5%99%A8&spm=1001.2101.3001.7020)在编译过程中要引入的额外的文件。
+三斜线引用告诉编译器在编译过程中要引入的额外的文件。
 你也可以把它理解能import，它可以告诉编译器在编译过程中要引入的额外的文件。
 
 ### 利用三斜线指令引入变量
@@ -2294,7 +2288,7 @@ import express from 'express';//此时声明文件没报错了，但是前面没
 {
   "compilerOptions":{
     "strict":true,
-     "allowSyntheticDefaultImports": true,//配置这一项就不会报错了
+    "allowSyntheticDefaultImports": true,//配置这一项就不会报错了
   }
 }
 ```
@@ -2307,31 +2301,31 @@ TS混入Mixins其实vue也有mixins这个东西，你可以把他看作合并
 
 ### 对象混入
 
-可以使用es6的Object.assign合并多个对象
+可以使用es6的`Object.assign`合并多个对象
 
 ```typescript
 interface Name {
-    name: string
+  name: string;
 }
 interface Age {
-    age: number
+  age: number;
 }
 interface Sex {
-    sex: number
+  sex: number;
 }
- 
-let people1: Name = { name: "小满" }
-let people2: Age = { age: 20 }
-let people3: Sex = { sex: 1 }
- 
-const people = Object.assign(people1,people2,people3)
 
-console.log(people)
+let people1: Name = { name: "小满" };
+let people2: Age = { age: 20 };
+let people3: Sex = { sex: 1 };
+
+const people = Object.assign(people1, people2, people3);
+
+console.log(people); //{ name: '小满', age: 20, sex: 1 }
 ```
 
 ### 类的混入
 
-首先声明两个mixins类 （严格模式要关闭不然编译不过）
+首先声明两个mixins类 （严格模式要关闭不然编译不过，也就是在`tsconfig.json`文件中将`strict`设为`false`）。
 
 ```typescript
 class A {
@@ -2350,9 +2344,9 @@ class B {
 }
 ```
 
-下面创建一个类，结合了这两个mixins
-首先应该注意到的是，没使用extends而是使用implements。 把类当成了接口
-我们可以这么做来达到目的，为将要mixin进来的属性方法创建出占位属性。 这告诉编译器这些成员在运行时是可用的。 这样就能使用mixin带来的便利，虽说需要提前定义一些占位属性
+下面创建一个类，结合了这两个mixins：  
+首先应该注意到的是，没使用extends而是使用implements。 把类当成了接口。  
+我们可以这么做来达到目的，为将要mixin进来的属性方法创建出占位属性。 这告诉编译器这些成员在运行时是可用的。 这样就能使用mixin带来的便利，虽说需要提前定义一些占位属性。
 
 ```typescript
 class C implements A,B{
@@ -2364,7 +2358,7 @@ class C implements A,B{
 ```
 
 最后，创建这个帮助函数，帮我们做混入操作。 它会遍历mixins上的所有属性，并复制到目标上去，把之前的占位属性替换成真正的实现代码
-Object.getOwnPropertyNames()可以获取对象自身的属性，除去他继承来的属性，
+`Object.getOwnPropertyNames()`可以获取对象自身的属性，除去他继承来的属性，
 对它所有的属性遍历，它是一个数组，遍历一下它所有的属性名
 
 ```typescript
@@ -2505,9 +2499,9 @@ console.log((a as any).getNames());
 ### 方法装饰器
 
 返回三个参数：
-1、对于静态成员来说是类的构造函数，对于实例成员是类的原型对象。
-2、成员的名字。
-3、成员的属性描述符
+1. 对于静态成员来说是类的构造函数，对于实例成员是类的原型对象。
+2. 成员的名字。
+3. 成员的属性描述符
 
 #### 如何定义方法装饰器
 
@@ -2628,7 +2622,7 @@ const a = new A();
 
 ## 安装依赖
 
-复制以下内容到`package.json`文件中，并允许`npm install`
+复制以下内容到`package.json`文件中，并运行`npm install`
 
 ```json
 {
@@ -2637,7 +2631,7 @@ const a = new A();
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+     "build": "rollup -c"
   },
   "keywords": [],
   "author": "",
@@ -2657,9 +2651,9 @@ const a = new A();
 
 ## 配置文件
 
-1、初始化`rollup.config.js`文件：
+1. 初始化`rollup.config.js`文件：
 
-```json
+```js
 
 import path from 'path'//读取路径
 
@@ -2679,7 +2673,7 @@ export default {
 
 ```
 
-2、在`package.json`配置打包命令，即：
+2. 在`package.json`配置打包命令，即：
 
 ```json
 "scripts": {
@@ -2689,7 +2683,7 @@ export default {
 
 `rollup -c`就是根目录
 
-3、修改`ts.config.json`，将`"module": "commonjs"`,修改为`"module": "es5"`
+3. 修改`ts.config.json`，将`"module": "commonjs"`,修改为`"module": "es5"`
 ![image.png](https://cdn.nlark.com/yuque/0/2022/png/26898279/1670567928568-e75c3f29-6c16-4a8d-b038-18f382eb09db.png#averageHue=%23fcfaf7&clientId=uefe19e36-17d2-4&from=paste&height=51&id=u99fc2163&name=image.png&originHeight=51&originWidth=655&originalType=binary&ratio=1&rotation=0&showTitle=false&size=6723&status=done&style=none&taskId=u36fa2a45-3957-4e15-8ef2-15128412af8&title=&width=655)
 
 4、终端运行命令`npm run build`，运行完成目录中也会多一个文件夹：
@@ -2835,11 +2829,11 @@ export default {
 
 12、虽然代码压缩了，但是此时如果在在控制台点击查看代码，就会发现代码被压缩，不好分析，此时可以配置`sourcemap`，在`rollup.config.js`文件中：
 
-```javascript
+```js
 output: {
-        file: path.resolve(__dirname, './lib/index.js'),
-        format: "umd",
-        sourcemap: true
+  file: path.resolve(__dirname, './lib/index.js'),
+  format: "umd",
+  sourcemap: true
 },
 ```
 
@@ -2849,16 +2843,15 @@ output: {
  "sourceMap": true,
 ```
 
-配置好后再次重新运行：
+配置好后再次重新运行：  
 ![image.png](https://cdn.nlark.com/yuque/0/2022/png/26898279/1670569482823-1848f69b-5921-4a8f-b8e4-9d1b121c17cb.png#averageHue=%23f8f7f6&clientId=u47048856-c624-4&from=paste&height=137&id=ue5c69a26&name=image.png&originHeight=137&originWidth=802&originalType=binary&ratio=1&rotation=0&showTitle=false&size=13416&status=done&style=none&taskId=uf1fded4a-56b3-4e1c-b396-4ed03f6b089&title=&width=802)
-此时点击就很方便查看到源文件了：
+此时点击就很方便查看到源文件了：  
 ![image.png](https://cdn.nlark.com/yuque/0/2022/png/26898279/1670569506159-f72428ba-cb4c-4f53-bfb8-327f7f2ced0c.png#averageHue=%23f4f4f3&clientId=u47048856-c624-4&from=paste&height=213&id=uc331ec7d&name=image.png&originHeight=213&originWidth=734&originalType=binary&ratio=1&rotation=0&showTitle=false&size=22762&status=done&style=none&taskId=ub54e353d-e1a1-43f0-94ab-09d1bd96350&title=&width=734)
 
 13、如何判断是生产环境还是开发环境，可以借助两个插件：`cross-env`和`rollup-plugin-replace`，两个依赖下载好后，配置`package.json`文件的启动命令：
 
-```javascript
+```js
 "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "cross-env NODE_ENV=development  rollup -c -w",
     "build": "cross-env NODE_ENV=produaction  rollup -c"
 },
@@ -2876,7 +2869,7 @@ console.log(process.env);
 
 15、修改`rollup.config.js`文件
 
-```javascript
+```js
 
 console.log(process.env);//可以在终端打印出来环境变量
 
@@ -2920,7 +2913,7 @@ export default {
 
 在index.ts文件中：
 
-```javascript
+```js
 const a: string = 'qyxc123123'
 
 console.log(process.env.NODE_ENV);
@@ -3017,7 +3010,6 @@ terser({
   "description": "",
   "main": "webpack.config.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack-dev-server"
   },
   "keywords": [],
@@ -3094,7 +3086,6 @@ console.log('webpack')
 
 ```json
 "scripts": {
-  "test": "echo \"Error: no test specified\" && exit 1",
   "dev": "webpack-dev-server"
 },
 ```
@@ -3108,7 +3099,6 @@ console.log('webpack')
 
 ```json
  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack-dev-server",
     "build": "webpack"
   },
@@ -3130,7 +3120,7 @@ console.log('webpack')
 
 ## 思维导图
 
-定义三个角色：发布者、订阅者、调度者
+定义三个角色：发布者、订阅者、调度者  
 ![image.png](https://cdn.nlark.com/yuque/0/2022/png/26898279/1670573776347-8873d68e-e8c3-44fb-9fae-1d28740c10dc.png#averageHue=%23fafafa&clientId=u47048856-c624-4&from=paste&height=313&id=u83310d0e&name=image.png&originHeight=313&originWidth=650&originalType=binary&ratio=1&rotation=0&showTitle=false&size=34525&status=done&style=none&taskId=u0246f1fd-52b3-4f91-91c6-c3079585a7a&title=&width=650)
 
 ## 具体代码
@@ -3140,7 +3130,7 @@ console.log('webpack')
 3. once——只执行一次
 4. off——解除绑定
 
-```json
+```js
 interface EventFace {
     on: (name: string, callback: Function) => void,
     emit: (name: string, ...args: Array<any>) => void,
@@ -3376,21 +3366,13 @@ type Partial<T> = {
 
 #### Partial源码解析
 
-1. in
+1. `in`：可以理解成for in P 就是key 遍历  keyof T  就是联合类型的每一项
 
-in 我们可以理解成for in P 就是key 遍历  keyof T  就是联合类型的每一项
+2. `keyof`：将一个接口对象的全部属性取出来变成联合类型
 
-2. keyof
+3. `?`：这个操作就是将每一个属性变成可选项
 
-将一个接口对象的全部属性取出来变成联合类型
-
-3. ?
-
-这个操作就是将每一个属性变成可选项
-
-4. T[P]
-
-T[P] 索引访问操作符，与 JavaScript 种访问属性值的操作类似
+4. `T[P]`：索引访问操作符，与 JavaScript 种访问属性值的操作类似
 
 ### Pick
 
@@ -3402,11 +3384,11 @@ T[P] 索引访问操作符，与 JavaScript 种访问属性值的操作类似
 type Person = {
     name:string,
     age:number,
-    text:string
+    text:string,
     address:string
 }
  
-type Ex = "text" | "age"
+type Ex = "text" | "age";
  
 type A = Pick<Person,Ex>
 ```
@@ -3436,6 +3418,34 @@ type Pick<T, K extends keyof T> = {
 1. extends——约束K只能是T里面的
 2. keyof——将一个接口对象的全部属性取出来变成联合类型，也就是约束key只能是K对象
 
+### Omit
+在某一声明类型中，排除某一项，与Pick干的是相反的事，Pick是选择一些，Omit是将选择的排除掉。
+#### Omit使用示例代码
+```ts
+interface Person {
+  name: string;
+  age: number;
+  sex: string;
+}
+
+type Person2 = Omit<Person, "sex">;
+//鼠标悬停在Person2可以看出：
+/*
+  {
+    name: string,
+    age: number
+  }
+*/
+```
+
+#### Omit源码
+```ts
+type Omit<T, K extends string | number | symbol> = {
+  [P in Exclude<keyof T, K>]: T[P];
+};
+
+```
+
 ## Record & Readonly
 
 ### Readonly
@@ -3460,6 +3470,8 @@ type man = {
 }
 ```
 
+
+
 #### Readonly源码
 
 ```typescript
@@ -3474,7 +3486,7 @@ Readonly 这个操作就是将每一个属性变成只读
 
 ### Record
 
-做到了约束 对象的key 同时约束了 value
+做到了约束对象的key同时约束了value，像是把两个`interface`和`typeof`混合在一起，是一个新的对象声明
 
 #### Record示例代码
 

@@ -1,5 +1,5 @@
 ---
-title: cookie
+title: Cookie
 date: 2022-08-15
 category:
   - javascript
