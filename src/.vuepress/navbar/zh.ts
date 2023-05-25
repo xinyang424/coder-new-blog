@@ -55,4 +55,20 @@ export const zhNavbar = navbar([
     icon: "software",
     link: "/software/",
   },
+  {
+    text: "关于",
+    icon: "more",
+    children: [
+      {
+        text: "关于我",
+        icon: "me",
+        link: "/about/about-me",
+      },
+      {
+        text: "关于本站",
+        icon: "about-website",
+        link: "/about/about-website",
+      },
+    ],
+  },
 ]);

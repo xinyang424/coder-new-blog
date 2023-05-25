@@ -1,6 +1,6 @@
 @font-face {
-  font-family: "iconfont"; /* Project id 3974296 */
-  src:url('/iconfont/iconfont.ttf') format('truetype');
+  font-family: "iconfont";
+  src: url("/iconfont/iconfont.ttf") format("truetype");
 }
 
 .iconfont {
@@ -9,6 +9,18 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-more:before {
+  content: "\e6d0";
+}
+
+.icon-me:before {
+  content: "\e67d";
+}
+
+.icon-about-website:before {
+  content: "\e7bf";
 }
 
 .icon-miniprogram:before {
@@ -142,4 +154,3 @@
 .icon-debug:before {
   content: "\e606";
 }
-

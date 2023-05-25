@@ -33,17 +33,3 @@ Chrome高级调试技巧总结
 
 ## Add conditional breakpoint 条件断点的妙用
 
-
-关于你昨天说的元组，今天我也来复习一下，元组属于数组的变种。
-
-使用场景在已知数组的个数，且数组的每一位都知道是什么数据类型。
-如const arr:[number,string,boolean] = [123,"123",true];
-
-虽然数组第一次初始化时，我们已知数组的个数且每一位是什么数据类型，就只能这么初始化，但是在后面中我们任然可以通过数组方法添加元素，该元素被称为越界元素，对于越界元素，它的数据类型，是定义元组时候数据类型的联合类型，即：number | string | boolean。
-
-说人话就是，以上面定义的arr举例，越界元素满足number或string或boolean类型即可，不能是其它类型。
-示例：
-arr.unshift("123"); // success
-arr.splice(0,0,"abc","bbc"); //succsss
-const s1: symbol = Symbol("s1");
-arr.push(s1);//error symbol类型不属于number | string | boolean
