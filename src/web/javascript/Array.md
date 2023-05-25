@@ -7,7 +7,7 @@ category:
 
 
 
-ECMAScript数组也是一组有序的数据，但跟其它语言不同的是，数组中每个槽位可以存储任意类型的数据。这意味着可以创建一个数组，它的第一个元素是字符串，第二个元素是数值，第三个是对象。ECMAScript数组也是动态大小的，会随着数据添加而自动增长。
+ECMAScript数组是一组有序的数据，但跟其它语言不同的是，数组中每个槽位可以存储任意类型的数据。这意味着可以创建一个数组，它的第一个元素可以是字符串，第二个元素可以是数值，第三个元素也可以是对象。并且ECMAScript数组也是动态大小的，即数组长度会随着数据添加而自动增长。
 <!-- more -->
 ## 创建数组
 
@@ -27,7 +27,7 @@ let values = [1,2,]; // 创建一个包含 2 个元素的数组，长度为2
 
 ## from()和of()
 
-from()用于讲类数组结构转换为数组实例，而of()用于将一组参数转换为数组实例。
+`from()`用于讲类数组结构转换为数组实例，而of()用于将一组参数转换为数组实例。
 
 Array.from()的第一个参数是一个类数组对象，即任何可迭代的结构，或者有一个length属性和可索引元素的结构。这种方式可用于很多场合：
 ```js
@@ -60,7 +60,7 @@ const iter = {
 };
 console.log(Array.from(iter)); // [1, 2, 3, 4] 
 
-// arguments 对象可以被轻松地转换为数组
+// arguments 对象可以被轻松地转换为数组 注意！！！ 箭头函数无arguments
 function getArgsArray() {
  return Array.from(arguments);
 }
@@ -208,7 +208,13 @@ if (myArray instanceof Array){
 ```js
 if (Array.isArray(value)){
  // 操作数组
-} 
+}
+
+const options = [1, , , , 5];
+function gteArguments() {
+  console.log(Array.isArray(arguments));//false
+}
+gteArguments(1, 2, 3, 4);//类数组不是真正的数组
 ```
 
 ## 迭代器方法
@@ -256,7 +262,12 @@ for (const [idx, element] of a.entries()) {
 - 开始索引用于指定开始填充的位置，它是可选的。
 - 如果不提供结束索引，则一直填充到数组末尾。
 - 负值索引从数组末尾开始计算。也可以将负索引想象成数组长度加上它得到的一个正索引
-
+:::note 使用
+只有一位参数时，代表填充的元素，默认填充整个数组为该元素。  
+当有两位参数时，第一位还是为填充元素，第二位为开始填充的位置，默认填充到数组索引结束。  
+当有三位参数时，第一位参数依旧是填充元素，第二位参数为开始填充的位置（包括该位置），第二位参数为填充结束位置（不包括该位置，接结束索引-1）。  
+当索引过高或过低时，都无效；当索引反向，即从右到左时，无效；当索引部分可用时，可用索引有效，其余无效。
+:::
 ```js
 const zeroes = [0, 0, 0, 0, 0];
 
@@ -305,6 +316,12 @@ console.log(zeroes); // [0, 0, 0, 4, 4]
 
 ### copyWithin()
 与fill()不同，copyWithin()会按照指定范围浅复制数组中的部分内容，然后将它们插入到指定索引开始的位置：
+:::note 使用
+一位参数时，该参数代表插入位置，默认从索引0开始复制。  
+两位参数时，第一位为插入位置，第二位为开始复制的索引，默认复制到数组结束索引。  
+三位参数时，第一位为插入位置，第二位为开始复制的索引（包括该位置），第三位为结束位置（不包括该位置，也是结束位置-1）。  
+当索引过高或过低时，都无效；当索引反向，即从右到左时，无效；当索引部分可用时，可用索引有效，其余无效。
+:::
 ```js
 let ints,
  reset = () => ints = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
@@ -432,7 +449,7 @@ let people = [person1, person2];
 alert(people);//Uncaught TypeError: Cannot convert object to primitive value.  两个数组是没法用join()的
 ```
 
-**join()不传参数默认就是undefined，undefined用`,`拼接**
+**join()不传参数默认就是undefined，即会用`,`拼接**
 
 :::warning 注意
 如果数组中某一项是 null 或 undefined，则在 join()、toLocaleString()、toString()和 valueOf()返回的结果中会以空字符串表示。

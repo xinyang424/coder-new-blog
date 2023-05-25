@@ -18,7 +18,7 @@ fetch是XMLHttpRequest的升级版，用于在JavaScript脚本里面发出http�
 
 `fetch()`的功能与XMLHttpRequest基本相同，但有三个主要差异：
 1. `fetch()`使用Promise，不使用回调函数，因此大大简化了写法，写起来更简洁。
-2. `fetch()`采用模块化设计，API分散再多个对象上（Response对象、Request对象、Header对象），更合理些；相比之下，XMLHtppRequest的API设计并不是很好，输入、输出、状态都在同一个接口管理，容易写出非常混乱的代码。
+2. `fetch()`采用模块化设计，API分散在多个对象上（Response对象、Request对象、Header对象），更合理些；相比之下，XMLHtppRequest的API设计并不是很好，输入、输出、状态都在同一个接口管理，容易写出非常混乱的代码。
 3. `fetch()`通过数据流（Stream对象）处理数据，可以分块读取，有利于提高网站性能表现，减少内存占用，对于请求大文件或者网速慢得场景相当有用。XMLHttpRequest对象不支持数据流，所有得数据必须放在缓存里，不支持分块读取，必须等待全部拿到后，再一次性吐出来。
 
 在用法上，`fetch()`接口一个URL字符串作为参数，默认向该网址发出Get请求，返回一个Promise对象。它的基本用法如下：
@@ -54,11 +54,11 @@ async function fetchText() {
 3. `response.statusText`属性返回一个字符串，表示http回应的状态信息（例如请求成功以后，服务器返回“OK”）
 4. `response.url`属性返回请求的url，如果url存在跳转，该属性返回的是最终url。
 5. `response.type`属性返回的请求的类型。可能值如下：
-         1. `basic`：普通请求，即同源请求。
-         2. `cors`：跨域请求。
-         3. `error`：网络错误，主要用于service worker。
-         4. `opaque`：如果`fetch()`请求的`type`属性设为`no-cors`，就会返回这个值，详见请求部分。表示发出的是简单的跨域请求，类似`<form>`表单的那种跨域请求。
-         5. `opaqueredirect`：如果`fetch()`请求的`redirect`属性设为`manual`，就会返回这个值，详见请求部分。
+         - `basic`：普通请求，即同源请求。
+         - `cors`：跨域请求。
+         - `error`：网络错误，主要用于service worker。
+         - `opaque`：如果`fetch()`请求的`type`属性设为`no-cors`，就会返回这个值，详见请求部分。表示发出的是简单的跨域请求，类似`<form>`表单的那种跨域请求。
+         - `opaqueredirect`：如果`fetch()`请求的`redirect`属性设为`manual`，就会返回这个值，详见请求部分。
 6. `response.redirected`属性返回一个布尔值，表示请求是否发生过跳转。
    
 ### 判断请求是否成功
@@ -178,21 +178,67 @@ response对象还有一个`response.redirect()`方法，用于将response结果�
 ### response.body属性
 `response.body`属性是response对象暴露出的底层接口，返回一个readableStream对象，供用户操作。
 它可以用来分块读取内容，应用之一就是显示下载进度。
-```javascript
-const response = await fetch('flower.jpg');
-const reader = response.body.getReader();
-
-while(true) {
-  const {done, value} = await reader.read();
-
-  if (done) {
-    break;
-  }
-
-  console.log(`Received ${value.length} bytes`)
+::: normal-demo 下载示例
+```css
+* {
+  margin: 0;
+  padding: 0;
+}
+div {
+  height: 800px;
+  overflow: hidden;
+  background: center/cover no-repeat;
 }
 ```
+
+```html
+<div class="bg">
+  <p></p>
+</div>
+```
+
+```js
+const div = document.querySelector(".bg");
+const p = document.querySelector("p");
+
+const http = async () => {
+  const response = await fetch("https://picsum.photos/1920/1080");
+  const totalType = response.headers.get("Content-Length"); //总字节
+  const reader = response.body.getReader();
+  let downloadType = 0; //已下载的字节
+  const stream = await new ReadableStream({
+    start(controller) {
+      return pump();
+      function pump() {
+        return reader.read().then(({ done, value }) => {
+          if (done) {
+            controller.close();
+            return;
+          }
+
+          // 将下一个数据块置入流中
+          controller.enqueue(value);
+          downloadType = downloadType + value.length;
+          p.innerText = `图片下载进度：${((downloadType / totalType) * 100).toFixed(0)}%`; //下载百分比
+          return pump();
+        });
+      }
+    },
+  });
+  const newResponse = new Response(stream);
+  const blob = await newResponse.blob();
+  const objectURL = URL.createObjectURL(blob);
+  div.style.backgroundImage = `url(${objectURL})`;
+};
+http();
+```
+
+:::
 上面的示例中，`response.body.getReader()`方法返回一个遍历器。这个遍历器的`read()`方法每次返回一个对象，表示本次读取的内容块。
+
+:::note 补充
+更多有关ReadableStream介绍[查看链接](https://developer.mozilla.org/zh-CN/docs/Web/API/ReadableStream#%E5%AE%9E%E4%BE%8B%E6%96%B9%E6%B3%95)
+:::
 
 这个对象的`done`属性是一个布尔值，用来判断有没有读完；`value`属性是一个arrayBuffer数组，表示内容块的内容。而`value.length`属性是当前块的大小。
 
@@ -215,10 +261,12 @@ const response = await fetch(url, {
 const json = await response.json();
 ```
 上面示例中，配置对象用到了三个属性：
-    - `method`：http请求的方法，POST、DELETE、PUT都在这个属性设置。
-    - `headers`：一个对象，用来定制http请求的标头。
-    - `body`：post请求的数据体。
-    注意，有些标头不能通过`headers`属性设置，比如`Content-Length`、`Cookie`、`Host`等。它们是由浏览器自动生成，无法修改。
+- `method`：http请求的方法，POST、DELETE、PUT都在这个属性设置。
+- `headers`：一个对象，用来定制http请求的标头。
+- `body`：post请求的数据体。
+:::warning 注意
+有些标头不能通过`headers`属性设置，比如`Content-Length`、`Cookie`、`Host`等。它们是由浏览器自动生成，无法修改。
+:::
 2. 提交json数据
 ```javascript
 const user =  { name:  'John', surname:  'Smith'  };
@@ -230,7 +278,7 @@ const user =  { name:  'John', surname:  'Smith'  };
  body: JSON.stringify(user) 
  });
 ```
-上面示例中，标头`Content-Type`要设成`application/json;chatset=utf-8`。因为默认发送的是纯文本，`Content-Type`的默认值是`text/plain;charset=utf-8`。
+上面示例中，标头`Content-Type`要设成`application/json;chatset=utf-8`。因为默认发送的是纯文本，`Content-Type`的默认值是`text/plain;charset=utf-8`。  
 3. 提交表单
 ```javascript
 const form = document.querySelector('form');
@@ -409,3 +457,8 @@ try {
 }
 
 ```
+
+
+:::note 补充
+有关AbortController更多介绍，[查看链接](https://developer.mozilla.org/zh-CN/docs/Web/API/AbortController)
+:::

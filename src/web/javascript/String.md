@@ -42,7 +42,8 @@ console.log(str2 instanceof Object); //true
 
 ```js
 const message = "abcde";
-console.log(message.length); //5
+message.length = 8;
+console.log(message, message.length); //"abcde" 5  可见字符串长度不同数组长度，字符串长度是不可修改的
 ```
 
 
@@ -64,15 +65,19 @@ console.log(stringValue.concat("world ","!!!"));//"hello world !!!"
 
 ## xx.slice(number,number?)
 
-- 此方法返回截取后新的字符串，且不会改变原字符串
-- 只传第一位，不传第二位，第二位默认为字符串的长度
-- 若两位参数相等，则返回空字符串
-- 整数大于字符串长度，则是按照字符串最大长度计算。负数绝对值大于字符串长度，按0计算
-- 第一位和第二位，若区域从左指向右，截取有效。若区域右指向左，截取无效，返回空字符串。因此第一位参数不一定要大于第二位
-- 第一位正数，第二位负数，且都两个参数绝对值都小于字符串最大长度，可以两边开始截取
+- 此方法返回截取后新的字符串，且不会改变原字符串。
+- 只传第一位，不传第二位，第二位默认为字符串长度。
+- 若两位参数相等，截取无效，返回空字符串。
+- 若整数大于字符串长度，则是按字符串长度进行计算。若负数加上字符串长度还是为负数，则按0计算。
+- 若参数有负数，可当成该负数加上字符串的长度后再进行截取。
+- 索引反向，截取无效。
+- 索引过高，截取无效。
+- 索引过低，截取无效。
+- 索引部分有效，则只对有效范围内有效，超出部分则无效。
 
-**Tip：**
-上面为什么要说成“第一位和第二位，若区域从左指向右，截取有效。若区域右指向左，截取无效，返回空字符串。因此第一位参数不一定要大于第二位”，为什么不直接说成第一位参数一定要小于第二位参数，因为这个是不严谨的，因为在一些情况下，第一位参数为正数，第二位参数为负数，也可能会截取成功的。
+:::tip 提示
+若整数大于字符串长度，则是按字符串长度进行计算。若负数加上字符串长度还是为负数，则按0计算。这句话实际可以理解成因为整数大于字符串长度，所以只对范围内索引有效，超出索引范围就无效，因此可以看出是按字符串长度进行计算的（大于字符串长度无效）。同理，因为负数加上字符串长度还是负数，超出字符串有效索引，则可以当成按0计算，超过范围的无效（小于0的无效）。
+:::
 
 ```js
 let stringValue = "hello world";
@@ -81,40 +86,40 @@ console.log(stringValue.length); // 字符串长度为11
 
 //这是一条分界线
 
-console.log(stringValue.slice(3)); // "lo world"  从左向右截取，字符串0-2位不要，剩下全要，等价于 stringValue.slice(3,stringValue.length)
+console.log(stringValue.slice(3)); // "lo world"  索引正向，不传第二位默认为字符串长度，等价于 stringValue.slice(3,stringValue.length)
 
-console.log(stringValue.slice(-3)); // "rld"    从右向左截取，只截取-1到-2位，等价于 stringValue.slice(-3,stringValue.length)
+console.log(stringValue.slice(-3)); // "rld"   参数有负数可看出该负数加上字符串长度 等价于 stringValue.slice(-3 + 11,stringValue.length)
 
 //这是一条分界线
-console.log(stringValue.slice(15));  // "" (empty string)   等价于 stringValue.slice(stringValue.length,stringValue.length)，若两位参数相等，则返回空字符串
+console.log(stringValue.slice(15));  // "" (empty string)   索引过高，截取无效
 
-console.log(stringValue.slice(1,1)); // "" (empty string)   若两位参数相等，则返回空字符串
+console.log(stringValue.slice(1,1)); // "" (empty string)   若两位参数相等，截取无效，返回空字符串
 
 //这是一条分界线
 
 console.log(stringValue.slice(1,3)); // "el"
 
-console.log(stringValue.slice(3,1)); // "" (empty string)   从右指向左，截取无效，返回空字符串
+console.log(stringValue.slice(3,1)); // "" (empty string)  索引反向，截取无效，返回空字符串
 
 //这是一条分界线
 
 console.log(stringValue.slice(-3,-1)); // "rl"
 
-console.log(stringValue.slice(-1,-3)); // "" (empty string)  从右指向左，截取无效，返回空字符串
+console.log(stringValue.slice(-1,-3)); // "" (empty string)  等价于 stringValue.slice(-1 +11,-3 +11)  索引反向，截取无效，返回空字符串
 
 //这是一条分界线
-console.log(stringValue.slice(1, 15)); // "ello world"  超过字符串长度按照字符串最大长度计算  等价于 stringValue.slice(1,stringValue.length)
+console.log(stringValue.slice(1, 15)); // "ello world"  超过字符串长度，只对有效范围内有效，其余范围无效，可看成stringValue.slice(1, 11)
 
-console.log(stringValue.slice(-1, -15)); //"" (empty string)   从右指向左，截取无效，返回空字符串
+console.log(stringValue.slice(-1, -15)); //"" (empty string)  stringValue.slice(-1 +11, -15+11) 索引反向，截取无效
 
-
-//这是一条分界线
-console.log(stringValue.slice(1, -3)); // "ello wo"   第一位正数，第二位负数，且都两个参数绝对值都小于字符串最大长度，可以两边开始截取
-console.log(stringValue.slice(-1, 3)); //"" (empty string)   从右指向左，截取无效，返回空字符串
 
 //这是一条分界线
-console.log(stringValue.slice(1, -15)); // "" (empty string)  负数绝对值大于字符串长度，按0计算 等价于 stringValue.slice(1,0)  又因从右指向左，截取无效，返回空字符串
-console.log(stringValue.slice(-15, 1)); // h  负数绝对值大于字符串长度，按0计算  等价于 stringValue.slice(0,1)
+console.log(stringValue.slice(1, -3)); // "ello wo"   等价于stringValue.slice(1, -3+11)
+console.log(stringValue.slice(-1, 3)); //"" (empty string)  等价于stringValue.slice(-1+11, 3) 索引反向，截取无效
+
+//这是一条分界线
+console.log(stringValue.slice(1, -15)); // "" (empty string)  等价于stringValue.slice(1, -15+11) 索引反向，截取无效
+console.log(stringValue.slice(-15, 1)); // h  等价于 stringValue.slice(-15+11,1)，因为从0开始的，超过范围忽略，只对有效范围内有效，可看成stringValue.slice(0,1)
 ```
 
 ## xx.substring(number,number?)
@@ -122,9 +127,9 @@ console.log(stringValue.slice(-15, 1)); // h  负数绝对值大于字符串长�
 - xx.substring()会返回新的字符串，不会修改原字符串
 - 只传第一位，不传第二位，第二位默认为字符串的长度
 - 若两位参数相等，则返回空字符串
-- 整数大于字符串长度，则是按照字符串最大长度计算。负数绝对值大于字符串长度，按0计算
+- 整数大于字符串长度，则是按照字符串最大长度计算。若负数加上字符串长度还是为负数，则按0计算。
 - substring()方法会将所有负参数值都转换为 0
-- substring()方法第一位和第二位参数，无论从左到右还是从右到左都有效，因为两个参数无论是第一位大于第二位还是第二位大于第一位，内部都会排序为第一位小于第二位。
+- substring()方法无论索引正向还是反向都有效，因为内部都会排序为第一位小于第二位，即排列为正向。
 
 
 ```js
@@ -138,13 +143,13 @@ console.log(stringValue.substring(3)); // "lo world"  只传第一位，不传�
 console.log(stringValue.substring(-3)); // "hello world" substring()方法会将所有负参数值都转换为0，只传第一位，不传第二位，第二位默认为字符串的长度，等价于stringValue.substring(0,stringValue.length)
 
 //这是一条分界线
-console.log(stringValue.substring(1,3)); // "el" substring()方法第一位和第二位参数，无论从左到右还是从右到左都有效
-consoloe.log(stringValue.substring(3,1));// "el" substring()方法第一位和第二位参数，无论从左到右还是从右到左都有效
+console.log(stringValue.substring(1,3)); // "el" 索引正向有效
+consoloe.log(stringValue.substring(3,1));// "el" 即时索引反向，内部会进行排序至第一位小于第二位，此时索引为正向
 
 //这是一条分界线
 console.log(stringValue.substring(-3,-1)); // ""  (empty string)  
 console.log(stringValue.substring(-1,-3)); // ""  (empty string)
-//substring()方法会将所有负参数值都转换为 0，变为stringValue.substring(0,0),因为两参数一样，返回空字符串
+//负数都会转换为0，两位参数相同则返回空字符串
 
 //这是一条分界线
 console.log(stringValue.slice(1, 15)); // "ello world"  整数大于字符串长度，则是按照字符串最大长度计算  等价于 stringValue.slice(1,stringValue.length)
@@ -156,10 +161,10 @@ console.log(stringValue.slice(15, 1)); // "ello world"  整数大于字符串长
 
 - xx.substr()会返回新的字符串，不会修改原字符串
 - 只传第一位，不传第二位，第二位默认为 `字符串的长度 - 第一位参数`
-- ==与前两个不同的是，substr()第二个参数并不是代表截取索引位置，而是代表截取个数！！！==，第二位参数代表意思是从哪里开始截取。
+- ==与前两个不同的是，substr()第二个参数并不是代表截取索引位置，而是代表截取个数！！！==
 - 第二位参数为负数，则会将第二个负参数值转换为 0，此时返回空字符串
-- 第一位参数整数大于字符串长度，则是按照字符串最大长度计算，返回为空字符串。第一位参数负数绝对值大于字符串长度，按0计算。
-- 第一位参数负数绝对值小于等于字符串长度，则第一个负参数值当成字符串长度加上该值
+- 第一位参数整数大于字符串长度，则是按照字符串最大长度计算，返回为空字符串（索引过高截取无效）。
+- 第一位参数为负数加上字符串长度还是为负数，则按0计算。
 
 
 ```js
@@ -179,11 +184,11 @@ conosle.log(stringValue.substr(3,-2)); //"" (empty string) ，第二位为负数
 
 console.log(stringValue.substr(-3,2)); //"rl" 若第一位为负数，则要加上字符串的长度，即等价于stringValue.substr(-3 + 11,2) => stringValue.substr(8,2)
 
-console.log(stringValue.substr(-3,-2));//"" (empty string) 由上知，第一位变化等价于stringValue.substr(8,-2)，第二位为负数为转化为0，即等价于stringValue.substr(-3,0)
+console.log(stringValue.substr(-3,-2));//"" (empty string) 由上知，第一位变化等价于stringValue.substr(8,-2)，第二位为负数为转化为0，即等价于stringValue.substr(8,0)，第二位为0不截取返回空字符串
 
-console.log(stringValue.substr(-15,2));// "he" ，第一位负数绝对值大于字符串长度，按0计算，即等价于stringValue.substr(0,2)
+console.log(stringValue.substr(-15,2));// "he" ，第一位为负数加上字符串长度还是为负数，按0计算，即等价于stringValue.substr(0,2)
 
-console.log(stringValue.substr(15,2)); //"" (empty string)，第一位正数大于字符串长度，返回空字符串。
+console.log(stringValue.substr(15,2)); //"" (empty string)，第一位正数大于字符串长度，索引过高，截取无效，返回空字符串。
 
 ```
 
@@ -225,7 +230,7 @@ while(pos > -1) {
 console.log(positions); // [3,24,32,35,52]
 ```
 
-**indexof和lastIndexof两者区别：**
+**`indexof`和`lastIndexof`两者区别：**
 相同：
 1. 都能接收两个参数，第一个参数为string类型，第二个类型为number类型。
 2. 当都检索不到值都返回-1。
@@ -282,7 +287,7 @@ console.log(message.endsWith("bar", 6)); // true
 ```
 
 上面“那么就好像字符串只有那么多字符一样”，可以理解为本来长度9位的字符串，指定为6位的字符串长度，即：
-这里的描述并不是笔者的描述，而是出自《JavaScript高级程序设计（第4版》
+这里的描述并不是笔者的描述，而是出自《JavaScript高级程序设计》
 ```js
 console.log("foobar".endsWith("bar", 6)); // true
 ```
