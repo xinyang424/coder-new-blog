@@ -21,39 +21,20 @@ tag:
 本文将介绍这三种方法。
 
 ## Document.execCommand()方法
-`Document.execCommand()`是操作剪贴板的传统方法，各种浏览器都支持。
-它支持复制、剪切和粘贴这三个操作：
-- `document.execCommand("copy")`：复制
-- `document.execCommand("cut")`：剪切
-- `document.execCommand("paste")`：粘贴
-
-（1）复制操作  
-复制时，先选中文本，然后调用`document.execCommand("copy")`，选中的文本就会进入剪贴板。
-```js
-const inputElement = document.querySelector("#input");
-inputElement.select();
-document.execCommand("copy");
+当一个HTML文档切换到设计模式时，`document`暴露`execCommand`方法，该方法允许允许命令来操纵可编辑内容区域的元素。
+:::normal-demo 示例代码
+```html
+<div contenteditable="true">双击我可以开始编辑！！！</div>
 ```
-在上面的示例中，脚本先选中输入框`inputElement`里面的文字（`inputElement.select()`），然后`document.execCommand("copy")`
-将其复制到剪贴板。  
-注意：复制操作最好放在事件监听函数里面，由用户触发（比如用户点击按钮）。如果脚本自主执行，某些浏览器可能会报错。
+:::
 
-（2）粘贴操作
-粘贴时，调用`document.execCommand("paste")`，就会将剪贴板里面的内容，输出到当前的焦点元素中。
-```js
-const pasteText = document.querySelector('#output');
-pasteText.focus();
-document.execCommand('paste')
-```
+:::warning 注意
+根据MDN对[execCommand](https://developer.mozilla.org/zh-CN/docs/Web/API/Document/execCommand)的描述，已不再推荐使用该特性，虽然一些浏览器仍然可以支持它，但也许已从相关的web标准中移除，也许正准备移除或处于兼容性而保留。尽量不要使用该特性，并更新现有的代码。该特性随时可能无法正常工作。故本篇文章不对此方法做过多介绍。
+:::
 
-（3）缺点
-`document.execCommand()`方法虽然方便，但是有一些缺点。  
-首先，它只能将选择的内容复制到剪贴板，无法向剪贴板任意写入内容。  
-其次，它是同步操作，如果复制/粘贴大量数据，页面会出现卡顿。有些浏览器还会跳出提示框，要求用户许可权限，这时在用户做出选择前，页面会失去响应。
 
-为了解决这些问题，浏览器厂商提出了异步的`Clipboard API`。
 
-## 异步 Clipboard API
+## Clipboard API
 Clipboard API是下一代的剪贴板操作方法，比传统的`document.execCommand()`方法更强大、更合理。  
 它的所有操作都是异步的，返回Promise对象，不会造成页面卡顿。而且，它可以将任意内容（比如图片）放入剪贴板。  
 `navigator.clipboard`属性返回 Clipboard 对象，所有操作都通过这个对象进行。
@@ -66,23 +47,49 @@ const clipboardObj = navigator.clipboard;
 首先，chrome浏览器规定，只有HTTPS协议的页面才能使用这个API。不过，开发环境（`localhost`）允许使用非加密协议。  
 其次，调用时需要明确获得用户的许可。权限的具体实现使用了Permissions API，跟剪贴板相关的有两个权限：`clipboard-write`（写权限）和`clipboard-read`（读权限）。“写权限”自动授予脚本，而“读权限”必须用户明确同意给予。也就是说，写入剪贴板，脚本可以自动完成。但是读取剪贴板时，浏览器会弹出对话框，询问用户是否同意读取。
 
-## Clipboard 对象
+### Clipboard 对象
 Clipboard对象提供了四个方法，用来读取剪贴板。他们都是异步方法，返回promise对象。
 
-**Clipboard.readText()**
+#### Clipboard.readText()
 `Clipboard.readText()`方法用于复制剪贴板里面的文本数据。
-```js
-document.body.addEventListener(
-  'click',
-  async (e) => {
-    const text = await navigator.clipboard.readText();
-    console.log(text);
-  }
-)
+
+:::normal-demo 使用示例
+```css
+#clipboardContent {
+  width: 300px;
+  height: 200px;
+  border: 2px solid #333;
+}
 ```
+```html
+<button onclick="getClipboardContent()">点击获取剪贴板中内容</button>
+<div id="clipboardContent"></div>
+```
+
+```js
+const clipboardContent = document.querySelector("#clipboardContent");
+const getClipboardContent = () => {
+  // navigator.permissions.query({ name: "clipboard-read" })promise返回result，可用于判断是否授权获取剪贴板内容权限
+  navigator.permissions.query({ name: "clipboard-read" }).then(async result => {
+    if (result.state == "granted" || result.state == "prompt") {
+      const text = await navigator.clipboard.readText();
+      if (text.length) {
+        clipboardContent.innerText = "剪贴板内容为：\n" + text;
+      } else {
+        clipboardContent.innerText = "剪贴板内无内容";
+      }
+    } else {
+      clipboardContent.innerText = "未授权获取剪贴板权限，请在弹框中选择允许再点击获取剪贴板内容按钮。";
+    }
+  });
+};
+```
+
+:::
+
 上面示例中，用户点击页面后，就会输出剪贴板里面的文本。注意，浏览器这时会跳出一个对话框，询问用户是否同意脚本读取剪贴板。
 
-如果用户不同意，脚本就会报错。这时，可以使用try...catch结构，处理报错。
+如果用户不同意，脚本就会报错。这时，可以使用try...catch结构，处理报错，或像上述代码查看是否有权限。
 ```js
 async function getClipboardContents() {
   try {
@@ -94,15 +101,15 @@ async function getClipboardContents() {
 }
 ```
 
-**Clipboard.read()**
-`Clipboard.read()`方法用于复制剪贴板里面的数据，可以是文本数据，也可以是二进制数据（比如图片）。该方法需要用户明确给予许可。
+#### Clipboard.read()
+`Clipboard.read()`方法用于复制剪贴板里面的数据，可以是==文本数据==，也可以是==二进制数据（比如图片）==。该方法需要用户明确给予许可。
 
 该方法返回一个 Promise 对象。一旦该对象的状态变为 resolved，就可以获得一个数组，每个数组成员都是 ClipboardItem 对象的实例。
 
 ```js
 async function getClipboardContents() {
   try {
-    const clipboardItems = await navigator.clipboard.read();
+    const clipboardItems = await navigator.clipboard.read();//只能是文本数据或者是二进制数据，直接复制文件夹或图片就会报错
     for (const clipboardItem of clipboardItems) {
       for (const type of clipboardItem.types) {
         const blob = await clipboardItem.getType(type);
@@ -121,58 +128,81 @@ async function getClipboardContents() {
 `ClipboardItem.getType(type)`方法用于读取剪贴项的数据，返回一个 Promise 对象。该方法接受剪贴项的 MIME 类型作为参数，返回该类型的数据，该参数是必需的，否则会报错。
 
 
-**Clipboard.writeText()**
+#### Clipboard.writeText()
 `Clipboard.writeText()`方法用于将文本内容写入剪贴板。
-```js
-document.body.addEventListener(
-  'click',
-  async (e) => {
-    await navigator.clipboard.writeText('Yo')
-  }
-)
-```
-上面示例是用户在网页点击后，脚本向剪贴板写入文本数据。
 
-该方法不需要用户许可，但是最好也放在`try...catch`里面防止报错。
-```js
-async function copyPageUrl() {
-  try {
-    await navigator.clipboard.writeText(location.href);
-    console.log('Page URL copied to clipboard');
-  } catch (err) {
-    console.error('Failed to copy: ', err);
-  }
+:::normal-demo 使用示例
+```css
+#clipboardContent {
+  width: 300px;
+  height: 200px;
+  border: 1px solid pink;
 }
 ```
 
-## Clipboard.write()
+```html
+<div id="clipboardContent" contenteditable="true">我是一段很多很多的文字。</div>
+<button onclick="getClipboardContents()">一键复制</button>
+```
+```js
+const div = document.querySelector("#clipboardContent");
+const getClipboardContents = async () => {
+  try {
+    await navigator.clipboard.writeText(div.outerText);
+    alert("复制成功！你还可以修改内容中的问题再点击一键复制按钮");
+  } catch (err) {
+    console.error(err.name, err.message);
+  }
+};
+```
+:::
+
+
+上面示例是用户在点击一键复制按钮后，框框里的文字就会在剪贴板里，同时用户可以双击框框里的文字修改，再点击一键复制按钮查看剪贴板内的内容是否修改。
+
+
+#### Clipboard.write()
 `Clipboard.write()`方法用于将任意数据写入剪贴板，可以是文本数据，也可以是二进制数据。
 
 该方法接受一个 ClipboardItem 实例作为参数，表示写入剪贴板的数据。
 
-```js
-try {
-  const imgURL = 'https://dummyimage.com/300.png';
-  const data = await fetch(imgURL);
-  const blob = await data.blob();
-  await navigator.clipboard.write([
-    new ClipboardItem({
-      [blob.type]: blob
-    })
-  ]);
-  console.log('Image copied.');
-} catch (err) {
-  console.error(err.name, err.message);
-}
+:::warning 注意
+注意，Chrome 浏览器目前只支持写入 PNG 格式的图片。
+:::
+
+:::normal-demo 使用示例
+```html
+<button onclick="getClipboardContents()">一键获取图片</button>
 ```
-上面示例中，脚本向剪贴板写入了一张图片。注意，Chrome 浏览器目前只支持写入 PNG 格式的图片。
+
+```js
+const getClipboardContents = async () => {
+  try {
+    const imgURL = "https://dummyimage.com/300.png";
+    const data = await fetch(imgURL);
+    const blob = await data.blob();
+    await navigator.clipboard.write([
+      new ClipboardItem({
+        [blob.type]: blob,
+      }),
+    ]);
+    alert("复制成功，window下你可以按win + v查看剪贴板历史，但如果是第一次按win+v，相当于开启剪贴板历史，需要再点击一次");
+  } catch (err) {
+    alert(err.name, err.message);
+  }
+};
+```
+:::
+
+
+上面示例中，脚本向剪贴板写入了一张图片。
 
 `ClipboardItem()`是浏览器原生提供的构造函数，用来生成`ClipboardItem`实例，它接受一个对象作为参数，该对象的键名是数据的 MIME 类型，键值就是数据本身。
 
 下面的例子是将同一个剪贴项的多种格式的值，写入剪贴板，一种是文本数据，另一种是二进制数据，供不同的场合粘贴使用。
 ```js
 function copy() {
-  const image = await fetch('kitten.png');
+  const image = await fetch('https://dummyimage.com/300.png');
   const text = new Blob(['Cute sleeping kitten'], {type: 'text/plain'});
   const item = new ClipboardItem({
     'text/plain': text,
@@ -237,6 +267,9 @@ cut事件则是在用户进行剪切操作时触发，它的处理跟`copy`事�
 document.addEventListener('paste', async (e) => {
   e.preventDefault();
   const text = await navigator.clipboard.readText();
-  console.log('Pasted text: ', text);
+  alert('Pasted text: ', text);
 });
 ```
+
+
+
