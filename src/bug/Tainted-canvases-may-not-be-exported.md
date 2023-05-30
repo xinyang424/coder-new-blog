@@ -5,6 +5,8 @@ category:
   - bug记录
 ---
 
+<!-- more -->
+
 :::danger
 Uncaught DOMException: Failed to execute 'toDataURL' on 'HTMLCanvasElement': Tainted canvases may not be exported.
 :::
