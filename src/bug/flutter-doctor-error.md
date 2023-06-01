@@ -57,8 +57,8 @@ git config --global --unset https.proxy
 
 1. 打开flutter目录，如`flutter\packages\flutter_tools\lib\src\http_host_validator.dart`
 2. 打开`http_host_validator.dart`文件，将`https://maven.google.com/`修改为`https://dl.google.com/dl/android/maven2/`
-3. 还是这个文件，将kPubDevHttpHost的值改为`https://pub.flutter-io.cn/`，将kgCloudHttpHost的值改为`https://mirrors.tuna.tsinghua.edu.cn/help/flutter/`。
-4. 关闭所有打开了flutterSDK的程序，找到`flutter\bin\cache`目录下的flutter_tools.snapshot文件，永久删除。
-5. 重新运行终端执行flutter doctor，自动下载文件，解决问题。
+3. ==关闭所有打开了flutterSDK的程序==，找到`flutter\bin\cache`目录下的flutter_tools.snapshot文件，永久删除，==不用删除cache文件夹，不然重新运行要下载很多东西==。
+4. 重新运行终端执行flutter doctor，自动下载文件，解决问题。
+![](./images/flutter-doctor-all-success.png)
 
 
