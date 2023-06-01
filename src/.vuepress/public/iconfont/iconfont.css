@@ -11,6 +11,18 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-flutter:before {
+  content: "\eb95";
+}
+
+.icon-tauri:before {
+  content: "\e6a8";
+}
+
+.icon-electron:before {
+  content: "\e9dd";
+}
+
 .icon-more:before {
   content: "\e6d0";
 }
