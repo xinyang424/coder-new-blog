@@ -6,10 +6,6 @@ category:
 tag:
   - node版本管理工具
   - windows&mac
-head:
-  - - meta
-    - name: keywords
-      content: nvm学习笔记  | coder-new
 ---
 
 

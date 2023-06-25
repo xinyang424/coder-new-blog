@@ -39,6 +39,16 @@ export const zhNavbar = navbar([
         link: "/en/",
       },
       {
+        text: "诗歌散文",
+        icon: "poetry",
+        link: "/poetry/",
+      },
+      {
+        text: "健身笔记",
+        icon: "fitness",
+        link: "/fitness/",
+      },
+      {
         text: "其它杂记",
         icon: "other",
         link: "/other/",

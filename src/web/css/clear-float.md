@@ -6,10 +6,6 @@ category:
 tag:
   - CSS清除浮动的方式
   - CSS清除浮动方式的优缺点
-head:
-  - - meta
-    - name: keywords
-      content: CSS清除浮动的方式  | coder-new
 ---
 
 ## 使用空标签清除浮动clear:both

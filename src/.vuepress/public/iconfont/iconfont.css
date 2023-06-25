@@ -1,5 +1,5 @@
 @font-face {
-  font-family: "iconfont";
+  font-family: "iconfont"; /* Project id 3974296 */
   src: url("/iconfont/iconfont.ttf") format("truetype");
 }
 
@@ -9,6 +9,14 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-poetry:before {
+  content: "\fcd5";
+}
+
+.icon-fitness:before {
+  content: "\e6d8";
 }
 
 .icon-flutter:before {
