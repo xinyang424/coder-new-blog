@@ -7,6 +7,9 @@ tag:
   - 移动端适配
 ---
 
+
+<!-- more -->
+
 ## 安装
 
 ```bash
@@ -15,7 +18,7 @@ npm install -D postcss-px-to-viewport
 
 ## 基于vite项目
 
-```typescript
+```ts
 //vite.config.js or vite.config.ts
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
@@ -52,7 +55,7 @@ export default ({ mode }: any) => {
 
 1. 在项目的根目录下，新建一个`postcss-px-to-viewport.d.ts`文件。
 2. 内容参考如下，在根目录创建的声明文件，ts可以自动识别到。
-```typescript
+```ts
 declare module "postcss-px-to-viewport" {
   type Options = {
     unitToConvert: "px" | "rem" | "cm" | "em";

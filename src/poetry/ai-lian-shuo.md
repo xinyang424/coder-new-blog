@@ -1,5 +1,5 @@
 ---
-title: 陋室铭
+title: 爱莲说
 date: 2023-06-23
 category:
   - 诗歌散文

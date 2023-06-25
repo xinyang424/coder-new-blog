@@ -3,12 +3,6 @@ title: 暗色系与亮色系
 date: 2022-03-01
 category:
   - CSS
-tag:
-  - CSS的亮色系与暗色系实现
-head:
-  - - meta
-    - name: keywords
-      content: 暗色系与亮色系实现  | coder-new
 ---
 
 ## CSS获取系统主题

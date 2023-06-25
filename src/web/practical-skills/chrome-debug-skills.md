@@ -10,7 +10,7 @@ Chrome高级调试技巧总结
 ##  一键重新发起请求
 该方式仅适用于XMLHttpRequest请求方式，不适用于fetch：
 1. 在network找到对应的请求
-2. 右击鼠标选择“Replay XHR”
+2. 右击鼠标选择`Replay XHR`，就会重新发送XHR请求。
 
 ## 在控制台重新发送请求
 
@@ -23,13 +23,21 @@ Chrome高级调试技巧总结
 
 
 ## 拷贝对象
+控制台选中对象后右键，选择`Copy as Object`
 
-
+## 控制台获取Elements面板选中的元素
+1. 在`Elements`面板里选中需要访问的元素
+2. 在`Console`面板里输入`$0`
 ## 截取一张全屏网页
 
 1. 打开需要截图网页
 2. mac下运行按cmd + shift + p，window下运行按ctrl + shift + p
 3. 输入Capture full size screenshot按下回车
 
-## Add conditional breakpoint 条件断点的妙用
+## 控制台引用上一次执行的结果
 
+关键词：`$_`
+
+## "$"和"$$"选择器
+
+在控制台使用document.querySelector和document.querySelectorAll选择当前页面的元素是最常见的需求了，不过着实有点太长了，咱们可以使用$和$$替代。
