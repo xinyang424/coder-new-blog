@@ -8,18 +8,18 @@ category:
 Chrome高级调试技巧总结
 
 ##  一键重新发起请求
-该方式仅适用于XMLHttpRequest请求方式，不适用于fetch：
-1. 在network找到对应的请求
+该方式仅适用于`XMLHttpRequest`请求方式，不适用于`fetch`：
+1. 在`network`找到对应的请求
 2. 右击鼠标选择`Replay XHR`，就会重新发送XHR请求。
 
 ## 在控制台重新发送请求
 
 使用场景：需要修改下参数重新发送请求，具体操作步骤：
-1. 打开network
+1. 打开`network`
 2. 找到需要修改参数的请求
-3. 右击选择“Copy as fetch”
-4. 粘贴到console，修改请求参数，按回车
-5. 在network中查看响应结果
+3. 右击选择`Copy as fetch`
+4. 粘贴到`console`，修改请求参数，按回车
+5. 在`network`中查看响应结果
 
 
 ## 拷贝对象
@@ -40,4 +40,4 @@ Chrome高级调试技巧总结
 
 ## "$"和"$$"选择器
 
-在控制台使用document.querySelector和document.querySelectorAll选择当前页面的元素是最常见的需求了，不过着实有点太长了，咱们可以使用$和$$替代。
+在控制台使用`document.querySelector`和`document.querySelectorAll`选择当前页面的元素是最常见的需求了，不过着实有点太长了，咱们可以使用`$`和`$$`替代。
