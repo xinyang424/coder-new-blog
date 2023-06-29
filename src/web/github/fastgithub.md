@@ -3,8 +3,6 @@ title: 快速访问GitHub
 date: 2022-03-01
 category:
   - GitHub
-tag:
-  - 快速访问GitHub
 ---
 
 ## FastGitHub

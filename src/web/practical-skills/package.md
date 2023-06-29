@@ -45,21 +45,6 @@ console.log(process.env.npm_package_config_port);
 
 
 
-如何获取在终端运行时候传入的命令行参数：
-1. 在`package.json`文件的`scripts`进行如下配置
-```js
-"scripts":{
-    "build":"node index.js --name=$npm_config_name"
-}
-```
-2. 根目录下的`index.js`文件：
-```js
-console.log(process.argv.slice(2));
-```
-3. 然后在终端输入`npm run build --name=Hello`，观察控制台打印结果。
-
-
-
 ## 环境
 
 ### 生产环境

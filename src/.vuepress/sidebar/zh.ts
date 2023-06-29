@@ -118,6 +118,20 @@ export const zhSidebar = sidebar({
       children: "structure",
     },
     {
+      text: "GitHub",
+      icon: "github",
+      prefix: "github/",
+      collapsible: true,
+      children: "structure",
+    },
+    {
+      text: "Cookbook",
+      icon: "cookbook",
+      prefix: "cookbook/",
+      collapsible: true,
+      children: "structure",
+    },
+    {
       text: "网络与网络安全",
       icon: "network",
       prefix: "network/",
@@ -151,13 +165,6 @@ export const zhSidebar = sidebar({
 
   "/other/": [
     "",
-    {
-      text: "GitHub",
-      icon: "github",
-      prefix: "github/",
-      collapsible: true,
-      children: "structure",
-    },
     {
       text: "未分类",
       icon: "unknown",

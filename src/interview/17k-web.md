@@ -251,6 +251,7 @@ Tree shaking 在 JavaScript 中通常与 ES6 的模块语法（import/export）�
 然而，一些工具和库，如 Webpack 和 Rollup，提供了对 CommonJS 的 `require` 语法的一定程度的静态分析和优化，以实现部分的 Tree shaking 效果。但这些工具的能力和结果可能会有所不同，并且通常需要特定的配置和插件支持。
 
 总之，虽然在特定的情况下部分工具可能支持对 CommonJS 的 `require` 进行 Tree shaking，但在大多数情况下，使用 ES6 模块语法进行导入是更可靠和有效的方式来实现 Tree shaking。
+
 ---
 
 **ARP广播属于网络分层中的哪一层？**

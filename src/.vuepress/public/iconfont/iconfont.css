@@ -11,6 +11,10 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-cookbook:before {
+  content: "\e78e";
+}
+
 .icon-poetry:before {
   content: "\fcd5";
 }

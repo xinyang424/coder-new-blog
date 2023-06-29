@@ -3,8 +3,6 @@ title: tsconfig.json
 date: 2022-03-01
 category:
   - CSS
-tag:
-  - tsconfig配置文件
 ---
 
 

@@ -1,7 +1,6 @@
 /** @format */
 
 import { hopeTheme } from "vuepress-theme-hope";
-import { path } from "@vuepress/utils";
 import { zhNavbar } from "./navbar/zh";
 import { zhSidebar } from "./sidebar/zh";
 export default hopeTheme({
@@ -56,6 +55,10 @@ export default hopeTheme({
     blog: {
       excerptLength: 0,
       excerpt: false,
+    },
+    git: {
+      createdTime: false,
+      updatedTime: false,
     },
     comment: {
       // provider: "Giscus",
@@ -122,7 +125,6 @@ export default hopeTheme({
         fontIcon: {
           prefix: "iconfont icon-",
           assets: "/iconfont/iconfont.css",
-          // assets: "//at.alicdn.com/t/c/font_3974296_aw0np1tugsr.css",
         },
       },
     },
