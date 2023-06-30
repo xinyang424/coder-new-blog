@@ -48,6 +48,8 @@ category:
 - 壶铃摇摆/4/20
 - 屈腿左右击掌4/20
 
+<img src="https://ordeross.oss-cn-beijing.aliyuncs.com/img/ba093001-3d0c-4858-8e4e-3353dd8b130d.bmp" alt="BMP Image" />
+
 肌肉名图解：  
 ![上身-正面](./img/upper-body-front.webp)
 ![下身-正面](./img/lower-body-front.webp)
