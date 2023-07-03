@@ -1,5 +1,5 @@
 ---
-title: 循环
+title: 循环语句
 date: 2022-02-01
 category:
   - javascript
@@ -161,3 +161,35 @@ for (const el of [2,4,6,8]) {
 在这个例子中，我们使用 for-of 语句显示了一个包含 4 个元素的数组中的所有元素。循环会一直持续到将所有元素都迭代完。与 for 循环一样，这里控制语句中的 const 也不是必需的。为了确保这个局部变量不被修改，推荐使用 const。
 
 for-of 循环会按照可迭代对象的 next()方法产生值的顺序迭代元素。
+
+
+
+**for/of for/in循环对比：**
+```js
+const arr = ["张三", "李四", "王五"];
+const user = [
+  name: "张三"
+];
+
+//正常循环，拿到下标
+for (const index in arr) {
+  console.log(index);
+};
+
+//正常循环，拿到value
+for (const value of arr) {
+  console.log(value);
+}
+
+//正常循环拿到key
+for (const key in user) {
+  console.log(key);
+}
+
+//TypeError: user is not iterable
+for (const key of user) {
+  console.log(key);
+}
+```
+故总结出两者区别：`for/in` 可以循环任意可枚举对象，而`for/of` 只能循环可迭代对象。
+

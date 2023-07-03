@@ -139,16 +139,7 @@ export const zhSidebar = sidebar({
       children: "structure",
     },
   ],
-  "/back/": [
-    "",
-    {
-      text: "数据库",
-      icon: "database",
-      prefix: "database/",
-      collapsible: true,
-      children: "structure",
-    },
-  ],
+  "/back/": "structure",
   "/devops/": [
     "",
     {

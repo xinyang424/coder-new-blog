@@ -11,6 +11,10 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-life:before {
+  content: "\e681";
+}
+
 .icon-cookbook:before {
   content: "\e78e";
 }
@@ -89,10 +93,6 @@
 
 .icon-calculation:before {
   content: "\e66d";
-}
-
-.icon-other:before {
-  content: "\e60a";
 }
 
 .icon-unknown:before {

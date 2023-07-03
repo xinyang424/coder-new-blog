@@ -48,7 +48,11 @@ category:
 - 壶铃摇摆/4/20
 - 屈腿左右击掌4/20
 
-<img src="https://ordeross.oss-cn-beijing.aliyuncs.com/img/ba093001-3d0c-4858-8e4e-3353dd8b130d.bmp" alt="BMP Image" />
+训练目标：腹肌，功能性训练，以核心爆发燃脂为主。
+- 开合跳/4/50
+- 原地砸球/4/20
+- 壶铃摇摆/4/20
+- 屈腿左右击掌4/20
 
 肌肉名图解：  
 ![上身-正面](./img/upper-body-front.webp)

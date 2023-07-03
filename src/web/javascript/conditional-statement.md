@@ -5,7 +5,7 @@ category:
   - javascript
 ---
 
-more
+<!-- more -->
 
 ## if语句
 if 语句是使用最频繁的语句之一，语法如下：  

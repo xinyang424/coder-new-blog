@@ -49,9 +49,9 @@ export const zhNavbar = navbar([
         link: "/fitness/",
       },
       {
-        text: "其它杂记",
-        icon: "other",
-        link: "/other/",
+        text: "生活随记",
+        icon: "life",
+        link: "/life/",
       },
     ],
   },
