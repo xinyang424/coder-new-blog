@@ -154,7 +154,7 @@ export const zhSidebar = sidebar({
   "/interview/": "structure",
   "/calculate/": "structure",
 
-  "/other/": [
+  "/life/": [
     "",
     {
       text: "未分类",

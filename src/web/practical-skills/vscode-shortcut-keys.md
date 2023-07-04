@@ -24,6 +24,11 @@ category:
 [更多快捷键](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf)
 
 
+禁止修改某一文件：打开settings，搜索`readonly`，在`Readonly include`中添加文件`node_modules/**`，此时修改`node_modules`里的文件就没法修改了。
+
+在编辑区跳到工作区，可以按下键盘的`Ctrl + 0`，此时焦点就会在工作区，注意0不是数字区键盘上的0，此时可以通过上下箭头选择文件，还可以通过空格展开文件。
 
 
+同时选中多行同一位置：按住`Ctrl + Alt + 上下箭头`
 
+`Ctrl + Shift Home`全部选中，按住`[`添加为数组。
