@@ -140,16 +140,7 @@ export const zhSidebar = sidebar({
     },
   ],
   "/back/": "structure",
-  "/devops/": [
-    "",
-    {
-      text: "https实现",
-      icon: "lock",
-      prefix: "https/",
-      collapsible: true,
-      children: "structure",
-    },
-  ],
+  "/devops/": "structure",
 
   "/interview/": "structure",
   "/calculate/": "structure",

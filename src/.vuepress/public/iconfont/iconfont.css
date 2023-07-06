@@ -1,5 +1,5 @@
 @font-face {
-  font-family: "iconfont"; /* Project id 3974296 */
+  font-family: "iconfont";
   src: url("/iconfont/iconfont.ttf") format("truetype");
 }
 
@@ -9,6 +9,14 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-https:before {
+  content: "\e89d";
+}
+
+.icon-centos:before {
+  content: "\ebf2";
 }
 
 .icon-life:before {
