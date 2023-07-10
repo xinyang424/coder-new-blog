@@ -6,6 +6,7 @@ category:
 ---
 
 虽然CSS过渡和动画方便了Web开发者实现某些动画，但JavaScript动画领域多年来进展甚微。Firefox 4率先在浏览器中为JavaScript动画增加了一个名为mozRequestAnimationFrame()方法的 API。
+
 <!-- more -->
 
 mozRequestAnimationFrame()==这个方法 API会告诉浏览器要执行动画了，于是浏览器可以通过最优方式确定重绘的时序==。

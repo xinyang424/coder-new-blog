@@ -30,7 +30,7 @@ category:
 
 
 ## 代码示例
-```javascript
+```js
 const reg1 = /\d/
 
 console.log(reg1.test('13'))//打印为true

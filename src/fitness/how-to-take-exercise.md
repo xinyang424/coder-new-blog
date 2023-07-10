@@ -67,6 +67,11 @@ category:
 - 大飞鸟夹胸
 - 直臂夹胸
 
+训练目标：股四头肌，自身重量激活热身
+- 自由深蹲4/15
+- 箭步蹲3/来回
+- 自重深蹲4/20
+
 肌肉名图解：  
 ![上身-正面](./img/upper-body-front.webp)
 ![下身-正面](./img/lower-body-front.webp)
