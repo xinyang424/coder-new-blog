@@ -8,16 +8,7 @@ category:
 
 <!-- more -->
 
-## 下载OpenSSH
-windows下需要下载工具：[OpenSSH](http://www.mls-software.com/opensshd.html)。
-mac电脑自带，无需下载。
 
-## 连接服务器
-在终端输入以下命令后回车：
-`ssh 用户名@公网IP地址`
-如：`ssh root@101.xx.xx.xx`
-
-回车后就会提示你输入连接密码，输入密码后继续回车，若显示`[用户名@xxxx]`则证明连接成功。
 
 ## 常用命令
 ### 操作系统命令
@@ -55,7 +46,6 @@ rm的选项参数：
 22. `ps -ef | grep nginx`查找有关nginx的进程
 23. `kill -9 进程号`杀死指定进程
 24. `netstat -ntlp |grep 80` 查询端口进程，，如没有提示则：`yum install net-tools`，`kill 20246`
-25. 
 
 
 ### 解压命令tar
@@ -185,7 +175,16 @@ rm的选项参数：
 - 删除80端口：firewall-cmd --zone= public --remove-port=80/tcp --permanent
 
 
+## 下载OpenSSH（选看）
+windows下需要下载工具：[OpenSSH](http://www.mls-software.com/opensshd.html)。
+mac电脑自带，无需下载。
 
+## 连接服务器
+在终端输入以下命令后回车：
+`ssh 用户名@公网IP地址`
+如：`ssh root@101.xx.xx.xx`
+
+回车后就会提示你输入连接密码，输入密码后继续回车，若显示`[用户名@xxxx]`则证明连接成功。
 
 
 
