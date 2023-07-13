@@ -1,5 +1,5 @@
 ---
-title: window下nginx实现https
+title: Window下nginx实现https
 date: 2022-03-01
 category:
   - 运维

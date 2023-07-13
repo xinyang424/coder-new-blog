@@ -145,16 +145,7 @@ export const zhSidebar = sidebar({
   "/interview/": "structure",
   "/calculate/": "structure",
 
-  "/life/": [
-    "",
-    {
-      text: "未分类",
-      icon: "unknown",
-      prefix: "other/",
-      collapsible: true,
-      children: "structure",
-    },
-  ],
+  "/life/": "structure",
   "/bug/": "structure",
   "/software/": "structure",
   "/en/": "structure",
