@@ -142,9 +142,91 @@ http{
     include  mine.types;//这句话意思就是把mine.types这个文件包含进来，这个文件中包含了很多MINE文件类型，这样nginx就可以根据文件的后缀名来判断文件的类型，然后再根据不同的文件类型做不同的处理
     //这一部分是修改最频繁的部分，比如虚拟主机、反向代理、负载均衡等等
     //这一部分可以包括多个serve块，也就是虚拟主机
+
+    include servers/*; //把servers目录下的所有配置文件都包含进来，这样就可以把每个虚拟主机的配置都放在一个单独的文件里，让主配置文件看起来更加简洁清晰
 }
 
-include servers/*; //把servers目录下的所有配置文件都包含进来，这样就可以把每个虚拟主机的配置都放在一个单独的文件里，让主配置文件看起来更加简洁清晰
+```
+
+**include字段：**
+```shell
+# 绝对路径
+include /etc/conf/nginx.conf
+
+# 相对路径 相对路径中文件必须在正在编辑的nginx配置文件所在的目录中，Nginx会自动查找该文件
+include port/80.conf
+
+# 通配符
+include *.conf
+
+# 宏
+include /path/to/$ENV(FILE}:
+# 宏是可以替换为具体路径的字符串。例如在上面的例子中，变量SENV{FILE)表示一个指定路径，它可以被替换为一个具体的文件路径它可以避免将诸如 passwords 或类似信息写到配置文件中。
+```
+
+**举个例子，将http下的server配置，一个配置http，一个配置https拆分开：**
+```shell
+# nginx.conf里
+worker_processes  auto;
+
+events {
+    worker_connections  1024;
+}
+
+http {
+    include       mime.types;
+    default_type  application/octet-stream;
+
+    sendfile        on;
+
+    keepalive_timeout  65;
+
+     upstream backend {
+         ip_hash;
+         server 127.0.0.1:3000;
+    }
+    include servers/*;
+}
+
+
+```
+servers文件夹有http和https两个文件：  
+![](./images//http-https.png)
+```shell
+# http文件里
+# HTTP server
+server {
+   listen       80;
+   server_name  localhost;
+
+   location / {
+     return 301 https://$host$request_uri;
+   }
+
+   error_page   500 502 503 504  /50x.html;
+}
+
+# https文件里
+# HTTPS server
+server {
+   listen       443 ssl;
+   server_name  localhost;
+
+   ssl_certificate      /usr/local/nginx/ssl/cacert.pem;
+   ssl_certificate_key  /usr/local/nginx/ssl/private.key;
+
+   ssl_session_cache    shared:SSL:1m;
+   ssl_session_timeout  5m;
+
+   ssl_ciphers  HIGH:!aNULL:!MD5;
+   ssl_prefer_server_ciphers  on;
+
+   location / {
+      # root   html;
+      # index  index.html index.htm;
+       proxy_pass http://backend;
+   }
+}
 ```
 
 ## 反向代理和负载均衡
@@ -178,6 +260,48 @@ http {
 `ip_hash`这个策略会根据客户端的IP地址来进行一个哈希，同一个客户端请求就会被分配到同一个服务器上，这样就能解决一些session性上的问题。
 
 
+同一台服务器，3000端口由pm2启动的，现在用nginx进行代理：
+```shell
+http{
+    upstream backend {
+       ip_hash;
+       server 127.0.0.1:3000;
+    }
+
+    # HTTP
+    server {
+        listen       80;
+        server_name  localhost;
+
+        location / {
+           return 301 https://$host$request_uri;
+        }
+    }
+
+
+    # HTTPS server
+    server {
+        listen       443 ssl;
+        server_name  localhost;
+
+        ssl_certificate      /usr/local/nginx/ssl/cacert.pem;
+        ssl_certificate_key  /usr/local/nginx/ssl/private.key;
+
+        ssl_session_cache    shared:SSL:1m;
+        ssl_session_timeout  5m;
+
+        ssl_ciphers  HIGH:!aNULL:!MD5;
+        ssl_prefer_server_ciphers  on;
+
+        location / {
+           proxy_pass http://backend;
+        }
+    }
+
+}
+```
+
+
 ## HTTPS配置
 
 HTTP + SSL = HTTPS
@@ -209,16 +333,27 @@ server {
     ssl_ciphers ECDHE-RSA-ASS128-GCM-SHA256:HIGH:!aNULL:!MD5:!RC4:!DHE;
     # 使用服务端首选算法
     ssl_prefer_server_ciphers on;
+    location / {
+            root   html;
+            index  index.html index.htm;
+    }
 }
 
+# http重定向到https
 server {
     listen  80;
     server_name geekhour.net  www.geekhour.net;
-    return 301 https://$server_name$request-uri;
+
+    location / {
+        return 301 https://$host$request_uri;
+    }
+    # return 301 https://$server_name$request-uri;
 }
 ```
 
 **注意：**自签名证书未经过CA机构的验证，所以浏览器访问会报不安全的，选择继续访问即可。
+
+[详细Centos玩转https可以参考此文章](./https/centos-nginx-https.md)
 
 
 ## 虚拟主机
@@ -242,9 +377,11 @@ server {
 可以把`server`块的内容复制，然后在`server`文件夹下新建文件，这样主配置文件就看起来更干净、简洁。
 
 
-## 补充
 
-```js
+
+## 允许跨域与允许使用history路由
+
+```shell
 location / {
     add_header Access-Control-Allow-Origin *; //允许跨域
     try_files $uri $uri/ /index.html;//避免网页使用history模式下，显示错误。

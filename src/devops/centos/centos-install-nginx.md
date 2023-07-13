@@ -196,43 +196,7 @@ rm *.repo
 至此，你学会了部署你的网站到服务器后，如何通过浏览器进行访问了。
 
 
-## Centos 8配置https
 
-1、查看http模块是否安装：`nginx -V`，若`configure arguments:`右边为空则证明没有安装
-
-2、安装http_ssl模块，需要找到源码文件，注意不是安装目录，源码文件夹下有个`configure`文件，也就是通过`wget http://xxx`这种方式下载解压过后的文件。
-
-先执行这段话：
-
-`./configure --prefix=/usr/local/nginx --with-http_stub_status_module --with-http_ssl_module`
-
-然后编译：
-
-`make`
-
-先停止服务：
-
-`nginx -s quit`或`nginx -s stop`
-
-覆盖原有`sbin`文件夹下的`nginx`文件
-
-`cp ./objs/nginx /usr/local/nginx/sbin/`
-
-前面为生成的nginx，后面是你安装目录下的nginx，若不知道你sbin文件夹下的nginx文件，可以通过此命令查找：`whereis nginx`
-
-此时再通过`nginx -V`查看`configure arguments:`右边是否为空，
-
-![image.png](./img/install-nginx-1.png)
-
-显示这些证明安装成功
-
-然后进入到安装目录，这里参考我的安装目录：`cd /usr/local/nginx/conf`
-
-配置nginx的文件就是此目录下的`nginx.conf`文件，`vim nginx.conf`
-
-配置完成后通过`nginx -t`检查是否配置错误
-
-重启nginx：`nginx -s reload`
 
 
 
