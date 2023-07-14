@@ -271,3 +271,53 @@ export default App;
 ```
 
 :::
+
+## useState仅修改对象内某一个值
+
+在使用Hook的函数式组件中，比如我们用useState定义了某一个对象，这个对象的键值不止一个，而我们修改的时候，只想修改某一个键值的数据，我们可以这么做：
+
+**定义初始对象：**
+```js
+const [form,setForm] = useState({
+	name:"王萌萌",
+	age:18,
+	sex:'女'
+})
+
+
+```
+
+**方法一：**
+
+拿到旧的数据，ES6 结构赋值，附上新的属性，后面的数据覆盖前面的数据（推荐）
+
+```js
+setForm((olddata)=>{
+	return{
+	...olddata,
+	age:20
+	}
+})
+
+```
+
+**方法二：**
+
+ES6 解构赋值，后面的数据覆盖前面的数据
+
+```js
+setForm({
+	...form,
+	age:20
+})
+
+```
+**方法三：**
+```js
+const fn = () => {
+    let _form = JSON.parse(JSON.stringify(form))
+    _form.age = 20
+    setState(_form)
+}
+```
+
