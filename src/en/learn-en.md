@@ -37,3 +37,7 @@ category:
 | integration with                                      | 与什么集成                 |
 | polished                                              | 完善的                     |
 | This initial release of                               | ...的初始版本              |
+| dedicated                                             | 专有的                     |
+| assist                                                | 帮助 v                     |
+| creating one from scratch                             | 从头开始创建一个           |
+| even if                                               | 即使                       |
