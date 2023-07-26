@@ -5,7 +5,7 @@ category:
   - React
 ---
 
-了解React中的了解渲染
+了解React中的条件渲染
 
 
 <!-- more -->
