@@ -1,16 +1,15 @@
 ---
-title: 如何连接服务器
+title: 如何利用XSHELL连接服务器
 date: 2023-01-05
 category:
   - 运维
 ---
 
 
-这里所介绍连接的服务器操作系统为：Centos。
-
-前提知识：需要了解[Centos基本操作指令](./centos-Introduction.md)，否则不建议直接学习此文章。
-
-在开始之前，需要在[此网站](https://www.xshell.com/zh/free-for-home-school/)下载两个东西，分别为：SHELL和XFTP
+1. 这里所介绍连接的服务器操作系统为：Centos。
+2. 前提知识：需要了解[Centos基本操作指令](./centos-Introduction.md)，否则不建议直接学习此文章。
+3. 在开始之前，需要在[此网站](https://www.xshell.com/zh/free-for-home-school/)下载两个东西，分别为：XSHELL和XFTP
+4. 本文以腾讯云作为示例进行演示操作
 
 
 <!-- more -->
@@ -18,7 +17,7 @@ category:
 ## 远程登录前提
 
 
-远程登录你的服务器，需要知道你的服务器**公网IP地址**、**远程登录用户名**、**远程登录密码**，如果你是阿里云服务商请登陆进控制台查看自己的服务器。
+远程登录你的服务器，需要知道你的服务器**公网IP地址**、**远程登录用户名**、**远程登录密码**。
 
 
 常见的服务器提供商有：
@@ -28,7 +27,7 @@ category:
 
 第一次创建好自己的云服务器实例，可以修改为你自己记得住的实例密码，后面使用XSHELL登录你的服务器时需要使用。
 
-在进入下一步之前，我们想直接通过XHELL使用远程登录密码进行登录，但是默认是不支持的，只能输入Public Key，如下图：
+在进入下一步之前，我们想直接通过XHELL使用远程登录密码进行登录，但是默认是不支持的，只能输入Public Key，如下图：  
 ![](./img/only-support-public-key-login-server.png)  
 
 因此我们先要在对应的服务商控制台远程登录一下，修改一下配置，使得我们可以通过远程登录密码直接连接。
@@ -47,7 +46,7 @@ category:
 ![](./img/sshd_config.png)
 7. 输入`vim sshd_config`编辑该配置文件，默认是先进入预览模式，可以再输入`i`进入编辑模式，按向下箭头，差不多在末尾，有个`PasswordAuthentication`，默认它的值为`no`，如下图：
 ![](./img/enable-password-login.png)  
-此时我们将`PasswordAuthentication`的值改为`yes`，然后按`esc`推出编辑模式，再输入`:wq`保存并退出。此时又回到命令行了，如下图：
+此时我们将`PasswordAuthentication`的值改为`yes`，然后按`esc`推出编辑模式，再输入`:wq`保存并退出。此时又回到命令行了，如下图：  
 ![](./img/back-command.png)
 8. 输入`service sshd restart`重启sshd服务。
 ![](./img/restart-sshd.png)
@@ -78,5 +77,7 @@ category:
 
 当然我这里推荐使用的话就是XSHELL，配合XFTP一直使用，简直不要太舒服。
 
-关于XFTP的使用，主要介绍如何XFTP向你的服务器部署你的网站。你的前置知识需要了解[如何在Centos安装nginx](./centos-install-nginx.md)，然后再来学习如何[利用XFTP部署你的网站](./how-to-reploy-your-website.md)。
+关于XFTP的使用，主要介绍如何XFTP向你的服务器部署你的网站。你的前置知识需要了解以下知识：
+1. [如何在Centos安装nginx](./centos-install-nginx.md)
+2. [如何利用XFTP部署你的网站](./how-to-reploy-your-website.md)。
 

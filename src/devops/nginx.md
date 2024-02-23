@@ -1,6 +1,7 @@
 ---
 title: nginx
 date: 2022-03-20
+icon: nginx
 category:
   - 运维
 ---

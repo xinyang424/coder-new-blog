@@ -1,32 +1,28 @@
-/** @format */
-
 import { defineUserConfig } from "vuepress";
 import theme from "./theme.js";
-import { searchProPlugin } from "vuepress-plugin-search-pro";
+import { viteBundler } from "@vuepress/bundler-vite";
+
+// import { searchProPlugin } from "vuepress-plugin-search-pro";
 export default defineUserConfig({
   base: "/",
 
-  locales: {
-    "/": {
-      lang: "zh-CN",
-      title: "Coder-New",
-      description: "coder-new 的博客",
-    },
-  },
+  lang: "zh-CN",
+  title: "杨不旧",
+  description: "杨不旧的博客",
   theme,
-  plugins: [
-    searchProPlugin({
-      indexContent: true,
-      customFields: [
-        {
-          getter: ({ frontmatter }) => frontmatter.category as string[],
-          formatter: "分类：$content",
-        },
-        // {
-        // 	getter: ({ frontmatter }) => frontmatter.tag as string[],
-        // 	formatter: "标签：$content",
-        // },
-      ],
-    }),
-  ],
+  bundler: viteBundler({
+    viteOptions: {},
+    vuePluginOptions: {},
+  }),
+  // plugins: [
+  //   searchProPlugin({
+  //     indexContent: true,
+  //     customFields: [
+  //       {
+  //         getter: ({ frontmatter }) => frontmatter.category as string[],
+  //         formatter: "分类：$content",
+  //       },
+  //     ],
+  //   }),
+  // ],
 });

@@ -72,7 +72,7 @@ web app主要使用网页技术，即html、JavaScript和css。W3C组织发布�
 **概念**
 
 混合app（hybrid app）顾明思义就是原生app与web app的结合。它的壳是原生app，但是里面放的是网页。可以理解成，混合app里面隐藏了一个浏览器，用户看到的实际上是这个隐藏浏览器渲染出来的网页。  
-![](./images/hybrid-app.jpg)  
+![](./img/hybrid-app.jpg)  
 混合app的原生外壳称为“容器”，内部隐藏的浏览器，通常使用系统提供的网页渲染控件（即webview控件），也可以自己内置一个浏览器内核。结构上，混合app从上到下分成三层：HTML5网页层、网页引擎层（本质上是一个隔离的浏览器实例）、容器层。
 
 ## API Bridge
@@ -80,7 +80,7 @@ web app主要使用网页技术，即html、JavaScript和css。W3C组织发布�
 
 所谓的API Bridge就是容器在底层接口的网页之间，建立一座桥梁，让双方通信。容器一旦接到网页的请求，就根据请求去调用底层系统的API，然后再返回结果给网页。API Bridge往往以JavaScript语言提供，方便网页调用，这时又称为JSBridge。
 
-![](./images/api-bridge.jpg)
+![](./img/api-bridge.jpg)
 
 不同容器的 API Bridge 是不一样的。为某个容器写的网页，不能放在另一个容器使用，也无法在浏览器使用，除非网页脚本做了兼容处理。
 

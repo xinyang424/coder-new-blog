@@ -1,6 +1,7 @@
 ---
 title: pm2
 date: 2022-03-01
+icon: pm2
 category:
   - 运维
 tag:

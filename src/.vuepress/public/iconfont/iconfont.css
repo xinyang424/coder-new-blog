@@ -1,5 +1,5 @@
 @font-face {
-  font-family: "iconfont";
+  font-family: "iconfont"; /* Project id 3974296 */
   src: url("/iconfont/iconfont.ttf") format("truetype");
 }
 
@@ -9,6 +9,34 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-domain:before {
+  content: "\e927";
+}
+
+.icon-typescript:before {
+  content: "\ecef";
+}
+
+.icon-nginx:before {
+  content: "\e683";
+}
+
+.icon-nssm:before {
+  content: "\e7a5";
+}
+
+.icon-pm2:before {
+  content: "\e60a";
+}
+
+.icon-uni-app:before {
+  content: "\e60c";
+}
+
+.icon-markdown:before {
+  content: "\ec0f";
 }
 
 .icon-https:before {

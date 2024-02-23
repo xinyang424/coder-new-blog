@@ -21,13 +21,16 @@ jobs:
         with:
           node-version: "18.15.0"
 
+      - name: Install pnpm
+        run: npm i pnpm -g
+
       - name: Install & Build
-        run: npm install && npm run build
+        run: pnpm install && pnpm run build
 
       - name: Deploy to GitHub Repo
         uses: crazy-max/ghaction-github-pages@v2.2.0
         with:
-          repo: coder-new-web/coder-new-web.github.io
+          repo: xinyang424/xinyang424.github.io
           target_branch: main
           build_dir: src/.vuepress/dist
         env:

@@ -1,5 +1,5 @@
 ---
-title: <script>元素
+title: script标签
 date: 2022-02-01
 category:
   - HTML
@@ -35,7 +35,7 @@ category:
 <html> 
  <head> 
  <title>Example HTML Page</title> 
- <script defer src="example1.js"></script> 
+ <script defer src="example1.js"></> 
  <script defer src="example2.js"></script> 
  </head> 
  <body> 

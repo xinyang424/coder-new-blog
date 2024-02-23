@@ -1,8 +1,6 @@
-/** @format */
-
 import { navbar } from "vuepress-theme-hope";
 
-export const zhNavbar = navbar([
+export default navbar([
   "/",
   {
     text: "知识笔记",
@@ -23,11 +21,11 @@ export const zhNavbar = navbar([
         icon: "devops",
         link: "/devops/",
       },
-      // {
-      //   text: "算法笔记",
-      //   icon: "calculation",
-      //   link: "/calculate/",
-      // },
+      {
+        text: "算法笔记",
+        icon: "calculation",
+        link: "/calculate/",
+      },
       {
         text: "记八股文",
         icon: "talk",

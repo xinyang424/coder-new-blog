@@ -2,10 +2,9 @@
 title: TypeScript
 date: 2022-03-01
 category:
-  - javascript
+  - typescript
 tag:
   - TS
-order: 3
 ---
 
 

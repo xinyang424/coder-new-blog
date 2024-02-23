@@ -3,14 +3,14 @@ home: true
 layout: BlogHome
 icon: home
 title: 主页
-author: coder-new
+author: 杨不旧
 head:
   - - meta
     - name: keywords
-      content: coder-new 个人博客
+      content: 杨不旧个人技术博客
 heroImage: /logo.svg
 heroAlt: 主页logo
-heroText: Coder-New
+heroText: 杨不旧
 heroFullScreen: true
 bgImage: /assets/home/garden.webp
 tagline: 故不登高山，不知天之高也；不临深溪，不知低之厚也。
@@ -41,6 +41,6 @@ projects:
     link: https://pagespeed.web.dev/
 
 copyright: false
-footer: MIT Licensed | Copyright © 2020-present Coder-New
+footer: MIT Licensed | Copyright © 2020-present 杨不旧
 ---
 

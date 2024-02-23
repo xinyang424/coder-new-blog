@@ -40,7 +40,7 @@ npm run build
 
 ## 利用XFTP上传打包后的项目
 
-1. 打开连接的XSHELL，可以看到XFTP的图标，使用这个需要你提前安装好[XFTP](https://www.xshell.com/zh/free-for-home-school/)才能使用。如下图。
+1. 打开连接的XSHELL，可以看到XFTP的图标，使用这个需要你提前安装好[XFTP](https://www.xshell.com/zh/free-for-home-school/)才能使用。如下图。  
 ![](./img/use-xftp.png)
 2. 将本地打包好的页面上传到服务器上的nginx前，你需要知道服务器的nginx安装在哪里的，如果不知道可以利用`whereis nginx`命令回车后来查看：如下图：
 ![](./img/whereis-nginx.png)  

@@ -9,7 +9,7 @@ category:
 <!-- more -->
 
 ## 移动端跨平台技术演进  
-![](./images/mobile-technological-evolution.png)  
+![](./img/mobile-technological-evolution.png)  
 
 ## 垮端技术四要素  
 - 高效率——研发效率、迭代速度
@@ -41,7 +41,7 @@ category:
 
 
 ## Flutter框架层次分析
-![](./images/flutter-framework.png)  
+![](./img/flutter-framework.png)  
 从框架图可以看到，一共分为三层：
 - 上层Framework层：纯Dart语言实现的一个响应式框架
 - 中层Engine层：绝大部分由C++实现，也是flutter系统的核心引擎，提供了一系列的Flutter和核心的API底层的实现，如图形文字布局文件之类，是连接框架和系统的一个桥梁
@@ -59,7 +59,7 @@ category:
 ## Flutter生命周期
 
 Flutter理念，万物皆Widget：
-![](./images/widget.png)  
+![](./img/widget.png)  
 核心思想使用Widget来构建你的UI界面，搭建界面，包括视图和交互处理。
 
 Flutter中所说的生命周期，主要是指的statefullWidget的生命周期，主要包含下面几个阶段：
@@ -71,7 +71,7 @@ Flutter中所说的生命周期，主要是指的statefullWidget的生命周期�
 6. didUpdateWidget：在widget重新构建时，Flutter framework会调用Widget.canUpdate来检测Widget树中同一位置的新旧节点，然后决定是否需要更新。如果Widget.canupdate返回的是true，就会调用回调方法，父组件发生build情况下，子组件的这个方法才会被调用，这个方法调用后，一定会再次调用后面的build方法。
 7. deactivate：在组件中被移除节点后会被调用。
 8. dispose：如果组件被移除节点，然后还没有被插入到其它节点时，则会继续调用，dispose永久的给它删除掉，永久删除组件，并且释放它的组件资源
-![StatefulWidget生命周期](./images/statefulWidget-lift-cycle.png)
+![StatefulWidget生命周期](./img/statefulWidget-lift-cycle.png)
 
 总结来说就是四个阶段：
 1. 初始化阶段：createState 和 initState。
@@ -83,7 +83,7 @@ Flutter中所说的生命周期，主要是指的statefullWidget的生命周期�
 
 
 ## 常用Widget用法
-![基础Widget/UI布局/交互](./images/widget-common-use.png)
+![基础Widget/UI布局/交互](./img/widget-common-use.png)
 
 1. Text用法
 ```java
@@ -441,7 +441,7 @@ Flutter中通过Navigator组件来实现路由管理，`Navigator`方法会跳�
 
 
 ## 网络请求和序列化数据
-![HttpClient请求网络数据](./images/network-request-process.png)
+![HttpClient请求网络数据](./img/network-request-process.png)
 
 1. 在`AndroidManifest.xml`添加网络请求权限(在application标签之外即可)：
 ```xml
@@ -454,9 +454,9 @@ Flutter中通过Navigator组件来实现路由管理，`Navigator`方法会跳�
 4. flutter用yaml作为包管理工具，默认的配置文件是`pubspec.yaml`
 
 如添加`css_colors`，然后点击`Pub get`：  
-![](./images/add_css_colors.png)
+![](./img/add_css_colors.png)
 下载日志：  
-![](./images/add_css_colors_success.png)
+![](./img/add_css_colors_success.png)
 
 或者在`pubspec.yaml`文件里添加后`css_colors`和其对应的版本号后，在项目终端运行以下命令：
 ```shell
@@ -487,11 +487,11 @@ import 'package:你的项目名/xxx.dart';
 
 
 ## 与原生平台通信——Platform Channel
-![与原生平台通信——Platform Channel](./images/platform_channel.png)
+![与原生平台通信——Platform Channel](./img/platform_channel.png)
    
 
 ## Flutter渲染原理
-![Flutter渲染原理](./images/flutter-render.png)
+![Flutter渲染原理](./img/flutter-render.png)
 
 ## Flutter常见优化策略
 - 提供build效率：setState刷新数据尽量下发到底层节点。

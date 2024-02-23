@@ -38,6 +38,6 @@ Chrome高级调试技巧总结
 
 关键词：`$_`
 
-## $和$$选择器
+## $ 和 $$选择器
 
 在控制台使用`document.querySelector`和`document.querySelectorAll`选择当前页面的元素是最常见的需求了，不过着实有点太长了，咱们可以使用`$`和`$$`替代。

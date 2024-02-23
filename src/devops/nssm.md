@@ -1,6 +1,7 @@
 ---
 title: nssm
 date: 2022-03-01
+icon: nssm
 category:
   - 运维
 ---

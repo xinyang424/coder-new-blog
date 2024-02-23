@@ -18,7 +18,7 @@ Lighthouse是一种用于提高网页质量的开源自动化工具。可以针�
 **具体使用**
 1. Chrome DevTools
    按F12即可找到：  
-   ![](./images/lighthouse-chrome-devtools.png)
+   ![](./img/lighthouse-chrome-devtools.png)
 2. From the command line
    - 使用Node全局安装`Lighthouse`
      ```bash

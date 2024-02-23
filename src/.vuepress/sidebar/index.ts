@@ -1,8 +1,6 @@
-/** @format */
-
 import { sidebar } from "vuepress-theme-hope";
 
-export const zhSidebar = sidebar({
+export default sidebar({
   "/web/": [
     "",
     {
@@ -23,6 +21,13 @@ export const zhSidebar = sidebar({
       text: "JavaScript",
       icon: "javascript",
       prefix: "javascript/",
+      collapsible: true,
+      children: "structure",
+    },
+    {
+      text: "TypeScript",
+      icon: "typescript",
+      prefix: "typescript/",
       collapsible: true,
       children: "structure",
     },
@@ -135,6 +140,13 @@ export const zhSidebar = sidebar({
       text: "网络与网络安全",
       icon: "network",
       prefix: "network/",
+      collapsible: true,
+      children: "structure",
+    },
+    {
+      text: "Markdown",
+      icon: "markdown",
+      prefix: "markdown/",
       collapsible: true,
       children: "structure",
     },

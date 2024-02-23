@@ -1,54 +1,49 @@
-/** @format */
-
 import { hopeTheme } from "vuepress-theme-hope";
-import { zhNavbar } from "./navbar/zh";
-import { zhSidebar } from "./sidebar/zh";
+import navbar from "./navbar";
+import sidebar from "./sidebar";
 export default hopeTheme({
-  hostname: "https://github.com/coder-new-web",
+  hostname: "https://github.com/xinyang424",
 
   author: {
-    name: "Coder-New",
-    url: "https://blog.coder-new.cn",
+    name: "杨不旧",
+    url: "https://blog.xinyang424.com",
   },
   fullscreen: true,
   print: false,
   logo: "/logo.svg",
-  repo: "coder-new-web/coder-new-web.github.io",
+  repo: "xinyang424/xinyang424.github.io",
   // docsDir: "src",
 
   blog: {
     medias: {
-      GitHub: "https://github.com/coder-new-web",
+      GitHub: "https://github.com/xinyang424",
       BiliBili: "https://space.bilibili.com/409568858?spm_id_from=333.1007.0.0",
       QQ: "http://wpa.qq.com/msgrd?v=3&uin=2578417052&site=qq&menu=yes",
       Gmail: "mailto:xinyang424@gmail.com",
-      Email: "https://wx.mail.qq.com/home/index?t=readmail_businesscard_midpage&nocheck=true&name=%E6%9D%A8%E6%96%B0&icon=https%3A%2F%2Fp.qlogo.cn%2Fqqmail_head%2FBkBjDTOZTuwDOcyvCy2I1B6zbGSkls5zqHIyibStOeqCDQia3zH2Nlgjdd3pibS09TD%2F160&mail=xinyang424%40qq.com&code=FwUG9hkLKs-dHLjnuWFlkk14SMS1VLiQ_XBJqksBPYpKOi6fWFNZbmUlTJGRZOMz10Lq6BqONi27BbmSEKOOKA",
+      Email:
+        "https://wx.mail.qq.com/home/index?t=readmail_businesscard_midpage&nocheck=true&name=%E6%9D%A8%E6%96%B0&icon=https%3A%2F%2Fp.qlogo.cn%2Fqqmail_head%2FBkBjDTOZTuwDOcyvCy2I1B6zbGSkls5zqHIyibStOeqCDQia3zH2Nlgjdd3pibS09TD%2F160&mail=xinyang424%40qq.com&code=FwUG9hkLKs-dHLjnuWFlkk14SMS1VLiQ_XBJqksBPYpKOi6fWFNZbmUlTJGRZOMz10Lq6BqONi27BbmSEKOOKA",
     },
   },
-  themeColor: {
-    blue: "#2196f3",
-    red: "#f26d6d",
-    orange: "#f39c12",
-    pruple: "#8e44ad",
-    black: "#2c3e50",
-    grey: "#7f8c8d",
-  },
+  // themeColor: {
+  //   blue: "#2196f3",
+  //   red: "#f26d6d",
+  //   orange: "#f39c12",
+  //   pruple: "#8e44ad",
+  //   black: "#2c3e50",
+  //   grey: "#7f8c8d",
+  // },
 
-  locales: {
-    "/": {
-      navbar: zhNavbar,
-      sidebar: zhSidebar,
-      // displayFooter: true,
-      copyright: false,
-      // footer: "MIT Licensed | Copyright © 2022-present Coder-New",
-      blog: {
-        description: "少年易学老难成，一寸光阴不可轻。",
-        // intro: "/intro.html",
-      },
-      metaLocales: {
-        editLink: "在 GitHub 上编辑此页",
-      },
-    },
+  navbar,
+  sidebar,
+  // displayFooter: true,
+  copyright: false,
+  // footer: "MIT Licensed | Copyright © 2022-present Coder-New",
+  // blog: {
+  //   description: "少年易学老难成，一寸光阴不可轻。",
+  //   // intro: "/intro.html",
+  // },
+  metaLocales: {
+    editLink: "在 GitHub 上编辑此页",
   },
 
   plugins: {
@@ -71,32 +66,20 @@ export default hopeTheme({
       reaction: true,
       provider: "Waline",
       serverURL: "https://blog.waline.coder-new.cn/",
-      search: false,
     },
+    searchPro: true,
 
     mdEnhance: {
       align: true,
       attrs: true,
-      chart: true,
       codetabs: true,
-      container: true,
+      component: true,
       demo: true,
-      echarts: true,
       figure: true,
-      flowchart: true,
-      gfm: true,
       imgLazyload: true,
       imgSize: true,
       include: true,
-      katex: true,
       mark: true,
-      mermaid: true,
-      playground: {
-        presets: ["ts", "vue"],
-      },
-      presentation: {
-        plugins: ["highlight", "math", "search", "notes", "zoom"],
-      },
       stylize: [
         {
           matcher: "Recommended",
@@ -114,7 +97,44 @@ export default hopeTheme({
       sup: true,
       tabs: true,
       vPre: true,
-      vuePlayground: true,
+
+      // 在启用之前安装 chart.js
+      // chart: true,
+
+      // insert component easily
+
+      // 在启用之前安装 echarts
+      // echarts: true,
+
+      // 在启用之前安装 flowchart.ts
+      // flowchart: true,
+
+      // gfm requires mathjax-full to provide tex support
+      // gfm: true,
+
+      // 在启用之前安装 katex
+      // katex: true,
+
+      // 在启用之前安装 mathjax-full
+      // mathjax: true,
+
+      // 在启用之前安装 mermaid
+      // mermaid: true,
+
+      // playground: {
+      //   presets: ["ts", "vue"],
+      // },
+
+      // 在启用之前安装 reveal.js
+      // revealJs: {
+      //   plugins: ["highlight", "math", "search", "notes", "zoom"],
+      // },
+
+      // 在启用之前安装 @vue/repl
+      // vuePlayground: true,
+
+      // install sandpack-vue3 before enabling it
+      // sandpack: true,
     },
     copyCode: {
       showInMobile: true,
@@ -129,7 +149,7 @@ export default hopeTheme({
       },
     },
     copyright: {
-      author: "Coder-New",
+      author: "杨不旧",
     },
   },
 });
