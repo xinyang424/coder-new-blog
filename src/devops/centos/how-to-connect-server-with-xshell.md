@@ -74,6 +74,8 @@ category:
 
 - [FinalShell](http://www.hostbuf.com/t/988.html)
 - [OpenSSH](http://www.mls-software.com/opensshd.html)
+- [putty]()
+- [SecureCRT]()
 
 当然我这里推荐使用的话就是XSHELL，配合XFTP一直使用，简直不要太舒服。
 

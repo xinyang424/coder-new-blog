@@ -3,6 +3,7 @@ title: Centos初识
 date: 2022-12-15
 category:
   - 运维
+order: 1
 ---
 
 
@@ -176,7 +177,7 @@ rm的选项参数：
 
 
 ## 下载OpenSSH（选看）
-windows下需要下载工具：[OpenSSH](http://www.mls-software.com/opensshd.html)。
+windows下需要下载工具：[OpenSSH](http://www.mls-software.com/opensshd.html)。  
 mac电脑自带，无需下载。
 
 ## 连接服务器

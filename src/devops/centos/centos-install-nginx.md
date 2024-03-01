@@ -6,14 +6,25 @@ category:
 ---
 
 
-通过此文章，你将学会如何在服务器为Centos下安装nginx。
+:::info 摘要
+通过本文你将了解如何在centos安装nginx，安装方式选择是直接安装最新版本或者安装指定版本的nginx
+：：：
 
-<!-- more -->
+## 1 安装最新版本的nginx
+
+此方法也是最简单、最快的方法让你安装上nginx，方法如下：
+1. 输入`yum install epel-release`，安装过程会让你输入选择，输入`y`即可，如下图：  
+   ![输入y](./img/20240301163415.png)
+2. 耐心等待知道出现`complete`。
+3. 输入`yum install nginx`回车开始安装，安装完成后同样提示你要输入`y`
+4. 两个都安装完成后，输入`nginx -v`就能打印出nginx的版本好，代表安装完成
 
 
 了解此文章的前置知识是需要了解[nginx常用命令](../nginx.md)
 
-## 安装编译Nginx依赖
+## 安装指定版本的nginx
+
+### 安装编译Nginx依赖
 
 **1、安装gcc**
 
