@@ -40,7 +40,13 @@ projects:
     desc: 利用lighthouse在线对你开发的网站做出评估
     link: https://pagespeed.web.dev/
 
-copyright: false
-footer: MIT Licensed | Copyright © 2020-present 杨不旧
+
+footer: 
+  <a href="http://beian.miit.gov.cn/" rel="noopener noreferrer" target="_blank" style="color:inherit;text-decoration:none;white-space:nowrap;">
+  蜀ICP备2023023297号-2
+  </a>
+  <br>
+copyright:  MIT Licensed | Copyright © 2020-present 杨不旧 
+
 ---
 

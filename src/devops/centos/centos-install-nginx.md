@@ -18,6 +18,7 @@ category:
 2. 耐心等待知道出现`complete`。
 3. 输入`yum install nginx`回车开始安装，安装完成后同样提示你要输入`y`
 4. 两个都安装完成后，输入`nginx -v`就能打印出nginx的版本好，代表安装完成
+5. 此安装方式nginx将安装在`/etc/nginx`
 
 
 了解此文章的前置知识是需要了解[nginx常用命令](../nginx.md)

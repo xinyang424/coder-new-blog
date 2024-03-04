@@ -42,6 +42,8 @@ rm的选项参数：
 -d，--dir  删除空目录
 -v，-verbose 显示删除结果
 
+`rm -rf [path]`——删除某个文件夹
+
 20. `mv 原文件名 新文件名`重命名文件
 21. `mv nginx /usr/local/`将nginx文件移动到`ur/local`路径下
 22. `ps -ef | grep nginx`查找有关nginx的进程
