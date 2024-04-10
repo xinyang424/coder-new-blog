@@ -1,5 +1,5 @@
 ---
-title: uni-app模板
+title: 配置模板
 date: 2024-02-21
 category:
   - 移动开发
@@ -20,16 +20,16 @@ category:
 }
 ```
 
-2. 代码分包。代码分包可以减少app首次加载启动时所耗费的时间，需要在`manifest.json`和`pages.json`两个文件同时配置才会生效：
+1. 代码分包。代码分包可以减少app首次加载启动时所耗费的时间，需要在`manifest.json`和`pages.json`两个文件同时配置才会生效：
    - [manifest.json参考配置](https://uniapp.dcloud.net.cn/collocation/manifest.html#app-vue-optimization)
    - [pages.json参考配置](https://uniapp.dcloud.net.cn/collocation/pages.html#subpackages)，注意`pages.json`是需要配置`subPackages`和`preloadRule`的。
    - 代码分包不止可以运用在app上，小程序上也是可以的，具体看官方的介绍
 
-3. 开发app竖屏锁定，不运行app页面跟随页面旋转而进行旋转。这个需要在`pages.json`下的`globalstyle/pageOrientation`下进行配置，[pageOrientation配置参考](https://uniapp.dcloud.net.cn/collocation/pages.html#globalstyle)
+2. 开发app竖屏锁定，不运行app页面跟随页面旋转而进行旋转。这个需要在`pages.json`下的`globalstyle/pageOrientation`下进行配置，[pageOrientation配置参考](https://uniapp.dcloud.net.cn/collocation/pages.html#globalstyle)
 
-4. `rpxCalcBaseDeviceWidth`、`rpxCalcBaseDeviceWidth`、`rpxCalcIncludeWidth`。[三个值的介绍](https://uniapp.dcloud.net.cn/collocation/pages.html#globalstyle)，一般默认即可，或者可能设计师给的稿纸宽度不是375，此时可以设置一下`rpxCalcBaseDeviceWidth`，这三个值方便我们进行响应式的布局，另外`dynamicRpx`根据实际情况是否设置为true，为true会根据屏幕大小变化进而重新进行页面布局
+3. `rpxCalcBaseDeviceWidth`、`rpxCalcBaseDeviceWidth`、`rpxCalcIncludeWidth`。[三个值的介绍](https://uniapp.dcloud.net.cn/collocation/pages.html#globalstyle)，一般默认即可，或者可能设计师给的稿纸宽度不是375，此时可以设置一下`rpxCalcBaseDeviceWidth`，这三个值方便我们进行响应式的布局，另外`dynamicRpx`根据实际情况是否设置为true，为true会根据屏幕大小变化进而重新进行页面布局
 
-5. `transformPx`,[transformPx配置参考](https://uniapp.dcloud.net.cn/collocation/manifest.html#%E9%85%8D%E7%BD%AE%E9%A1%B9%E5%88%97%E8%A1%A8)设为true时，方便我们将px转化为rpx，从而方便我们进行响应式的布局，当然，也可以部根据第四五点所介绍的uniapp内置的响应式布局配置，你还可以使用第三方的插件，如`postcss-px-to-viewport`，仅在开发环境使用即可，它可以将你所指定的单位和稿纸宽度全部转换成你所期待的单位。如果你的项目是ts声明，需要手动书写声明文件，也可以参考以下声明文件:
+4. `transformPx`,[transformPx配置参考](https://uniapp.dcloud.net.cn/collocation/manifest.html#%E9%85%8D%E7%BD%AE%E9%A1%B9%E5%88%97%E8%A1%A8)设为true时，方便我们将px转化为rpx，从而方便我们进行响应式的布局，当然，也可以部根据第四五点所介绍的uniapp内置的响应式布局配置，你还可以使用第三方的插件，如`postcss-px-to-viewport`，仅在开发环境使用即可，它可以将你所指定的单位和稿纸宽度全部转换成你所期待的单位。如果你的项目是ts声明，需要手动书写声明文件，也可以参考以下声明文件:
 ```ts
 declare module "postcss-px-to-viewport" {
   type Unit = "px" | "rem" | "cm" | "em" | "rpx";

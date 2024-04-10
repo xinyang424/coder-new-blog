@@ -43,7 +43,7 @@ projects:
 
 footer: 
   <a href="http://beian.miit.gov.cn/" rel="noopener noreferrer" target="_blank" style="color:inherit;text-decoration:none;white-space:nowrap;">
-  蜀ICP备2023023297号-2
+  蜀ICP备2023023297号
   </a>
   <br>
 copyright:  MIT Licensed | Copyright © 2020-present 杨不旧 
