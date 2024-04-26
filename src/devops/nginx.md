@@ -79,7 +79,7 @@ ps -ef|grep nginx
 ```
 关注两个进程，一个master进程，一个worker进程
 
-![nginx进程模型](./images/nginx-worker.png)
+![nginx进程模型](./img/nginx-worker.png)
 
 这里的master进程就是nginx的主进程，它主要负责读取和验证配置文件以及管理worker进程，worker进程就是nginx的工作进程，负责处理实际的请求，master进程只有一个，而worker进程可以有多个。
 
@@ -192,7 +192,7 @@ http {
 
 ```
 servers文件夹有http和https两个文件：  
-![](./images//http-https.png)
+![](./img//http-https.png)
 ```shell
 # http文件里
 # HTTP server

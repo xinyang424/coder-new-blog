@@ -8,7 +8,7 @@ category:
 
 :::info 摘要
 通过本文你将了解如何在centos安装nginx，安装方式选择是直接安装最新版本或者安装指定版本的nginx
-：：：
+:::
 
 ## 1 安装最新版本的nginx
 
@@ -211,6 +211,39 @@ rm *.repo
 
 
 
+```shell
+# HTTP
+server {
+        listen 80; #设置监听端口
+        server_name xinyang424.com www.xinyang424.com; #设置服务器名称或IP地址
+        #index index.html index.htm;
+        #root /website;
+
+
+        location / {
+             return 301 https://$host$request_uri;  # 重定向至https访问
+             # try_files $uri $uri/ /index.html; # 如果无法找到对应的文件则默认访问index.html文件
+         }
+}
+# HTTPS server
+server {
+        listen 443 ssl;
+        server_name xinyang424.com www.xinyang424.com;
+
+        ssl_certificate       /etc/nginx/ssl/xinyang424.com.pem;
+        ssl_certificate_key   /etc/nginx//ssl/xinyang424.com.key;
+
+        ssl_session_cache     shared:SSL:1m;
+        ssl_session_timeout   10m;
+        ssl_ciphers HIGH:!aNULL:!MD5;
+        ssl_prefer_server_ciphers on;
+        index index.html index.htm;
+        root /xinyang424.github.io;
+        location / {
+                try_files $uri $uri/ index.html;
+        }
+}
+```
 
 
 

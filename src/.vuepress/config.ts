@@ -7,8 +7,8 @@ export default defineUserConfig({
   base: "/",
 
   lang: "zh-CN",
-  title: "杨不旧",
-  description: "杨不旧的博客",
+  title: "XinYang's Blog",
+  description: "XinYang's Blog",
   theme,
   bundler: viteBundler({
     viteOptions: {},

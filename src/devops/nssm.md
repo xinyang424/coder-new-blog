@@ -17,12 +17,12 @@ category:
 ## nssm使用
 
 1. 根据自己的操作系统位数进入`win32`文件夹或者`win64`文件夹，`win32`系统代表你的位数的是32位系统，`win64`代表你的系统位数是64位系统。现在基本新电脑都是64位系统，不知道的自行百度查看操作系统位数。
-   ![](./images/nssm-choose.png)
+   ![](./img/nssm-choose.png)
 2. 此举例进入`win64`文件夹，在路径栏输入`cmd`后回车。
-   ![](./images/nssm-input-cmd.png)
+   ![](./img/nssm-input-cmd.png)
 3. 上述步骤操作后，在命令行输入`nssm install myserver`后会弹出一个窗口，如下图：
    
-   ![](./images/nssm-window.png)
+   ![](./img/nssm-window.png)
    介绍：
       - `Application Path`：node安装路径，需要精确到node.exe，如：`C:\Program Files\nodejs\node.exe`。
       - `Startup directory`：启动路径，就像你平时输入的`node app.js`这种，这里需要精确到js文件。如：`D:\project\text\app.js`，默认是`index.js`就不用精确到js文件，但是如果是`app.js`需要自己补全。

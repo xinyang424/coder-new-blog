@@ -5,19 +5,19 @@ export default hopeTheme({
   hostname: "https://github.com/xinyang424",
 
   author: {
-    name: "杨不旧",
+    name: "XinYang's Blog",
     url: "https://blog.xinyang424.com",
   },
   fullscreen: true,
   print: false,
-  logo: "/logo.svg",
+  logo: "/avatar_animation.gif",
   repo: "xinyang424/xinyang424.github.io",
   // docsDir: "src",
 
   blog: {
     medias: {
       GitHub: "https://github.com/xinyang424",
-      BiliBili: "https://space.bilibili.com/409568858?spm_id_from=333.1007.0.0",
+      BiliBili: "https://space.bilibili.com/409568858/favlist",
       QQ: "http://wpa.qq.com/msgrd?v=3&uin=2578417052&site=qq&menu=yes",
       Gmail: "mailto:xinyang424@gmail.com",
       Email:

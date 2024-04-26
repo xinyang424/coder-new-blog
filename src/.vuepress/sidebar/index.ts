@@ -154,14 +154,14 @@ export default sidebar({
   "/back/": "structure",
   "/devops/": "structure",
 
-  "/interview/": "structure",
-  "/calculate/": "structure",
+  // "/interview/": "structure",
+  // "/calculate/": "structure",
 
   "/life/": "structure",
-  "/bug/": "structure",
-  "/software/": "structure",
+  // "/bug/": "structure",
+  // "/software/": "structure",
   "/en/": "structure",
-  "/fitness/": "structure",
+  // "/fitness/": "structure",
   "/about/": "structure",
   "/poetry/": "structure",
 });

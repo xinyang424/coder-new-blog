@@ -1,5 +1,5 @@
 ---
-title: 疑难记录
+title: 英语学习疑难记录
 date: 2020-03-01
 category:
   - 英语单词
