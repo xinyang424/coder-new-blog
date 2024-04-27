@@ -3,20 +3,20 @@ home: true
 layout: BlogHome
 icon: home
 title: 主页
-author: XinYang's Blog
+author: XinYang
 head:
   - - meta
     - name: keywords
       content: 杨不旧个人技术博客
-heroImage: /logo.svg
+heroImage: /logo.png
 heroAlt: 主页logo
-heroText: XinYang's Blog
+heroText: XinYang
 heroFullScreen: true
 bgImage: /assets/home/garden.webp
 tagline: 故不登高山，不知天之高也；不临深溪，不知低之厚也。
 projects:
   - icon: book
-    name: MDN Plus
+    name: MDN Plus 
     desc: Web 开发程序员必备文档
     link: https://developer.mozilla.org/zh-CN/docs/Web
 
@@ -68,7 +68,7 @@ projects:
 
 footer: 
   <a href="http://beian.miit.gov.cn/" rel="noopener noreferrer" target="_blank" style="color:inherit;text-decoration:none;white-space:nowrap;">
-  蜀ICP备2023023297号
+  蜀ICP备2023023297号-2
   </a>
   <br>
 copyright:  MIT Licensed | Copyright © 2020-present 杨不旧 

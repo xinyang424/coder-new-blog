@@ -6,11 +6,11 @@ export default hopeTheme({
 
   author: {
     name: "XinYang's Blog",
-    url: "https://blog.xinyang424.com",
+    url: "https://xinyang424.com",
   },
   fullscreen: true,
   print: false,
-  logo: "/avatar_animation.gif",
+  logo: "/logo.png",
   repo: "xinyang424/xinyang424.github.io",
   // docsDir: "src",
 
@@ -97,7 +97,7 @@ export default hopeTheme({
       sup: true,
       tabs: true,
       vPre: true,
-
+      // revealJs: true,
       // 在启用之前安装 chart.js
       // chart: true,
 
@@ -140,7 +140,7 @@ export default hopeTheme({
       showInMobile: true,
     },
     components: {
-      components: ["BiliBili"],
+      components: ["BiliBili", "PDF"],
       componentOptions: {
         fontIcon: {
           prefix: "iconfont icon-",
@@ -149,7 +149,7 @@ export default hopeTheme({
       },
     },
     copyright: {
-      author: "杨不旧",
+      author: "XinYang",
     },
   },
 });

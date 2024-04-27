@@ -28,9 +28,20 @@ export default navbar([
     link: "/poetry/",
   },
   {
-    text: "关于本站",
-    icon: "about-website",
-    link: "/about/",
+    text: "关于",
+    icon: "more",
+    children: [
+      {
+        text: "关于我",
+        icon: "me",
+        link: "/about/about-me",
+      },
+      {
+        text: "关于本站",
+        icon: "about-website",
+        link: "/about/about-website",
+      },
+    ],
   },
   // {
   //   text: "知识笔记",
@@ -92,21 +103,5 @@ export default navbar([
   //   text: "软件教程",
   //   icon: "software",
   //   link: "/software/",
-  // },
-  // {
-  //   text: "关于",
-  //   icon: "more",
-  //   children: [
-  //     {
-  //       text: "关于我",
-  //       icon: "me",
-  //       link: "/about/about-me",
-  //     },
-  //     {
-  //       text: "关于本站",
-  //       icon: "about-website",
-  //       link: "/about/about-website",
-  //     },
-  //   ],
   // },
 ]);

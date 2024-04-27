@@ -4,6 +4,7 @@ date: 2023-04-15
 icon: about-website
 category:
   - 关于
+order: 2
 ---
 
 ## 关于本站初衷
@@ -26,7 +27,7 @@ category:
 
 ## 关于本站部署
 
-本网站部署成本接近0成本，部署拥有以下特点：
+&emsp;&emsp;本网站部署成本接近0成本，部署拥有以下特点：
 1. 采用GitHub Actions实现自动推送代码后打包，并推送分支到[此代码仓库](https://github.com/xinyang424/xinyang424.github.io)。
 2. 推送到上述代码仓库后，会自动触发GitHub Action自动打包，打包后的代码会自动利用GitHub Pages重新部署，通过GitHub部署的可点击此链接访问[https://xinyang424.github.io/](https://xinyang424.github.io/)。
 3. 除了GitHub Pages部署之外，Vercel也会监听此代码的推送记录，若main分支有推送记录，会自动触发重新部署，但是由于默认部署域名在国内用户若不科学上网则访问不了，这里我租用了国内域名填写对应DNS服务器即可实现访问Vercel部署的地址。即[https://blog.coder-new.cn/](https://blog.coder-new.cn/)。Vercel为个人用户提供了免费的构建流量和访问流量，搭建个人博客近乎零成本。
