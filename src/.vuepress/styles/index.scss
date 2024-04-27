@@ -1,12 +1,13 @@
 // place your custom styles here
-.vp-blog-hero-image,
-.vp-brand {
-  user-select: none;
+.vp-blog-hero-image {
   pointer-events: none;
 }
-.vp-blog-hero-title {
-  user-select: none;
-}
-.vp-blog-hero-description {
+
+.vp-brand,
+.vp-nav-links,
+.search-pro-button.vp-blog-hero-title,
+.vp-blog-hero-description,
+.search-pro-button,
+.vp-blog-mask {
   user-select: none;
 }
