@@ -1,6 +1,7 @@
 ---
 title: JWT
 date: 2023-06-20
+icon: jsonwebtoken
 order: 4
 ---
 

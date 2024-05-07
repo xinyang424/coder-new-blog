@@ -1,6 +1,7 @@
 ---
 title: CORS 
 date: 2023-05-20
+icon: cors
 order: 3
 ---
 

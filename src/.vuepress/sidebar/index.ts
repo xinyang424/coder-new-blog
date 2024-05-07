@@ -1,5 +1,4 @@
 import { sidebar } from "vuepress-theme-hope";
-
 export default sidebar({
   "/web/": [
     "",
@@ -57,21 +56,94 @@ export default sidebar({
       icon: "mobile-dev",
       prefix: "mobile-dev/",
       collapsible: true,
-      children: "structure",
+      children: [
+        {
+          text: "移动开发概念",
+          link: "concept",
+        },
+        {
+          text: "移动开发技术",
+          link: "technology",
+        },
+        {
+          text: "H5",
+          icon: "h5",
+          collapsible: true,
+          prefix: "h5/",
+          children: "structure",
+        },
+        {
+          text: "小程序",
+          icon: "miniprogram",
+          collapsible: true,
+          prefix: "miniprogram/",
+          children: "structure",
+        },
+        {
+          text: "uni-app",
+          icon: "uni-app",
+          collapsible: true,
+          prefix: "uni-app/",
+          children: "structure",
+        },
+        {
+          text: "Taro",
+          icon: "taro",
+          collapsible: true,
+          prefix: "taro/",
+          children: "structure",
+        },
+        {
+          text: "React Native",
+          icon: "react",
+          collapsible: true,
+          prefix: "react-native/",
+          children: "structure",
+        },
+        {
+          text: "Flutter",
+          icon: "flutter",
+          collapsible: true,
+          prefix: "flutter/",
+          children: "structure",
+        },
+        {
+          text: "ArkTs",
+          icon: "harmonyOS",
+          collapsible: true,
+          prefix: "ark-ts/",
+          children: "structure",
+        },
+      ],
     },
     {
       text: "桌面应用",
       icon: "desktop-dev",
       prefix: "desktop-dev/",
       collapsible: true,
-      children: "structure",
-    },
-    {
-      text: "小程序",
-      icon: "miniprogram",
-      prefix: "miniprogram/",
-      collapsible: true,
-      children: "structure",
+      children: [
+        {
+          text: "Electron",
+          icon: "electron",
+          collapsible: true,
+          prefix: "electron/",
+          children: "structure",
+        },
+        {
+          text: "Tauri",
+          icon: "tauri",
+          collapsible: true,
+          prefix: "tauri/",
+          children: "structure",
+        },
+        {
+          text: "Flutter",
+          icon: "flutter",
+          collapsible: true,
+          prefix: "flutter/",
+          children: "structure",
+        },
+      ],
     },
     {
       text: "插件",

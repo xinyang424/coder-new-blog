@@ -1,8 +1,9 @@
 ---
-title: 移动开发技术篇
+title: 移动开发技术
 date: 2022-03-01
 category:
   - 移动开发
+order: 2
 ---
 
 ## 手机app的技术栈
