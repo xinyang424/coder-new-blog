@@ -18,6 +18,11 @@ export default navbar([
     link: "/devops/",
   },
   {
+    text: "软件合集",
+    icon: "software",
+    link: "/software/",
+  },
+  {
     text: "英文词句",
     icon: "words",
     link: "/en/",

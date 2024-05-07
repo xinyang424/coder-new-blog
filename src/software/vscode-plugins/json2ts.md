@@ -2,7 +2,7 @@
 title: json2ts
 date: 2023-03-16
 category:
-  - 软件教程
+  - 软件合集
 ---
 
 <!-- more -->
@@ -11,7 +11,7 @@ category:
 
 vscode安装json2ts插件
 
-![](./img/json2ts.png)
+![](../img/json2ts.png)
 
 
 ## 数据来源

@@ -159,7 +159,7 @@ export default sidebar({
 
   "/life/": "structure",
   // "/bug/": "structure",
-  // "/software/": "structure",
+  "/software/": "structure",
   "/en/": "structure",
   // "/fitness/": "structure",
   "/about/": "structure",
