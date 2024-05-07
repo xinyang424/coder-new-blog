@@ -47,7 +47,7 @@ tag:
 
 ### 如何开启保存时候自动格式化
 1. 打开设置  
-![](./.img/open-settings.png)
+![](../img/open-settings.png)
 2. 输入`Format on save`，然后勾选上`Format on save`，即可，这样保存时候就能自动格式化代码  
 ![](../img/format-on-save.png)
 
