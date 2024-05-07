@@ -22,6 +22,7 @@ export default hopeTheme({
       Gmail: "mailto:xinyang424@gmail.com",
       Email:
         "https://wx.mail.qq.com/home/index?t=readmail_businesscard_midpage&nocheck=true&name=%E6%9D%A8%E6%96%B0&icon=https%3A%2F%2Fp.qlogo.cn%2Fqqmail_head%2FBkBjDTOZTuwDOcyvCy2I1B6zbGSkls5zqHIyibStOeqCDQia3zH2Nlgjdd3pibS09TD%2F160&mail=xinyang424%40qq.com&code=FwUG9hkLKs-dHLjnuWFlkk14SMS1VLiQ_XBJqksBPYpKOi6fWFNZbmUlTJGRZOMz10Lq6BqONi27BbmSEKOOKA",
+      // 掘金: ["https://juejin.cn/user/4306129039670574/collections", "https://lf3-cdn-tos.bytescm.com/obj/static/xitu_juejin_web/static/favicons/apple-touch-icon.png"],
     },
   },
   // themeColor: {
@@ -55,6 +56,7 @@ export default hopeTheme({
       createdTime: false,
       updatedTime: false,
     },
+    // 评论设置
     comment: {
       provider: "Giscus",
       repo: "xinyang424/xinyang424.github.io",
@@ -67,19 +69,21 @@ export default hopeTheme({
       // provider: "Waline",
       // serverURL: "https://blog.waline.coder-new.cn/",
     },
+    // 博客内容搜索功能
     searchPro: true,
 
     mdEnhance: {
-      align: true,
-      attrs: true,
-      codetabs: true,
-      component: true,
-      demo: true,
-      figure: true,
-      imgLazyload: true,
-      imgSize: true,
-      include: true,
-      mark: true,
+      align: true, // 自定义对齐
+      // attrs: true, // 属性支持
+      codetabs: true, // 代码块分组
+      component: true, // 组件
+      demo: true, // 代码演示
+      figure: true, // 渲染的图片下面添加描述，或者点击图片带跳转
+      imgLazyload: true, // 图片懒加载
+      imgSize: true, // 设置图片大小 如![Alt](图片路径 "图片标题" =宽x高) https://theme-hope.vuejs.press/zh/guide/markdown/grammar/image.html#%E9%AB%98%E7%BA%A7%E7%94%A8%E6%B3%95
+      // include: true,// 导入文件
+      alert: true, // GFM 警告 https://theme-hope.vuejs.press/zh/guide/markdown/stylize/alert.html
+      mark: true, // 黄色标记 https://theme-hope.vuejs.press/zh/guide/markdown/stylize/mark.html
       stylize: [
         {
           matcher: "Recommended",
@@ -93,10 +97,11 @@ export default hopeTheme({
           },
         },
       ],
-      sub: true,
-      sup: true,
-      tabs: true,
-      vPre: true,
+
+      // sub: true,// 下角标 https://theme-hope.vuejs.press/zh/guide/markdown/grammar/sup-sub.html
+      // sup: true,// 上角标 https://theme-hope.vuejs.press/zh/guide/markdown/grammar/sup-sub.html
+      tabs: true, // 选项卡 https://theme-hope.vuejs.press/zh/guide/markdown/content/tabs.html
+      // vPre: true, // https://theme-hope.vuejs.press/zh/guide/markdown/others.html#gfm
       // revealJs: true,
       // 在启用之前安装 chart.js
       // chart: true,

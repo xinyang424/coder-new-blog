@@ -3,6 +3,7 @@ title: 常用命名单词
 date: 2020-03-01
 category:
   - 英语单词
+icon: collection
 ---
 
 

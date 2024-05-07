@@ -11,6 +11,58 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-collection:before {
+  content: "\e6d1";
+}
+
+.icon-express:before {
+  content: "\e60d";
+}
+
+.icon-cors:before {
+  content: "\e6d9";
+}
+
+.icon-sql:before {
+  content: "\e65b";
+}
+
+.icon-difficult:before {
+  content: "\e60e";
+}
+
+.icon-jsonwebtoken:before {
+  content: "\e795";
+}
+
+.icon-vue:before {
+  content: "\e703";
+}
+
+.icon-css:before {
+  content: "\e6e4";
+}
+
+.icon-html:before {
+  content: "\e6ba";
+}
+
+.icon-tauri:before {
+  content: "\e65e";
+}
+
+.icon-electron:before {
+  content: "\e8be";
+}
+
+.icon-taro:before {
+  content: "\e686";
+}
+
+.icon-harmonyOS:before {
+  content: "\e622";
+}
+
 .icon-domain:before {
   content: "\e927";
 }
@@ -65,14 +117,6 @@
 
 .icon-flutter:before {
   content: "\eb95";
-}
-
-.icon-tauri:before {
-  content: "\e6a8";
-}
-
-.icon-electron:before {
-  content: "\e9dd";
 }
 
 .icon-more:before {
@@ -155,11 +199,7 @@
   content: "\e68f";
 }
 
-.icon-vue:before {
-  content: "\f25f";
-}
-
-.icon-html:before {
+.icon-h5:before {
   content: "\e602";
 }
 
@@ -181,10 +221,6 @@
 
 .icon-skills:before {
   content: "\e77d";
-}
-
-.icon-css:before {
-  content: "\ecae";
 }
 
 .icon-javascript:before {

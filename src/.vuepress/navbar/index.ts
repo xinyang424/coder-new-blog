@@ -7,11 +7,11 @@ export default navbar([
     icon: "web",
     link: "/web/",
   },
-  // {
-  //   text:"后端笔记",
-  //   icon:"server",
-  //   link:"/back/"
-  // },
+  {
+    text: "后端笔记",
+    icon: "server",
+    link: "/back/",
+  },
   {
     text: "运维笔记",
     icon: "devops",
