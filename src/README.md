@@ -67,11 +67,16 @@ projects:
 
 
 footer: 
-  <a href="http://beian.miit.gov.cn/" rel="noopener noreferrer" target="_blank" style="color:inherit;text-decoration:none;white-space:nowrap;">
-  蜀ICP备2023023297号-2
+  <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=51010702042938" rel="noopener noreferrer" target="_blank" style="color:inherit;text-decoration:none;white-space:nowrap">
+    <img src="/ghs.png" style="width:1rem;vertical-align:middle;"> 川公网安备 51010702042938 号
   </a>
-  <br>
-copyright:  MIT Licensed | Copyright © 2020-present 杨不旧 
+   | 
+  <a href="https://beian.miit.gov.cn/#/Integrated/recordQuery" rel="noopener noreferrer" target="_blank" style="color:inherit;text-decoration:none;white-space:nowrap;">
+    蜀ICP备2023023297号-2
+  </a>
+   | 
+  <a href="/about/about-website.html">关于本站</a>
+copyright:  MIT Licensed | Copyright © 2020-present XinYang 
 
 ---
 
