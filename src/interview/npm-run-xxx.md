@@ -44,7 +44,6 @@ category:
 ### .bin文件夹下的软链接类型有哪些？
 `vite`——unit平台、`vite.cmd`——cmd窗口、`vite.ps1`——powerShell
 
-### 
 
 
 ### vue-cli-service的软链接实际执行的是什么？为什么不能直接执行？

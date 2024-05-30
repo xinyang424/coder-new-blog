@@ -16,5 +16,5 @@ order: 1
 
 :::
 
-<PDF url="https://static.xinyang424.com/%E6%9D%A8%E6%96%B0-%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91-3%E5%B9%B4.pdf" :zoom="900" height="600px"/>
+<PDF url="https://static.xinyang424.com/%E6%9D%A8%E6%96%B0-Web%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91-3%E5%B9%B4.pdf" :zoom="900" height="600px"/>
 
