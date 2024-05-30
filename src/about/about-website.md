@@ -7,7 +7,7 @@ category:
 order: 2
 ---
 
-:::note
+::: important 注意
 &emsp;&emsp;本站将会在服务器到期后停止运行，后续站长将会在语雀里构建我的数字花园，本站内容可能后续更新不积极。
 :::
 
@@ -40,14 +40,14 @@ order: 2
 
 该技术实现特点如下：
 1. 利用 OpenSSH 连接 Centos 服务器，通过 Git 克隆或拉取 <https://github.com/xinyang424/xinyang424.github.io> 此仓库代码的静态资源。
-2. Nginx 实现了 https访问，并支持 http 重定向至 https，即你访问 <http://xinyang424.com> 是会重定向到 <https://xinyang424.com> 的。
+2. Nginx 实现了 https 访问，并支持 http 重定向至 https，即你访问 <http://xinyang424.com> 是会重定向到 <https://xinyang424.com> 的。
 3. Nginx 还实现了虚拟主机，你可以通过 <https://static.xinyang424.com/%E6%9D%A8%E6%96%B0-Web%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91-3%E5%B9%B4.pdf> 访问到站长的简历。
 
 
 
 &emsp;&emsp;除了 Vercel 和 GitHub Pages 可以实现 0 成本部署外，你还可以利用 Gitee 或 Netlify 来实现免费部署。
 
-本站支持文档搜索，当然也可以使用 algolia 的 dosearch，但是没有使用 dosearch。
+本站支持文档搜索功能，当然也可以使用 algolia 的 dosearch，但是没有使用 dosearch。
 
 本站也支持评论功能，现配置的是 Github 的 Giscus，当然也还有 Waline 可以选择。
 
